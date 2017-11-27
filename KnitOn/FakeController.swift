@@ -1,0 +1,30 @@
+//
+//  FakeController.swift
+//  KnitOn
+//
+//  Inteanded to simulate jobs done by a controller needed for testing the Markup class
+//
+//  Created by Ty Marking on 11/26/17.
+//  Copyright © 2017 Knit On. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class FakeController: NSObject {
+    
+    public func test() {
+        let markup = Markup()
+        let pat = FakePattern()
+        markup.addVar(key: "life", value: 42)
+        for text in markup.genMarkup(pattern: pat) {
+            print(text.getString())
+        }
+    }
+}
+
+class FakePattern {
+    let title = "A Test Pattern with $life stiches"
+}
+
+
