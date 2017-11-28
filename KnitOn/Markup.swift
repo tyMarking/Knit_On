@@ -9,10 +9,10 @@
 import UIKit
 
 /*
- Current Tags
+ Current Elements
  Title
  Headers
- text
+ Text
  
  vars preceded by $ knit $kcount
  vars stored as key value pairs in a dict
@@ -37,10 +37,19 @@ class Markup {
             markup.append(Title(title: pattern.title))
         }
         
+        let otherInfo = pattern.getInfo()
+        if otherInfo != [] {
+            for info in otherInfo {
+                markup.append(Text(text: info))
+            }
+        }
+        
         //subsitutes in vals
         for item in markup {
             item.formatText(vars: vars)
         }
+        
+        
         
         return(markup)
     }
@@ -99,8 +108,54 @@ class Header: MarkupElement {
     
 }
 
+class Div: MarkupElement {
+    var elements: Array = [MarkupElement]()
+    init() {
+        
+    }
+    
+    init(elements: [MarkupElement]) {
+        self.elements = elements
+    }
+    
+    public func addElement(element: MarkupElement) {
+        elements.append(element)
+    }
+    
+    public func addElementa(elements: [MarkupElement]) {
+        for element in elements {
+            self.elements.append(element)
+        }
+    }
+    
+    public func getElements() -> Array<MarkupElement> {
+        return self.elements
+    }
+    
+    func getString() -> String {
+        var ret = ""
+        for elem in elements {
+            ret.append(elem.getString())
+            ret.append(" ")
+        }
+        ret.removeLast()
+        return ret
+    }
+    
+    func formatText(vars: Dictionary<String, Any>) {
+        for elem in elements {
+            elem.formatText(vars: vars)
+        }
+    }
+    
+    
+}
+
 class Text: MarkupElement {
    
+    //other atributes
+    var emphasis = false
+    //etc
     
     var rawText: String = ""
     var formatedText: String = ""
@@ -126,7 +181,7 @@ class Text: MarkupElement {
                 var varName = ""
                 i += 1
                 index = rawText.index (rawText.startIndex, offsetBy: i)
-                while (rawText[index] != " " && i < rawText.count) {
+                while (i < rawText.count && rawText[index] != " ") {
                     varName.append(rawText[index])
                     i += 1
                     index = rawText.index (rawText.startIndex, offsetBy: i)
@@ -134,6 +189,8 @@ class Text: MarkupElement {
                 var varReplacement = ""
                 if let value = vars[varName] {
                     varReplacement.append(String(describing: value))
+                } else {
+                    final.append("$\(varName)")
                 }
                 
                 varReplacement.append(" ")

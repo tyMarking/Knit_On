@@ -17,6 +17,7 @@ class FakeController: NSObject {
         let markup = Markup()
         let pat = FakePattern()
         markup.addVar(key: "life", value: 42)
+        markup.addVar(key: "Life", value: "Once More")
         for text in markup.genMarkup(pattern: pat) {
             print(text.getString())
         }
@@ -25,6 +26,10 @@ class FakeController: NSObject {
 
 class FakePattern {
     let title = "A Test Pattern with $life stiches"
+    
+    public func getInfo() -> [String] {
+        return ["Stich 1 is $life","Now p $Life and other stuff"]
+    }
 }
 
 
