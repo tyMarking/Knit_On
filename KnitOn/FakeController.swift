@@ -19,8 +19,11 @@ class FakeController: NSObject {
         markup.addVar(key: "life", value: 42)
         markup.addVar(key: "Life", value: "Once More")
         for text in markup.genMarkup(pattern: pat) {
-            print(text.getString())
+            print(text.getContent())
         }
+        
+        print("String test")
+        print(markup.genStringMarkup(pattern: pat))
     }
 }
 

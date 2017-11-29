@@ -23,6 +23,7 @@ import UIKit
 
 //This is still very much a work in progress, just getting some ideas down
 class Markup {
+    
     init() {
         
     }
@@ -31,6 +32,7 @@ class Markup {
     //return will be changed to better file system later
     public func genMarkup(pattern: FakePattern) -> Array<MarkupElement> {
         //read through pattern and child objects
+        //This will depend on our model structure
         //creates array of tag objects
         var markup: Array = [MarkupElement]()
         if (pattern.title != "") {
@@ -39,9 +41,11 @@ class Markup {
         
         let otherInfo = pattern.getInfo()
         if otherInfo != [] {
+            let div = Div()
             for info in otherInfo {
-                markup.append(Text(text: info))
+                div.addElement(element: Text(text: info))
             }
+            markup.append(div)
         }
         
         //subsitutes in vals
@@ -54,6 +58,36 @@ class Markup {
         return(markup)
     }
     
+    public func genStringMarkup(pattern: FakePattern) -> String {
+        //read through pattern and child objects
+        //This will depend on our model structure
+        //creates array of tag objects
+        var markup: Array = [MarkupElement]()
+        if (pattern.title != "") {
+            markup.append(Title(title: pattern.title))
+        }
+        
+        let otherInfo = pattern.getInfo()
+        if otherInfo != [] {
+            let div = Div()
+            for info in otherInfo {
+                div.addElement(element: Text(text: info))
+            }
+            markup.append(div)
+        }
+        
+        //subsitutes in vals
+        for item in markup {
+            item.formatText(vars: vars)
+        }
+        
+        var ret = ""
+        for elem in markup {
+            ret += elem.convertToString()
+        }
+        
+        return ret
+    }
     
     
 
@@ -70,8 +104,10 @@ class Markup {
 }
 
 protocol MarkupElement {
-    func getString() -> String
+    func getContent() -> String
     func formatText(vars: Dictionary<String, Any>)
+    func convertToString() -> String
+    
 }
 
 class Title: MarkupElement {
@@ -80,11 +116,14 @@ class Title: MarkupElement {
     init(title: String) {
         text.setRawText(text: title)
     }
-    func getString() -> String {
-        return text.getString()
+    func getContent() -> String {
+        return text.getContent()
     }
     func formatText(vars: Dictionary<String, Any>) {
         text.formatText(vars: vars)
+    }
+    func convertToString() -> String {
+        return ("$title$"+text.convertToString()+"$/title$")
     }
 }
 
@@ -99,13 +138,15 @@ class Header: MarkupElement {
         self.text.setRawText(text: text ?? "")
     }
     
-    func getString() -> String {
-        return text.getString()
+    func getContent() -> String {
+        return text.getContent()
     }
     func formatText(vars: Dictionary<String, Any>) {
         text.formatText(vars: vars)
     }
-    
+    func convertToString() -> String {
+        return ("$header$"+text.convertToString()+"$/header$")
+    }
 }
 
 class Div: MarkupElement {
@@ -132,10 +173,10 @@ class Div: MarkupElement {
         return self.elements
     }
     
-    func getString() -> String {
+    func getContent() -> String {
         var ret = ""
         for elem in elements {
-            ret.append(elem.getString())
+            ret.append(elem.getContent())
             ret.append(" ")
         }
         ret.removeLast()
@@ -148,7 +189,14 @@ class Div: MarkupElement {
         }
     }
     
-    
+    func convertToString() -> String {
+        var ret = "$div$"
+        for elem in elements {
+            ret += elem.convertToString()
+        }
+        ret += "$/div$"
+        return ret
+    }
 }
 
 class Text: MarkupElement {
@@ -204,7 +252,7 @@ class Text: MarkupElement {
     }
     
     
-    func getString() -> String {
+    func getContent() -> String {
         return formatedText
     }
     public func getRawText() -> String {
@@ -212,6 +260,10 @@ class Text: MarkupElement {
     }
     public func setRawText(text: String) {
         self.rawText = text
+    }
+    
+    func convertToString() -> String {
+        return (formatedText)
     }
 }
 
