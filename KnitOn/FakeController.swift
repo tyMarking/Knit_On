@@ -28,10 +28,10 @@ class FakeController: NSObject {
 }
 
 class FakePattern {
-    let title = "A Test Pattern with $life stiches"
+    let title = "A Test Pattern with $(life * 3 ) stiches"
     
     public func getInfo() -> [String] {
-        return ["Stich 1 is $life","Now p $Life and other stuff"]
+        return ["Stich 1 is $life","Now pearl $Life and other stuff"]
     }
 }
 

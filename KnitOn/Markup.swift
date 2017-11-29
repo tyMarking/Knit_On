@@ -84,13 +84,14 @@ class Markup {
         var ret = ""
         for elem in markup {
             ret += elem.convertToString()
+            ret += " "
         }
         
         return ret
     }
     
     
-
+    
     var vars = Dictionary<String, Any>()
     
     public func addVar(key: String, value: Any) {
@@ -193,6 +194,7 @@ class Div: MarkupElement {
         var ret = "$div$"
         for elem in elements {
             ret += elem.convertToString()
+            ret += " "
         }
         ret += "$/div$"
         return ret
@@ -200,7 +202,7 @@ class Div: MarkupElement {
 }
 
 class Text: MarkupElement {
-   
+    
     //other atributes
     var emphasis = false
     //etc
@@ -229,24 +231,84 @@ class Text: MarkupElement {
                 var varName = ""
                 i += 1
                 index = rawText.index (rawText.startIndex, offsetBy: i)
-                while (i < rawText.count && rawText[index] != " ") {
-                    varName.append(rawText[index])
+                
+                /*var nextIndex = rawText.index (rawText.startIndex, offsetBy: i)
+                if (i+1 < rawText.count) {
+                    nextIndex = rawText.index(rawText.startIndex, offsetBy: i+1)
+                }*/
+                //print("Next index is \(rawText[index])")
+                if rawText[index] == "(" {
+                    //getitng operational val
+                    var opVal = ""
                     i += 1
                     index = rawText.index (rawText.startIndex, offsetBy: i)
-                }
-                var varReplacement = ""
-                if let value = vars[varName] {
-                    varReplacement.append(String(describing: value))
+                    while (i < rawText.count && rawText[index] != ")") {
+                        opVal.append(rawText[index])
+                        i += 1
+                        index = rawText.index (rawText.startIndex, offsetBy: i)
+                    }
+                    
+                    
+                    //operating on opVal
+                    
+                    var parts: [String] = []
+                    var opIndex = opVal.index(opVal.startIndex, offsetBy: 0)
+                    var j = 0
+                    while (j < opVal.count) {
+                        var currentPart = ""
+                        while (opVal[opIndex] != " " && j < opVal.count) {
+                            currentPart.append(opVal[opIndex])
+                            j += 1
+                            opIndex = opVal.index(opVal.startIndex, offsetBy: j)
+                        }
+                        parts.append(currentPart)
+                        currentPart = ""
+                        j += 1
+                        opIndex = opVal.index(opVal.startIndex, offsetBy: j)
+                    }
+                    var expression = ""
+                    if let part1 = vars[parts[0]] {
+                        if part1 is Int {
+                            expression.append(String(describing: part1))
+                        }
+                    }
+                    for i in 1..<parts.count {
+                        expression.append(parts[i])
+                    }
+                    
+                    let expn = NSExpression(format:expression)
+                    let result = expn.expressionValue(with: nil, context: nil)!
+                    var resultStr: String = String(describing: result)
+                    resultStr.remove(at: resultStr.index(before: resultStr.endIndex))
+                    final.append("\(String(describing: result))")
+                    
+                    
+                    i += 1
+                    index = rawText.index (rawText.startIndex, offsetBy: i)
                 } else {
-                    final.append("$\(varName)")
-                }
+                    //static val
+                    while (i < rawText.count && rawText[index] != " ") {
+                        varName.append(rawText[index])
+                        i += 1
+                        index = rawText.index (rawText.startIndex, offsetBy: i)
+                    }
                 
-                varReplacement.append(" ")
-                final.append(varReplacement)
+                    var varReplacement = ""
+                    if let value = vars[varName] {
+                        varReplacement.append(String(describing: value))
+                    } else {
+                        final.append("$\(varName)")
+                    }
+                    
+                    //varReplacement.append(" ")
+                    final.append(varReplacement)
+                    
+                }
             } else {
                 final.append(rawText[index])
+                
+                i += 1
             }
-            i += 1
         }
         formatedText = final
     }
