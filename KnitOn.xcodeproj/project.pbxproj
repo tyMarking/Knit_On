@@ -27,7 +27,6 @@
 		4946C8B21FC9F68C00F03AC9 /* KnitOnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C8B11FC9F68C00F03AC9 /* KnitOnTests.swift */; };
 		4946C8BD1FC9F68C00F03AC9 /* KnitOnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C8BC1FC9F68C00F03AC9 /* KnitOnUITests.swift */; };
 		4946C8CF1FCB7D9300F03AC9 /* Markup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C8CE1FCB7D9300F03AC9 /* Markup.swift */; };
-		498AB1C01FD10B1D001F9AC9 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498AB1BF1FD10B1D001F9AC9 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +73,6 @@
 		4946C8BC1FC9F68C00F03AC9 /* KnitOnUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnitOnUITests.swift; sourceTree = "<group>"; };
 		4946C8BE1FC9F68C00F03AC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4946C8CE1FCB7D9300F03AC9 /* Markup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Markup.swift; sourceTree = "<group>"; };
-		498AB1BF1FD10B1D001F9AC9 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +103,6 @@
 		00A32F7A1FD112DD00F2C482 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				498AB1BF1FD10B1D001F9AC9 /* File.swift */,
 				4946C8CE1FCB7D9300F03AC9 /* Markup.swift */,
 			);
 			path = Utilities;
@@ -338,7 +335,6 @@
 				00E522941FD0ED4E0023F641 /* HandMeasurements.swift in Sources */,
 				4946C8A21FC9F68B00F03AC9 /* KnitOn.xcdatamodeld in Sources */,
 				00E522921FD0ED4E0023F641 /* GloveArmComponent.swift in Sources */,
-				498AB1C01FD10B1D001F9AC9 /* File.swift in Sources */,
 				00E5228C1FD0ED4E0023F641 /* Gauge.swift in Sources */,
 				00E5228F1FD0ED4E0023F641 /* SimpleShapeComponent.swift in Sources */,
 				00E522901FD0ED4E0023F641 /* SimpleShapeTemplate.swift in Sources */,
