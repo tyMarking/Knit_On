@@ -23,14 +23,27 @@ import Foundation
 
 //This is still very much a work in progress, just getting some ideas down
 class Markup {
+    var instructions: Array = [MarkupElement]()
+    var vars = Dictionary<String, Any>()
     
     init() {
         
     }
     
+    
+    
+    public func addVar(key: String, value: Any) {
+        vars[key] = value
+    }
+    public func getVars() -> Dictionary<String, Any> {
+        //Dictionary is a Struct so no need for .copy()
+        let varsCopy = vars
+        return varsCopy
+    }
+    
     //Passed a Pattern, gens an array of texts
     //return will be changed to better file system later
-    public func genMarkup(pattern: FakePattern) -> Array<MarkupElement> {
+    /*public func genMarkup(pattern: FakePattern) -> Array<MarkupElement> {
         //read through pattern and child objects
         //This will depend on our model structure
         //creates array of tag objects
@@ -90,18 +103,8 @@ class Markup {
         return ret
     }
     
+    */
     
-    
-    var vars = Dictionary<String, Any>()
-    
-    public func addVar(key: String, value: Any) {
-        vars[key] = value
-    }
-    public func getVars() -> Dictionary<String, Any> {
-        //Dictionary is a Struct so no need for .copy()
-        let varsCopy = vars
-        return varsCopy
-    }
 }
 
 protocol MarkupElement {
