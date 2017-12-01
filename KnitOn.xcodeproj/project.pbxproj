@@ -105,6 +105,7 @@
 		00A32F7A1FD112DD00F2C482 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				498AB1BF1FD10B1D001F9AC9 /* File.swift */,
 				4946C8CE1FCB7D9300F03AC9 /* Markup.swift */,
 			);
 			path = Utilities;
@@ -147,7 +148,6 @@
 		4946C88D1FC9F68B00F03AC9 = {
 			isa = PBXGroup;
 			children = (
-				498AB1BF1FD10B1D001F9AC9 /* File.swift */,
 				4946C8981FC9F68B00F03AC9 /* KnitOn */,
 				4946C8B01FC9F68C00F03AC9 /* KnitOnTests */,
 				4946C8BB1FC9F68C00F03AC9 /* KnitOnUITests */,
