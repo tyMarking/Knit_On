@@ -21,9 +21,5 @@ class ViewController: UIViewController {
     }
 
 
-    @IBAction func markupTest(_ sender: Any) {
-        let fakeController = FakeController()
-        fakeController.test()
-    }
 }
 
