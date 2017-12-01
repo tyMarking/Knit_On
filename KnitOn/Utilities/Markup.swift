@@ -6,7 +6,7 @@
 //  Copyright © 2017 Knit On. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 /*
  Current Elements
