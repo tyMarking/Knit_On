@@ -102,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00A32F7A1FD112DD00F2C482 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4946C8CE1FCB7D9300F03AC9 /* Markup.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		00E5221E1FCB33E10023F641 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,11 +168,11 @@
 		4946C8981FC9F68B00F03AC9 /* KnitOn */ = {
 			isa = PBXGroup;
 			children = (
+				00A32F7A1FD112DD00F2C482 /* Utilities */,
 				00E5221E1FCB33E10023F641 /* Model */,
 				4946C8991FC9F68B00F03AC9 /* AppDelegate.swift */,
 				4946C89B1FC9F68B00F03AC9 /* ViewController.swift */,
 				4946C89D1FC9F68B00F03AC9 /* Main.storyboard */,
-				4946C8CE1FCB7D9300F03AC9 /* Markup.swift */,
 				4946C8A31FC9F68B00F03AC9 /* Assets.xcassets */,
 				4946C8A51FC9F68B00F03AC9 /* LaunchScreen.storyboard */,
 				4946C8A81FC9F68B00F03AC9 /* Info.plist */,
