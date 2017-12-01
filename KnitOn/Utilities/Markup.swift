@@ -8,29 +8,45 @@
 
 import Foundation
 
-/*
- Current Elements
- Title
- Headers
- Text
- 
- vars preceded by $ knit $kcount
- vars stored as key value pairs in a dict
- \ escapes $
- 
- 
- */
-
-//This is still very much a work in progress, just getting some ideas down
+//add dynamic values with addVar (Used by having $name in text, \ escapes $
+//get instructions (Array<MarkupElement>) by calling getInstructions()
+//add elements with addInstruction or addInstructions (for an array of elements)
 class Markup {
-    var instructions: Array = [MarkupElement]()
-    var vars = Dictionary<String, Any>()
+    var instructions: Array<MarkupElement>
+    var vars: Dictionary<String, Any>
     
-    init() {
+    init(instructions: [MarkupElement]? = nil, vars: Dictionary<String, Any>? = nil) {
+        if instructions != nil {
+            self.instructions = instructions!
+        } else {
+            self.instructions = []
+        }
         
+        if vars != nil {
+            self.vars = vars!
+        } else {
+            self.vars = Dictionary<String, Any>()
+        }
     }
     
     
+    public func getInstructions() -> [MarkupElement] {
+        for instruction in instructions {
+            instruction.formatText(vars: vars)
+        }
+        //nead to make coppy?
+        return instructions
+    }
+    
+    public func addInstruction(element: MarkupElement) {
+        instructions.append(element)
+    }
+    
+    public func addInstructions(elements: [MarkupElement]) {
+        for element in elements {
+            instructions.append(element)
+        }
+    }
     
     public func addVar(key: String, value: Any) {
         vars[key] = value
@@ -41,76 +57,12 @@ class Markup {
         return varsCopy
     }
     
-    //Passed a Pattern, gens an array of texts
-    //return will be changed to better file system later
-    /*public func genMarkup(pattern: FakePattern) -> Array<MarkupElement> {
-        //read through pattern and child objects
-        //This will depend on our model structure
-        //creates array of tag objects
-        var markup: Array = [MarkupElement]()
-        if (pattern.title != "") {
-            markup.append(Title(title: pattern.title))
-        }
-        
-        let otherInfo = pattern.getInfo()
-        if otherInfo != [] {
-            let div = Div()
-            for info in otherInfo {
-                div.addElement(element: Text(text: info))
-            }
-            markup.append(div)
-        }
-        
-        //subsitutes in vals
-        for item in markup {
-            item.formatText(vars: vars)
-        }
-        
-        
-        
-        return(markup)
-    }
-    
-    public func genStringMarkup(pattern: FakePattern) -> String {
-        //read through pattern and child objects
-        //This will depend on our model structure
-        //creates array of tag objects
-        var markup: Array = [MarkupElement]()
-        if (pattern.title != "") {
-            markup.append(Title(title: pattern.title))
-        }
-        
-        let otherInfo = pattern.getInfo()
-        if otherInfo != [] {
-            let div = Div()
-            for info in otherInfo {
-                div.addElement(element: Text(text: info))
-            }
-            markup.append(div)
-        }
-        
-        //subsitutes in vals
-        for item in markup {
-            item.formatText(vars: vars)
-        }
-        
-        var ret = ""
-        for elem in markup {
-            ret += elem.convertToString()
-            ret += " "
-        }
-        
-        return ret
-    }
-    
-    */
-    
 }
 
 protocol MarkupElement {
-    func getContent() -> String
+    func getInstructions() -> String
     func formatText(vars: Dictionary<String, Any>)
-    func convertToString() -> String
+    func convertToSavingString() -> String
     
 }
 
@@ -120,14 +72,14 @@ class Title: MarkupElement {
     init(title: String) {
         text.setRawText(text: title)
     }
-    func getContent() -> String {
-        return text.getContent()
+    func getInstructions() -> String {
+        return text.getInstructions()
     }
     func formatText(vars: Dictionary<String, Any>) {
         text.formatText(vars: vars)
     }
-    func convertToString() -> String {
-        return ("$title$"+text.convertToString()+"$/title$")
+    func convertToSavingString() -> String {
+        return ("$title$"+text.convertToSavingString()+"$/title$")
     }
 }
 
@@ -142,14 +94,14 @@ class Header: MarkupElement {
         self.text.setRawText(text: text ?? "")
     }
     
-    func getContent() -> String {
-        return text.getContent()
+    func getInstructions() -> String {
+        return text.getInstructions()
     }
     func formatText(vars: Dictionary<String, Any>) {
         text.formatText(vars: vars)
     }
-    func convertToString() -> String {
-        return ("$header$"+text.convertToString()+"$/header$")
+    func convertToSavingString() -> String {
+        return ("$header$"+text.convertToSavingString()+"$/header$")
     }
 }
 
@@ -177,10 +129,10 @@ class Div: MarkupElement {
         return self.elements
     }
     
-    func getContent() -> String {
+    func getInstructions() -> String {
         var ret = ""
         for elem in elements {
-            ret.append(elem.getContent())
+            ret.append(elem.getInstructions())
             ret.append(" ")
         }
         ret.removeLast()
@@ -193,10 +145,10 @@ class Div: MarkupElement {
         }
     }
     
-    func convertToString() -> String {
+    func convertToSavingString() -> String {
         var ret = "$div$"
         for elem in elements {
-            ret += elem.convertToString()
+            ret += elem.convertToSavingString()
             ret += " "
         }
         ret += "$/div$"
@@ -204,6 +156,8 @@ class Div: MarkupElement {
     }
 }
 
+
+//the basic MarkupElement that contains actual text, contains the majority of formating
 class Text: MarkupElement {
     
     //other atributes
@@ -217,107 +171,50 @@ class Text: MarkupElement {
     }
     
     func formatText(vars: Dictionary<String, Any>) {
+        //check if already formated??
+        runFormat(vars: vars)
+    }
+    
+    private func runFormat(vars: Dictionary<String, Any>) {
         var final: String = ""
         var i = 0
         while(i < rawText.count) {
-            //whyyyyy swift, there must be a simpler way??.
+            //there must be a simpler way?
             //maybe I'm in the wrong mindset
             //fix with recurevely deminishing the string?
             var index = rawText.index (rawText.startIndex, offsetBy: i)
             var prevIndex = rawText.index (rawText.startIndex, offsetBy: 0)
             if (i != 0) {
-                prevIndex = rawText.index (rawText.startIndex, offsetBy: i-1) 
+                prevIndex = rawText.index (rawText.startIndex, offsetBy: i-1)
             }
-            //checking for i==0 to prevent prevIndex not existing
+            
             if (rawText[index] == "$" && (i == 0 || rawText[prevIndex] != "\\")) {
-                //start val
                 var varName = ""
                 i += 1
                 index = rawText.index (rawText.startIndex, offsetBy: i)
-                
-                /*var nextIndex = rawText.index (rawText.startIndex, offsetBy: i)
-                if (i+1 < rawText.count) {
-                    nextIndex = rawText.index(rawText.startIndex, offsetBy: i+1)
-                }*/
-                //print("Next index is \(rawText[index])")
-                if rawText[index] == "(" {
-                    //getitng operational val
-                    var opVal = ""
+                while (i < rawText.count && rawText[index] != " ") {
+                    varName.append(rawText[index])
                     i += 1
                     index = rawText.index (rawText.startIndex, offsetBy: i)
-                    while (i < rawText.count && rawText[index] != ")") {
-                        opVal.append(rawText[index])
-                        i += 1
-                        index = rawText.index (rawText.startIndex, offsetBy: i)
-                    }
-                    
-                    
-                    //operating on opVal
-                    
-                    var parts: [String] = []
-                    var opIndex = opVal.index(opVal.startIndex, offsetBy: 0)
-                    var j = 0
-                    while (j < opVal.count) {
-                        var currentPart = ""
-                        while (opVal[opIndex] != " " && j < opVal.count) {
-                            currentPart.append(opVal[opIndex])
-                            j += 1
-                            opIndex = opVal.index(opVal.startIndex, offsetBy: j)
-                        }
-                        parts.append(currentPart)
-                        currentPart = ""
-                        j += 1
-                        opIndex = opVal.index(opVal.startIndex, offsetBy: j)
-                    }
-                    var expression = ""
-                    if let part1 = vars[parts[0]] {
-                        if part1 is Int {
-                            expression.append(String(describing: part1))
-                        }
-                    }
-                    for i in 1..<parts.count {
-                        expression.append(parts[i])
-                    }
-                    
-                    let expn = NSExpression(format:expression)
-                    let result = expn.expressionValue(with: nil, context: nil)!
-                    var resultStr: String = String(describing: result)
-                    resultStr.remove(at: resultStr.index(before: resultStr.endIndex))
-                    final.append("\(String(describing: result))")
-                    
-                    
-                    i += 1
-                    index = rawText.index (rawText.startIndex, offsetBy: i)
-                } else {
-                    //static val
-                    while (i < rawText.count && rawText[index] != " ") {
-                        varName.append(rawText[index])
-                        i += 1
-                        index = rawText.index (rawText.startIndex, offsetBy: i)
-                    }
-                
-                    var varReplacement = ""
-                    if let value = vars[varName] {
-                        varReplacement.append(String(describing: value))
-                    } else {
-                        final.append("$\(varName)")
-                    }
-                    
-                    //varReplacement.append(" ")
-                    final.append(varReplacement)
-                    
                 }
-            } else {
-                final.append(rawText[index])
                 
-                i += 1
+                var varReplacement = ""
+                if let value = vars[varName] {
+                    varReplacement.append(String(describing: value))
+                } else {
+                    final.append("$\(varName)")
+                }
+                
+                //varReplacement.append(" ")
+                final.append(varReplacement)
+                
             }
         }
         formatedText = final
     }
     
     
-    func getContent() -> String {
+    func getInstructions() -> String {
         return formatedText
     }
     public func getRawText() -> String {
@@ -327,8 +224,8 @@ class Text: MarkupElement {
         self.rawText = text
     }
     
-    func convertToString() -> String {
-        return (formatedText)
+    func convertToSavingString() -> String {
+        return formatedText
     }
 }
 

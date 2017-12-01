@@ -111,6 +111,7 @@
 		00A32F7E1FD11AD300F2C482 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4946C89B1FC9F68B00F03AC9 /* ViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,7 +119,6 @@
 		00A32F7F1FD11AF000F2C482 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4946C89B1FC9F68B00F03AC9 /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
