@@ -11,13 +11,20 @@ import Foundation
 class SimpleShapeTemplate {
     
     var gauge: Gauge
+    var name: String
     
     func generateInstructions() -> String {
         return "Knit On!"
     }
     
-    init(gauge: Gauge){
-        self.gauge = gauge
+    func getName() -> String {
+        return name
     }
+    
+    init(gauge: Gauge, name: String = "Unamed Pattern"){
+        self.gauge = gauge
+        self.name = name
+    }
+    
     
 }

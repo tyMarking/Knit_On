@@ -7,15 +7,26 @@
 //
 
 import UIKit
-var gauge: Int = 0
+var gauge = Gauge(stitchGauge: 0)
+var gaugeFloat: Float = 0.0
 var handMeasurements: HandMeasurements = WomanMediumHand()
+var name = String()
 class LimpAlongCreateNewViewController: UIViewController {
     
-    @IBOutlet weak var gaugeOutlet: UITextField!
-    
-    @IBAction func gaugeSet(_ sender: UITextField) {
-        gauge = Int(gaugeOutlet.text!)!
+    @IBOutlet weak var gaugeSliderOutlet: UISlider!
+    @IBOutlet weak var gaugeValOutlet: UILabel!
+    @IBAction func gaugeSlider(_ sender: UISlider) {
+        let tempGauge = sender.value
+        gaugeFloat = (((tempGauge*10).rounded())/10)
+        gaugeValOutlet.text = String(gaugeFloat)
     }
+    
+    @IBOutlet weak var nameOutlet: UITextField!
+    
+    @IBAction func nameSet(_ sender: UITextField) {
+        name = nameOutlet.text!
+    }
+
     
     @IBAction func xSmall(_ sender: UIButton) {
         handMeasurements = WomanXSmallHand()
@@ -37,8 +48,12 @@ class LimpAlongCreateNewViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        name = ""
+        gauge = Gauge(stitchGauge: 0)
+        handMeasurements = WomanMediumHand()
         // Do any additional setup after loading the view.
+        gaugeValOutlet.text = "10.0"
+        gaugeFloat = 10.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,14 +62,17 @@ class LimpAlongCreateNewViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        gauge = Gauge(stitchGauge: gaugeFloat)
+        let pattern = GloveTemplate(gauge: gauge, handSize: handMeasurements)
+        LimpAlongController.addPattern(pattern: pattern)
     }
-    */
+    
 
 }

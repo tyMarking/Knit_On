@@ -28,6 +28,7 @@
 		4946C8BD1FC9F68C00F03AC9 /* KnitOnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C8BC1FC9F68C00F03AC9 /* KnitOnUITests.swift */; };
 		4946C8CF1FCB7D9300F03AC9 /* Markup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C8CE1FCB7D9300F03AC9 /* Markup.swift */; };
 		495663981FD1DF4D0047D159 /* LimpAlongCreateNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495663971FD1DF4D0047D159 /* LimpAlongCreateNewViewController.swift */; };
+		4956639A1FD326D60047D159 /* LimpAlongController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495663991FD326D60047D159 /* LimpAlongController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		4946C8BE1FC9F68C00F03AC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4946C8CE1FCB7D9300F03AC9 /* Markup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Markup.swift; sourceTree = "<group>"; };
 		495663971FD1DF4D0047D159 /* LimpAlongCreateNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimpAlongCreateNewViewController.swift; sourceTree = "<group>"; };
+		495663991FD326D60047D159 /* LimpAlongController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimpAlongController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 		00A32F7F1FD11AF000F2C482 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				495663991FD326D60047D159 /* LimpAlongController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4956639A1FD326D60047D159 /* LimpAlongController.swift in Sources */,
 				4946C8CF1FCB7D9300F03AC9 /* Markup.swift in Sources */,
 				495663981FD1DF4D0047D159 /* LimpAlongCreateNewViewController.swift in Sources */,
 				4946C89C1FC9F68B00F03AC9 /* ViewController.swift in Sources */,
