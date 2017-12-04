@@ -209,6 +209,7 @@ class Text: MarkupElement {
                 final.append(varReplacement)
                 
             }
+            i += 1;
         }
         formatedText = final
     }
