@@ -26,9 +26,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
-    
+    var index = 0
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var index = indexPath.row
+        index = indexPath.row
+        performSegue(withIdentifier: "PatternFromMainSegue", sender: self)
         //pattern is patterns[index]
     }
     
@@ -39,12 +40,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        myIndex = indexPath.row
-        print("The index is: \(myIndex)")
-        sets[myIndex].checkDate()
-        performSegue(withIdentifier: "segueToInfo", sender: self)
-    }*/
+    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "PatternFromMainSegue") {
+            let toController = segue.destination as! LimpAlongPatternViewController
+            toController.pattern = patterns[index]
+        }
+    }
     
     
 

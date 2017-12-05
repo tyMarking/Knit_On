@@ -9,10 +9,17 @@
 import UIKit
 
 class LimpAlongPatternViewController: UIViewController {
-
+    var pattern: SimpleShapeTemplate? = nil
+    
+    @IBOutlet weak var nameOutlet: UILabel!
+    @IBOutlet weak var gaugeOutlet: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        nameOutlet.text = pattern?.getName()
+        let gaugeFloat = pattern?.gauge.stitchGauge
+        let gaugueString = String(describing: gaugeFloat!)
+        gaugeOutlet.text = gaugueString
         // Do any additional setup after loading the view.
     }
 
