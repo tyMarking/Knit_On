@@ -205,9 +205,11 @@ class Text: MarkupElement {
                     final.append("$\(varName)")
                 }
                 
-                //varReplacement.append(" ")
+                varReplacement.append(" ")
                 final.append(varReplacement)
                 
+            } else {
+                final.append(rawText[index])
             }
             i += 1;
         }

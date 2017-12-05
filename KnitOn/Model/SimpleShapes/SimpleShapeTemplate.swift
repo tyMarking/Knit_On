@@ -19,6 +19,7 @@ class SimpleShapeTemplate {
     
     func getName() -> String {
         return name
+        
     }
     
     init(gauge: Gauge, name: String = "Unamed Pattern"){

@@ -14,9 +14,7 @@ class LimpAlongController {
     
     public static func addPattern(pattern: SimpleShapeTemplate) {
         patterns.append(pattern)
+        print("ADDED PATTERN")
     }
 }
 
-public func havFun() {
-    print("Hi")
-}

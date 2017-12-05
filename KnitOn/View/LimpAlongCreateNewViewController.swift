@@ -45,6 +45,10 @@ class LimpAlongCreateNewViewController: UIViewController {
     }
     
     @IBAction func createPattern(_ sender: Any) {
+        gauge = Gauge(stitchGauge: gaugeFloat)
+        name = nameOutlet.text!
+        let pattern = GloveTemplate(gauge: gauge, handSize: handMeasurements, name: name)
+        LimpAlongController.addPattern(pattern: pattern)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,9 +73,7 @@ class LimpAlongCreateNewViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        gauge = Gauge(stitchGauge: gaugeFloat)
-        let pattern = GloveTemplate(gauge: gauge, handSize: handMeasurements)
-        LimpAlongController.addPattern(pattern: pattern)
+        
     }
     
 

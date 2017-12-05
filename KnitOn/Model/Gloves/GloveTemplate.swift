@@ -18,9 +18,9 @@ class GloveTemplate: SimpleShapeTemplate {
     
     // Initialization
     
-    init(gauge: Gauge, handSize: HandMeasurements){
+    init(gauge: Gauge, handSize: HandMeasurements, name: String = "Unnamed pattern"){
         self.handSize = handSize
-        super.init(gauge: gauge)
+        super.init(gauge: gauge, name: name)
         self.armComponent.gloveParent = self
     }
     
