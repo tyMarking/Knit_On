@@ -26,9 +26,13 @@ class GloveTemplate: SimpleShapeTemplate {
     
     // Methods
     
-    override func generateInstructions() -> String {
-        return armComponent.generateInstructions()
+    override func generateInstructions() -> [String] {
+        return [armComponent.generateInstructions()]
         //where markup is called
+    }
+    
+    override func getComponentsList() -> [SimpleShapeComponent] {
+        return [armComponent]
     }
     
 }

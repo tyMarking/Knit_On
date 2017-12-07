@@ -13,8 +13,8 @@ class SimpleShapeTemplate {
     var gauge: Gauge
     var name: String
     
-    func generateInstructions() -> String {
-        return "Knit On!"
+    func generateInstructions() -> [String] {
+        return ["Knit On!"]
     }
     
     func getName() -> String {
@@ -22,10 +22,15 @@ class SimpleShapeTemplate {
         
     }
     
+    func getComponentsList() -> [SimpleShapeComponent] {
+        return []
+    }
+    
     init(gauge: Gauge, name: String = "Unamed Pattern"){
         self.gauge = gauge
         self.name = name
     }
+    
     
     
 }

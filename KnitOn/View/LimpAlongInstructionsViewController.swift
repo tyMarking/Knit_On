@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LimpAlongInstructionsViewController: UIViewController {
+class LimpAlongInstructionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +16,19 @@ class LimpAlongInstructionsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //return pattern
+        return LimpAlongController.getInstructions().count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "instructionCell")
+        cell.textLabel?.text = LimpAlongController.getInstructions()[indexPath.row]
+        
+        return cell
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

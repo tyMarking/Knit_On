@@ -147,12 +147,12 @@
 		00E5227E1FD0ED4E0023F641 /* SimpleShapes */ = {
 			isa = PBXGroup;
 			children = (
+				00E522841FD0ED4E0023F641 /* SimpleShapeTemplate.swift */,
+				00E522831FD0ED4E0023F641 /* SimpleShapeComponent.swift */,
 				00E5227F1FD0ED4E0023F641 /* BasicStitchPatterns.swift */,
 				00E522801FD0ED4E0023F641 /* Gauge.swift */,
 				00E522811FD0ED4E0023F641 /* KnittingProject.swift */,
 				00E522821FD0ED4E0023F641 /* RibbedStitchPatterns.swift */,
-				00E522831FD0ED4E0023F641 /* SimpleShapeComponent.swift */,
-				00E522841FD0ED4E0023F641 /* SimpleShapeTemplate.swift */,
 				00E522851FD0ED4E0023F641 /* StitchPattern.swift */,
 			);
 			path = SimpleShapes;
@@ -161,8 +161,8 @@
 		00E522861FD0ED4E0023F641 /* Gloves */ = {
 			isa = PBXGroup;
 			children = (
-				00E522871FD0ED4E0023F641 /* GloveArmComponent.swift */,
 				00E522881FD0ED4E0023F641 /* GloveTemplate.swift */,
+				00E522871FD0ED4E0023F641 /* GloveArmComponent.swift */,
 				00E522891FD0ED4E0023F641 /* HandMeasurements.swift */,
 				00E5228A1FD0ED4E0023F641 /* SimpleFingerlessGlovesTemplate.swift */,
 			);
@@ -192,12 +192,12 @@
 		4946C8981FC9F68B00F03AC9 /* KnitOn */ = {
 			isa = PBXGroup;
 			children = (
+				4946C89D1FC9F68B00F03AC9 /* Main.storyboard */,
 				00A32F7F1FD11AF000F2C482 /* Controller */,
 				00A32F7E1FD11AD300F2C482 /* View */,
 				00A32F7A1FD112DD00F2C482 /* Utilities */,
 				00E5221E1FCB33E10023F641 /* Model */,
 				4946C8991FC9F68B00F03AC9 /* AppDelegate.swift */,
-				4946C89D1FC9F68B00F03AC9 /* Main.storyboard */,
 				4946C8A31FC9F68B00F03AC9 /* Assets.xcassets */,
 				4946C8A51FC9F68B00F03AC9 /* LaunchScreen.storyboard */,
 				4946C8A81FC9F68B00F03AC9 /* Info.plist */,

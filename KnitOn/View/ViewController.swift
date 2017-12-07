@@ -17,34 +17,37 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.reloadData()
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return patterns.count
+        return LimpAlongController.patterns.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text = patterns[indexPath.row].getName()
+        cell.textLabel?.text = LimpAlongController.patterns[indexPath.row].getName()
         
         return cell
     }
     var index = 0
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         index = indexPath.row
+        LimpAlongController.setCurrentPatternIndex(index: index)
         performSegue(withIdentifier: "PatternFromMainSegue", sender: self)
         //pattern is patterns[index]
     }
     
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
-            patterns.remove(at: indexPath.row)
+            LimpAlongController.removePattern(at: indexPath.row)
             tableView.reloadData()
         }
     }
     
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "PatternFromMainSegue") {
+        /*if (segue.identifier == "PatternFromMainSegue") {
             let toController = segue.destination as! LimpAlongPatternViewController
-            toController.pattern = patterns[index]
-        }
+            toController.pattern = LimpAlongController.patterns[index]
+            
+            
+        }*/
     }
     
     
