@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 var gauge = Gauge(stitchGauge: 0)
 var gaugeFloat: Float = 0.0
 var handMeasurements: HandMeasurements = WomanMediumHand()
