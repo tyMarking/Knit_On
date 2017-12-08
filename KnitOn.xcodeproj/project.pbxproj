@@ -7,17 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E5228B1FD0ED4E0023F641 /* BasicStitchPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E5227F1FD0ED4E0023F641 /* BasicStitchPatterns.swift */; };
-		00E5228C1FD0ED4E0023F641 /* Gauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E522801FD0ED4E0023F641 /* Gauge.swift */; };
-		00E5228D1FD0ED4E0023F641 /* KnittingProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E522811FD0ED4E0023F641 /* KnittingProject.swift */; };
-		00E5228E1FD0ED4E0023F641 /* RibbedStitchPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E522821FD0ED4E0023F641 /* RibbedStitchPatterns.swift */; };
-		00E5228F1FD0ED4E0023F641 /* SimpleShapeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E522831FD0ED4E0023F641 /* SimpleShapeComponent.swift */; };
-		00E522901FD0ED4E0023F641 /* SimpleShapeTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E522841FD0ED4E0023F641 /* SimpleShapeTemplate.swift */; };
-		00E522911FD0ED4E0023F641 /* StitchPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E522851FD0ED4E0023F641 /* StitchPattern.swift */; };
-		00E522921FD0ED4E0023F641 /* GloveArmComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E522871FD0ED4E0023F641 /* GloveArmComponent.swift */; };
-		00E522931FD0ED4E0023F641 /* GloveTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E522881FD0ED4E0023F641 /* GloveTemplate.swift */; };
-		00E522941FD0ED4E0023F641 /* HandMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E522891FD0ED4E0023F641 /* HandMeasurements.swift */; };
-		00E522951FD0ED4E0023F641 /* SimpleFingerlessGlovesTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E5228A1FD0ED4E0023F641 /* SimpleFingerlessGlovesTemplate.swift */; };
 		4946C89A1FC9F68B00F03AC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C8991FC9F68B00F03AC9 /* AppDelegate.swift */; };
 		4946C89C1FC9F68B00F03AC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C89B1FC9F68B00F03AC9 /* ViewController.swift */; };
 		4946C89F1FC9F68B00F03AC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4946C89D1FC9F68B00F03AC9 /* Main.storyboard */; };
@@ -31,6 +20,7 @@
 		4956639A1FD326D60047D159 /* LimpAlongController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495663991FD326D60047D159 /* LimpAlongController.swift */; };
 		4956639E1FD721D90047D159 /* LimpAlongPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4956639D1FD721D90047D159 /* LimpAlongPatternViewController.swift */; };
 		495663A01FD721EC0047D159 /* LimpAlongInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4956639F1FD721EC0047D159 /* LimpAlongInstructionsViewController.swift */; };
+		49A05F5B1FDA445A00DCB9EE /* Model in Resources */ = {isa = PBXBuildFile; fileRef = 49A05F5A1FDA445A00DCB9EE /* Model */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,17 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E5227F1FD0ED4E0023F641 /* BasicStitchPatterns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicStitchPatterns.swift; sourceTree = "<group>"; };
-		00E522801FD0ED4E0023F641 /* Gauge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gauge.swift; sourceTree = "<group>"; };
-		00E522811FD0ED4E0023F641 /* KnittingProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnittingProject.swift; sourceTree = "<group>"; };
-		00E522821FD0ED4E0023F641 /* RibbedStitchPatterns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RibbedStitchPatterns.swift; sourceTree = "<group>"; };
-		00E522831FD0ED4E0023F641 /* SimpleShapeComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleShapeComponent.swift; sourceTree = "<group>"; };
-		00E522841FD0ED4E0023F641 /* SimpleShapeTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleShapeTemplate.swift; sourceTree = "<group>"; };
-		00E522851FD0ED4E0023F641 /* StitchPattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StitchPattern.swift; sourceTree = "<group>"; };
-		00E522871FD0ED4E0023F641 /* GloveArmComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GloveArmComponent.swift; sourceTree = "<group>"; };
-		00E522881FD0ED4E0023F641 /* GloveTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GloveTemplate.swift; sourceTree = "<group>"; };
-		00E522891FD0ED4E0023F641 /* HandMeasurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandMeasurements.swift; sourceTree = "<group>"; };
-		00E5228A1FD0ED4E0023F641 /* SimpleFingerlessGlovesTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleFingerlessGlovesTemplate.swift; sourceTree = "<group>"; };
 		4946C8961FC9F68B00F03AC9 /* KnitOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnitOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4946C8991FC9F68B00F03AC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4946C89B1FC9F68B00F03AC9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +60,7 @@
 		495663991FD326D60047D159 /* LimpAlongController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimpAlongController.swift; sourceTree = "<group>"; };
 		4956639D1FD721D90047D159 /* LimpAlongPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimpAlongPatternViewController.swift; sourceTree = "<group>"; };
 		4956639F1FD721EC0047D159 /* LimpAlongInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimpAlongInstructionsViewController.swift; sourceTree = "<group>"; };
+		49A05F5A1FDA445A00DCB9EE /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Model; path = KnitOn/Model; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,40 +115,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		00E5221E1FCB33E10023F641 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				00E522861FD0ED4E0023F641 /* Gloves */,
-				00E5227E1FD0ED4E0023F641 /* SimpleShapes */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		00E5227E1FD0ED4E0023F641 /* SimpleShapes */ = {
-			isa = PBXGroup;
-			children = (
-				00E522841FD0ED4E0023F641 /* SimpleShapeTemplate.swift */,
-				00E522831FD0ED4E0023F641 /* SimpleShapeComponent.swift */,
-				00E5227F1FD0ED4E0023F641 /* BasicStitchPatterns.swift */,
-				00E522801FD0ED4E0023F641 /* Gauge.swift */,
-				00E522811FD0ED4E0023F641 /* KnittingProject.swift */,
-				00E522821FD0ED4E0023F641 /* RibbedStitchPatterns.swift */,
-				00E522851FD0ED4E0023F641 /* StitchPattern.swift */,
-			);
-			path = SimpleShapes;
-			sourceTree = "<group>";
-		};
-		00E522861FD0ED4E0023F641 /* Gloves */ = {
-			isa = PBXGroup;
-			children = (
-				00E522881FD0ED4E0023F641 /* GloveTemplate.swift */,
-				00E522871FD0ED4E0023F641 /* GloveArmComponent.swift */,
-				00E522891FD0ED4E0023F641 /* HandMeasurements.swift */,
-				00E5228A1FD0ED4E0023F641 /* SimpleFingerlessGlovesTemplate.swift */,
-			);
-			path = Gloves;
-			sourceTree = "<group>";
-		};
 		4946C88D1FC9F68B00F03AC9 = {
 			isa = PBXGroup;
 			children = (
@@ -192,11 +138,11 @@
 		4946C8981FC9F68B00F03AC9 /* KnitOn */ = {
 			isa = PBXGroup;
 			children = (
-				4946C89D1FC9F68B00F03AC9 /* Main.storyboard */,
 				00A32F7F1FD11AF000F2C482 /* Controller */,
+				49A05F5A1FDA445A00DCB9EE /* Model */,
+				4946C89D1FC9F68B00F03AC9 /* Main.storyboard */,
 				00A32F7E1FD11AD300F2C482 /* View */,
 				00A32F7A1FD112DD00F2C482 /* Utilities */,
-				00E5221E1FCB33E10023F641 /* Model */,
 				4946C8991FC9F68B00F03AC9 /* AppDelegate.swift */,
 				4946C8A31FC9F68B00F03AC9 /* Assets.xcassets */,
 				4946C8A51FC9F68B00F03AC9 /* LaunchScreen.storyboard */,
@@ -333,6 +279,7 @@
 			files = (
 				4946C8A71FC9F68B00F03AC9 /* LaunchScreen.storyboard in Resources */,
 				4946C8A41FC9F68B00F03AC9 /* Assets.xcassets in Resources */,
+				49A05F5B1FDA445A00DCB9EE /* Model in Resources */,
 				4946C89F1FC9F68B00F03AC9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,20 +310,9 @@
 				4946C8CF1FCB7D9300F03AC9 /* Markup.swift in Sources */,
 				495663981FD1DF4D0047D159 /* LimpAlongCreateNewViewController.swift in Sources */,
 				4946C89C1FC9F68B00F03AC9 /* ViewController.swift in Sources */,
-				00E522941FD0ED4E0023F641 /* HandMeasurements.swift in Sources */,
 				4946C8A21FC9F68B00F03AC9 /* KnitOn.xcdatamodeld in Sources */,
-				00E522921FD0ED4E0023F641 /* GloveArmComponent.swift in Sources */,
 				4956639E1FD721D90047D159 /* LimpAlongPatternViewController.swift in Sources */,
-				00E5228C1FD0ED4E0023F641 /* Gauge.swift in Sources */,
-				00E5228F1FD0ED4E0023F641 /* SimpleShapeComponent.swift in Sources */,
-				00E522901FD0ED4E0023F641 /* SimpleShapeTemplate.swift in Sources */,
-				00E522911FD0ED4E0023F641 /* StitchPattern.swift in Sources */,
-				00E522931FD0ED4E0023F641 /* GloveTemplate.swift in Sources */,
-				00E5228D1FD0ED4E0023F641 /* KnittingProject.swift in Sources */,
-				00E5228B1FD0ED4E0023F641 /* BasicStitchPatterns.swift in Sources */,
-				00E522951FD0ED4E0023F641 /* SimpleFingerlessGlovesTemplate.swift in Sources */,
 				4946C89A1FC9F68B00F03AC9 /* AppDelegate.swift in Sources */,
-				00E5228E1FD0ED4E0023F641 /* RibbedStitchPatterns.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

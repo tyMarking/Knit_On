@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:KnitOn.xcodeproj">
+      location = "group:../KnitOn/Model">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>
