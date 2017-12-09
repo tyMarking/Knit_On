@@ -22,7 +22,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text = LimpAlongController.patterns[indexPath.row].getName()
+        cell.textLabel?.text = "Test" //LimpAlongController.patterns[indexPath.row].getName()
         
         return cell
     }

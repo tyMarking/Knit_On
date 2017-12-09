@@ -9,9 +9,9 @@
 import Foundation
 
 class LimpAlongController {
-    static var patterns: [SimpleShapeTemplate] = []
+    static var patterns: [KnittingPattern] = []
     static var currentPatternIndex: Int = 0
-    public static func addPattern(pattern: SimpleShapeTemplate) {
+    public static func addPattern(pattern: KnittingPattern) {
         self.patterns.append(pattern)
     }
     
@@ -19,7 +19,7 @@ class LimpAlongController {
         currentPatternIndex = index
     }
     
-    public static func getCurrentPattern() -> SimpleShapeTemplate {
+    public static func getCurrentPattern() -> KnittingPattern {
         return patterns[currentPatternIndex]
     }
     
@@ -31,14 +31,14 @@ class LimpAlongController {
     
     public static func getComponentNames() -> [String] {
         var ret: [String] = []
-        for component in patterns[currentPatternIndex].getComponentsList() {
+        /*for component in patterns[currentPatternIndex].getComponentsList() {
             ret.append(String(describing: type(of: component)))
-        }
+        }*/
         return ret
     }
     
     public static func getInstructions() -> [String] {
-        return patterns[currentPatternIndex].generateInstructions()
+        return [] //patterns[currentPatternIndex].generateInstructions()
     }
 }
 
