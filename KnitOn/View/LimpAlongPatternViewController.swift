@@ -9,7 +9,7 @@
 import UIKit
 
 class LimpAlongPatternViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var pattern: SimpleShapeTemplate? = nil
+    var pattern: KnittingPattern? = nil
     
     @IBOutlet weak var nameOutlet: UILabel!
     @IBOutlet weak var gaugeOutlet: UILabel!
@@ -20,10 +20,10 @@ class LimpAlongPatternViewController: UIViewController, UITableViewDelegate, UIT
         super.viewDidLoad()
         pattern = LimpAlongController.getCurrentPattern()
                 
-        nameOutlet.text = pattern?.getName()
+        /*nameOutlet.text = pattern?.getName()
         let gaugeFloat = pattern?.gauge.stitchGauge
         let gaugueString = String(describing: gaugeFloat!)
-        gaugeOutlet.text = "Gauge: " + gaugueString
+        gaugeOutlet.text = "Gauge: " + gaugueString*/
         // Do any additional setup after loading the view.
     }
 

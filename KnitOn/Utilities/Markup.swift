@@ -8,32 +8,21 @@
 
 import Foundation
 
-//add dynamic values with addVar (Used by having $name in text, \ escapes $
-//get instructions (Array<MarkupElement>) by calling getInstructions()
+//stored an array of instructions (MakrupElements)
 //add elements with addInstruction or addInstructions (for an array of elements)
 class Markup {
     var instructions: Array<MarkupElement>
-    var vars: Dictionary<String, Any>
     
-    init(instructions: [MarkupElement]? = nil, vars: Dictionary<String, Any>? = nil) {
+    init(instructions: [MarkupElement]? = nil) {
         if instructions != nil {
             self.instructions = instructions!
         } else {
             self.instructions = []
         }
-        
-        if vars != nil {
-            self.vars = vars!
-        } else {
-            self.vars = Dictionary<String, Any>()
-        }
     }
     
     
     public func getInstructions() -> [MarkupElement] {
-        for instruction in instructions {
-            instruction.formatText(vars: vars)
-        }
         //nead to make coppy?
         return instructions
     }
@@ -48,20 +37,10 @@ class Markup {
         }
     }
     
-    public func addVar(key: String, value: Any) {
-        vars[key] = value
-    }
-    public func getVars() -> Dictionary<String, Any> {
-        //Dictionary is a Struct so no need for .copy()
-        let varsCopy = vars
-        return varsCopy
-    }
-    
 }
 
 protocol MarkupElement {
     func getInstructions() -> String
-    func formatText(vars: Dictionary<String, Any>)
     func convertToSavingString() -> String
     
 }
@@ -74,9 +53,6 @@ class Title: MarkupElement {
     }
     func getInstructions() -> String {
         return text.getInstructions()
-    }
-    func formatText(vars: Dictionary<String, Any>) {
-        text.formatText(vars: vars)
     }
     func convertToSavingString() -> String {
         return ("$title$"+text.convertToSavingString()+"$/title$")
@@ -97,9 +73,7 @@ class Header: MarkupElement {
     func getInstructions() -> String {
         return text.getInstructions()
     }
-    func formatText(vars: Dictionary<String, Any>) {
-        text.formatText(vars: vars)
-    }
+    
     func convertToSavingString() -> String {
         return ("$header$"+text.convertToSavingString()+"$/header$")
     }
@@ -139,12 +113,6 @@ class Div: MarkupElement {
         return ret
     }
     
-    func formatText(vars: Dictionary<String, Any>) {
-        for elem in elements {
-            elem.formatText(vars: vars)
-        }
-    }
-    
     func convertToSavingString() -> String {
         var ret = "$div$"
         for elem in elements {
@@ -156,79 +124,124 @@ class Div: MarkupElement {
     }
 }
 
+class List: MarkupElement {
+    var items: [MarkupElement] = []
+    
+    func addItem(item: MarkupElement) {
+        items.append(item)
+    }
+    
+    func addItems(items: [MarkupElement]) {
+        for item in items {
+            self.items.append(item)
+        }
+    }
+    
+    func getItems() -> [MarkupElement] {
+        return items
+    }
+    
+    func getInstructions() -> String {
+        var ret = ""
+        for item in items {
+            ret.append(item.getInstructions())
+            ret.append(" ")
+        }
+        ret.removeLast()
+        return ret
+    }
+    
+    
+    func convertToSavingString() -> String {
+        var ret = "$list$"
+        for item in items {
+            ret += item.convertToSavingString()
+            ret += " "
+        }
+        ret.removeLast()
+        ret += "$/list$"
+        return ret
+
+    }
+    
+    
+}
+
+class CheckableWrapper: MarkupElement {
+    var element: MarkupElement
+    var checked: Bool
+    init(element: MarkupElement) {
+        self.element = element
+        checked = false
+    }
+    func getInstructions() -> String {
+        return element.getInstructions()
+    }
+    
+    func getChecked() -> Bool {
+        return checked
+    }
+    
+    func setChecked(checked: Bool) {
+        self.checked = checked
+    }
+    
+    func toggleChecked() {
+        checked = !checked
+    }
+    
+    func convertToSavingString() -> String {
+        var ret = "$checkableWrapper, checked="
+        ret += String(checked)
+        ret += "$"
+        ret += element.convertToSavingString()
+        ret += "$/checkableWrapper$"
+        return ret
+    }
+    
+    
+}
 
 //the basic MarkupElement that contains actual text, contains the majority of formating
 class Text: MarkupElement {
     
     //other atributes
     var emphasis = false
+    var bold = false
+    
+    //will expand to more than just bools later
+    var atributes = [
+        "emphasis": false,
+        "bold": false,
+        //"color": color object? enum?
+    ]
     //etc
     
+    //only sets tag if tag exists in atributes
+    func setTag(tag: String, value: Bool) {
+        if atributes[tag] != nil {
+            atributes[tag] = value
+        }
+    }
+    
     var rawText: String = ""
-    var formatedText: String = ""
+    
     init(text: String) {
         self.rawText = text
     }
-    
-    func formatText(vars: Dictionary<String, Any>) {
-        //check if already formated??
-        runFormat(vars: vars)
-    }
-    
-    private func runFormat(vars: Dictionary<String, Any>) {
-        var final: String = ""
-        var i = 0
-        while(i < rawText.count) {
-            //there must be a simpler way?
-            //maybe I'm in the wrong mindset
-            //fix with recurevely deminishing the string?
-            var index = rawText.index (rawText.startIndex, offsetBy: i)
-            var prevIndex = rawText.index (rawText.startIndex, offsetBy: 0)
-            if (i != 0) {
-                prevIndex = rawText.index (rawText.startIndex, offsetBy: i-1)
-            }
-            
-            if (rawText[index] == "$" && (i == 0 || rawText[prevIndex] != "\\")) {
-                var varName = ""
-                i += 1
-                index = rawText.index (rawText.startIndex, offsetBy: i)
-                while (i < rawText.count && rawText[index] != " ") {
-                    varName.append(rawText[index])
-                    i += 1
-                    index = rawText.index (rawText.startIndex, offsetBy: i)
-                }
-                
-                var varReplacement = ""
-                if let value = vars[varName] {
-                    varReplacement.append(String(describing: value))
-                } else {
-                    final.append("$\(varName)")
-                }
-                
-                varReplacement.append(" ")
-                final.append(varReplacement)
-                
-            } else {
-                final.append(rawText[index])
-            }
-            i += 1;
-        }
-        formatedText = final
-    }
-    
-    
     func getInstructions() -> String {
-        return formatedText
-    }
-    public func getRawText() -> String {
         return rawText
     }
+    func getRawText() -> String {
+        return rawText
+    }
+
     public func setRawText(text: String) {
         self.rawText = text
     }
     
     func convertToSavingString() -> String {
-        return formatedText
+        return rawText
     }
 }
 
