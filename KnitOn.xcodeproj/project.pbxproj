@@ -35,6 +35,14 @@
 		4956639E1FD721D90047D159 /* LimpAlongPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4956639D1FD721D90047D159 /* LimpAlongPatternViewController.swift */; };
 		495663A01FD721EC0047D159 /* LimpAlongInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4956639F1FD721EC0047D159 /* LimpAlongInstructionsViewController.swift */; };
 		49FCE3391FDCBF5C00AEDCA9 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCE3381FDCBF5C00AEDCA9 /* Controller.swift */; };
+		49FCE33E1FDCCF5700AEDCA9 /* MarkupElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCE33D1FDCCF5700AEDCA9 /* MarkupElement.swift */; };
+		49FCE3421FDCCF8000AEDCA9 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCE3411FDCCF8000AEDCA9 /* Title.swift */; };
+		49FCE3441FDCCF8C00AEDCA9 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCE3431FDCCF8C00AEDCA9 /* Header.swift */; };
+		49FCE3461FDCCF9700AEDCA9 /* Div.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCE3451FDCCF9700AEDCA9 /* Div.swift */; };
+		49FCE3481FDCCFA700AEDCA9 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCE3471FDCCFA700AEDCA9 /* List.swift */; };
+		49FCE34A1FDCCFBB00AEDCA9 /* ActionableWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCE3491FDCCFBB00AEDCA9 /* ActionableWrapper.swift */; };
+		49FCE34C1FDCCFC900AEDCA9 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCE34B1FDCCFC900AEDCA9 /* Text.swift */; };
+		49FCE34E1FDCCFD200AEDCA9 /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCE34D1FDCCFD200AEDCA9 /* AttributedText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +97,14 @@
 		4956639D1FD721D90047D159 /* LimpAlongPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimpAlongPatternViewController.swift; sourceTree = "<group>"; };
 		4956639F1FD721EC0047D159 /* LimpAlongInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimpAlongInstructionsViewController.swift; sourceTree = "<group>"; };
 		49FCE3381FDCBF5C00AEDCA9 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		49FCE33D1FDCCF5700AEDCA9 /* MarkupElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkupElement.swift; sourceTree = "<group>"; };
+		49FCE3411FDCCF8000AEDCA9 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
+		49FCE3431FDCCF8C00AEDCA9 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		49FCE3451FDCCF9700AEDCA9 /* Div.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Div.swift; sourceTree = "<group>"; };
+		49FCE3471FDCCFA700AEDCA9 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		49FCE3491FDCCFBB00AEDCA9 /* ActionableWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionableWrapper.swift; sourceTree = "<group>"; };
+		49FCE34B1FDCCFC900AEDCA9 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		49FCE34D1FDCCFD200AEDCA9 /* AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +173,7 @@
 		00A32F7A1FD112DD00F2C482 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				4946C8CE1FCB7D9300F03AC9 /* Markup.swift */,
+				49FCE33A1FDCCF3500AEDCA9 /* Markup */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -234,6 +250,22 @@
 				4946C8BE1FC9F68C00F03AC9 /* Info.plist */,
 			);
 			path = KnitOnUITests;
+			sourceTree = "<group>";
+		};
+		49FCE33A1FDCCF3500AEDCA9 /* Markup */ = {
+			isa = PBXGroup;
+			children = (
+				4946C8CE1FCB7D9300F03AC9 /* Markup.swift */,
+				49FCE33D1FDCCF5700AEDCA9 /* MarkupElement.swift */,
+				49FCE3411FDCCF8000AEDCA9 /* Title.swift */,
+				49FCE3431FDCCF8C00AEDCA9 /* Header.swift */,
+				49FCE3451FDCCF9700AEDCA9 /* Div.swift */,
+				49FCE3471FDCCFA700AEDCA9 /* List.swift */,
+				49FCE3491FDCCFBB00AEDCA9 /* ActionableWrapper.swift */,
+				49FCE34B1FDCCFC900AEDCA9 /* Text.swift */,
+				49FCE34D1FDCCFD200AEDCA9 /* AttributedText.swift */,
+			);
+			path = Markup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,26 +402,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49FCE33E1FDCCF5700AEDCA9 /* MarkupElement.swift in Sources */,
 				495663A01FD721EC0047D159 /* LimpAlongInstructionsViewController.swift in Sources */,
 				006AD63A1FDA508A00C058A6 /* BasicStitchPatterns.swift in Sources */,
 				006AD63D1FDA508A00C058A6 /* KnittingPattern.swift in Sources */,
 				006AD6391FDA508A00C058A6 /* ThumbHandConfig.swift in Sources */,
+				49FCE3461FDCCF9700AEDCA9 /* Div.swift in Sources */,
 				006AD6361FDA508A00C058A6 /* GlovePattern.swift in Sources */,
+				49FCE34E1FDCCFD200AEDCA9 /* AttributedText.swift in Sources */,
 				006AD6321FDA508A00C058A6 /* FingersConfig.swift in Sources */,
 				006AD6401FDA508A00C058A6 /* StitchPattern.swift in Sources */,
+				49FCE3481FDCCFA700AEDCA9 /* List.swift in Sources */,
 				006AD63E1FDA508A00C058A6 /* PatternInstruction.swift in Sources */,
 				006AD63F1FDA508A00C058A6 /* RibbedStitchPatterns.swift in Sources */,
 				006AD6331FDA508A00C058A6 /* GloveArmConfig.swift in Sources */,
 				006AD63C1FDA508A00C058A6 /* InstructionGenerator.swift in Sources */,
 				006AD6351FDA508A00C058A6 /* GloveInstructionGenerator.swift in Sources */,
 				006AD6371FDA508A00C058A6 /* GloveStrings.swift in Sources */,
+				49FCE34C1FDCCFC900AEDCA9 /* Text.swift in Sources */,
+				49FCE3441FDCCF8C00AEDCA9 /* Header.swift in Sources */,
 				4946C8CF1FCB7D9300F03AC9 /* Markup.swift in Sources */,
+				49FCE3421FDCCF8000AEDCA9 /* Title.swift in Sources */,
 				49FCE3391FDCBF5C00AEDCA9 /* Controller.swift in Sources */,
 				495663981FD1DF4D0047D159 /* LimpAlongCreateNewViewController.swift in Sources */,
 				006AD63B1FDA508A00C058A6 /* Gauge.swift in Sources */,
 				006AD6381FDA508A00C058A6 /* HandMeasurements.swift in Sources */,
 				4946C89C1FC9F68B00F03AC9 /* ViewController.swift in Sources */,
 				006AD6341FDA508A00C058A6 /* GloveArmInstructionGenerator.swift in Sources */,
+				49FCE34A1FDCCFBB00AEDCA9 /* ActionableWrapper.swift in Sources */,
 				4946C8A21FC9F68B00F03AC9 /* KnitOn.xcdatamodeld in Sources */,
 				4956639E1FD721D90047D159 /* LimpAlongPatternViewController.swift in Sources */,
 				4946C89A1FC9F68B00F03AC9 /* AppDelegate.swift in Sources */,
