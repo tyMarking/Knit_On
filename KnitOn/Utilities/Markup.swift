@@ -168,32 +168,32 @@ class List: MarkupElement {
     
 }
 
-class CheckableWrapper: MarkupElement {
+class ActionableWrapper: MarkupElement {
     var element: MarkupElement
-    var checked: Bool
+    var isCompleted: Bool
     init(element: MarkupElement) {
         self.element = element
-        checked = false
+        isCompleted = false
     }
     func getInstructions() -> String {
         return element.getInstructions()
     }
     
-    func getChecked() -> Bool {
-        return checked
+    func getCompleted() -> Bool {
+        return isCompleted
     }
     
-    func setChecked(checked: Bool) {
-        self.checked = checked
+    func setCompleted(completed: Bool) {
+        self.isCompleted = completed
     }
     
-    func toggleChecked() {
-        checked = !checked
+    func toggleCompleted() {
+        isCompleted = !isCompleted
     }
     
     func convertToSavingString() -> String {
         var ret = "$checkableWrapper, checked="
-        ret += String(checked)
+        ret += String(isCompleted)
         ret += "$"
         ret += element.convertToSavingString()
         ret += "$/checkableWrapper$"
