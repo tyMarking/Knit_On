@@ -206,25 +206,6 @@ class ActionableWrapper: MarkupElement {
 //the basic MarkupElement that contains actual text, contains the majority of formating
 class Text: MarkupElement {
     
-    //other atributes
-    var emphasis = false
-    var bold = false
-    
-    //will expand to more than just bools later
-    var atributes = [
-        "emphasis": false,
-        "bold": false,
-        //"color": color object? enum?
-    ]
-    //etc
-    
-    //only sets tag if tag exists in atributes
-    func setTag(tag: String, value: Bool) {
-        if atributes[tag] != nil {
-            atributes[tag] = value
-        }
-    }
-    
     var rawText: String = ""
     
     init(text: String) {
@@ -233,16 +214,33 @@ class Text: MarkupElement {
     func getInstructions() -> String {
         return rawText
     }
-    func getRawText() -> String {
-        return rawText
-    }
-
-    public func setRawText(text: String) {
-        self.rawText = text
-    }
     
     func convertToSavingString() -> String {
         return rawText
     }
+    
+}
+
+class AttributedText: MarkupElement {
+    var attrString: NSAttributedString
+    
+    init(attrString: NSAttributedString) {
+        self.attrString = attrString
+    }
+    
+    func getInstructions() -> String {
+        return attrString.string
+    }
+    
+    func getAttributedInstructions() -> NSAttributedString {
+        return attrString
+    }
+    
+    func convertToSavingString() -> String {
+        return attrString.string
+        
+    }
+    
+    
 }
 

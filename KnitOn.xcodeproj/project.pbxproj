@@ -32,9 +32,9 @@
 		4946C8BD1FC9F68C00F03AC9 /* KnitOnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C8BC1FC9F68C00F03AC9 /* KnitOnUITests.swift */; };
 		4946C8CF1FCB7D9300F03AC9 /* Markup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C8CE1FCB7D9300F03AC9 /* Markup.swift */; };
 		495663981FD1DF4D0047D159 /* LimpAlongCreateNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495663971FD1DF4D0047D159 /* LimpAlongCreateNewViewController.swift */; };
-		4956639A1FD326D60047D159 /* LimpAlongController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495663991FD326D60047D159 /* LimpAlongController.swift */; };
 		4956639E1FD721D90047D159 /* LimpAlongPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4956639D1FD721D90047D159 /* LimpAlongPatternViewController.swift */; };
 		495663A01FD721EC0047D159 /* LimpAlongInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4956639F1FD721EC0047D159 /* LimpAlongInstructionsViewController.swift */; };
+		49FCE3391FDCBF5C00AEDCA9 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCE3381FDCBF5C00AEDCA9 /* Controller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,9 +86,9 @@
 		4946C8BE1FC9F68C00F03AC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4946C8CE1FCB7D9300F03AC9 /* Markup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Markup.swift; sourceTree = "<group>"; };
 		495663971FD1DF4D0047D159 /* LimpAlongCreateNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimpAlongCreateNewViewController.swift; sourceTree = "<group>"; };
-		495663991FD326D60047D159 /* LimpAlongController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimpAlongController.swift; sourceTree = "<group>"; };
 		4956639D1FD721D90047D159 /* LimpAlongPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimpAlongPatternViewController.swift; sourceTree = "<group>"; };
 		4956639F1FD721EC0047D159 /* LimpAlongInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimpAlongInstructionsViewController.swift; sourceTree = "<group>"; };
+		49FCE3381FDCBF5C00AEDCA9 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +176,7 @@
 		00A32F7F1FD11AF000F2C482 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				495663991FD326D60047D159 /* LimpAlongController.swift */,
+				49FCE3381FDCBF5C00AEDCA9 /* Controller.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -380,11 +380,11 @@
 				006AD63E1FDA508A00C058A6 /* PatternInstruction.swift in Sources */,
 				006AD63F1FDA508A00C058A6 /* RibbedStitchPatterns.swift in Sources */,
 				006AD6331FDA508A00C058A6 /* GloveArmConfig.swift in Sources */,
-				4956639A1FD326D60047D159 /* LimpAlongController.swift in Sources */,
 				006AD63C1FDA508A00C058A6 /* InstructionGenerator.swift in Sources */,
 				006AD6351FDA508A00C058A6 /* GloveInstructionGenerator.swift in Sources */,
 				006AD6371FDA508A00C058A6 /* GloveStrings.swift in Sources */,
 				4946C8CF1FCB7D9300F03AC9 /* Markup.swift in Sources */,
+				49FCE3391FDCBF5C00AEDCA9 /* Controller.swift in Sources */,
 				495663981FD1DF4D0047D159 /* LimpAlongCreateNewViewController.swift in Sources */,
 				006AD63B1FDA508A00C058A6 /* Gauge.swift in Sources */,
 				006AD6381FDA508A00C058A6 /* HandMeasurements.swift in Sources */,
