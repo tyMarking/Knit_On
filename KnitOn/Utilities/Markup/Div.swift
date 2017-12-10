@@ -21,7 +21,7 @@ class Div: MarkupElement {
         elements.append(element)
     }
     
-    public func addElementa(elements: [MarkupElement]) {
+    public func addElements(elements: [MarkupElement]) {
         for element in elements {
             self.elements.append(element)
         }
