@@ -39,6 +39,7 @@ class Markup {
     
 }
 
+//use get instructions to get text for UI
 protocol MarkupElement {
     func getInstructions() -> String
     func convertToSavingString() -> String
