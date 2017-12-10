@@ -38,7 +38,7 @@ class Controller {
     }
     
     //accesors for UI
-    public static func getMarkup() -> [PatternInstruction] {
+    public static func getMarkup() -> [MarkupElement] {
         if currentPattern != nil {
             return currentPattern!.getInstructions()
         } else {

@@ -52,13 +52,13 @@ class GloveArmInstructionGenerator: InstructionGenerator {
             
             let armConfg: GloveArmConfig = glovePattern.armConfig
             var str: String
-            var instruction: PatternInstruction
+            var instruction: MarkupElement
         
             // Cast On
             let castOnStitches: Int = self.calculateCastOnStitches(pattern: glovePattern)
             str = String(format: GloveStrings.Arm.castOn, castOnStitches)
-            instruction = PatternInstruction(instruction: str)
-            pattern.addInstruction(instruction: instruction)
+            instruction = Text(text: str)
+            pattern.addInstruction(instruction)
         
             // Cuff
             if let cuffStitchPattern = armConfg.cuffStitchPattern {
@@ -67,8 +67,8 @@ class GloveArmInstructionGenerator: InstructionGenerator {
                     cuffLengthStr = Int(armConfg.cuffLength).description
                 }
                 str = String(format: GloveStrings.Arm.cuff, cuffStitchPattern.name, cuffLengthStr)
-                instruction = PatternInstruction(instruction: str)
-                pattern.addInstruction(instruction: instruction)
+                instruction = Text(text: str)
+                pattern.addInstruction(instruction)
             }
         
             // Arm
@@ -79,15 +79,15 @@ class GloveArmInstructionGenerator: InstructionGenerator {
                     armLengthStr = Int(armLength).description
                 }
                 str = String(format: GloveStrings.Arm.arm, armConfg.armStitchPattern.name, armLengthStr)
-                instruction = PatternInstruction(instruction: str)
-                pattern.addInstruction(instruction: instruction)
+                instruction = Text(text: str)
+                pattern.addInstruction(instruction)
             }
     
             // Wrist Shaping
              if armConfg.isWristShaping {
                 str = GloveStrings.Arm.wristShaping
-                instruction = PatternInstruction(instruction: str)
-                pattern.addInstruction(instruction: instruction)
+                instruction = Text(text: str)
+                pattern.addInstruction(instruction)
              }
         }
     }

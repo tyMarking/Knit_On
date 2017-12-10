@@ -16,18 +16,21 @@ import Foundation
 
 class GloveInstructionGenerator: InstructionGenerator {
    
-    // Properties
+    //MARK: Properties
+    
     var armInstructionGenerator: GloveArmInstructionGenerator = GloveArmInstructionGenerator()
     
-    // Initialization
+    //MARK: Initialization
+    
     init() {
     }
     
-    // Methods
+    //MARK: Methods
     
-    // generateInstructions -- this method delegates instruction generation to its various components
-    //      pattern will be the GlovePattern subclass of KnittingPattern.
     func generateInstructions(pattern: KnittingPattern) {
+        // This method delegates instruction generation to its various components
+        //      pattern will be the GlovePattern subclass of KnittingPattern.
+        
         if let glovePattern = pattern as? GlovePattern {
             armInstructionGenerator.generateInstructions(pattern: glovePattern)
         }

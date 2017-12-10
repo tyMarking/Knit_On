@@ -16,10 +16,10 @@
 //         Subclasses will define additional properties, specific to the type of pattern.
 //
 //      2) Manages the instructions for the pattern
-//              * InstructionGenerator objects generate the instructions and use the addINstruction
+//              * InstructionGenerator objects generate the instructions and use the addInstruction
 //                method to add a specific PatternInstruction
 //              * The instructions can be retrieved using the getInstructions method. This method
-//                returns an array of PatternInstruction objects.
+//                returns an array of MarkupElement objects.
 //
 //      3) Stores configuration data, which can be customized by the user. This class does not
 //         contain any configurations, but subclass will add the specifi configurations
@@ -28,16 +28,29 @@ import Foundation
 
 class KnittingPattern {
     
+    //MARK: Properties
+    
     var title: String = "A Knitting Pattern"
     var description: String?
     var gauge: Gauge?
-    var instructions: [PatternInstruction] = []
+    private var instructions: Markup!
     
-    func addInstruction(instruction: PatternInstruction) {
-        self.instructions.append(instruction)
+    //MARK: Initialization
+    init () {
+        self.instructions = Markup()
     }
     
-    func getInstructions() -> [PatternInstruction]{
+    //MARK: Methods
+    
+    func addInstruction(_ instruction: MarkupElement) {
+        self.instructions.addInstruction(element: instruction)
+    }
+    
+    func getInstructionsMarkup() -> Markup {
         return self.instructions
+    }
+    
+    func getInstructions() -> [MarkupElement]{
+        return self.instructions.getInstructions()
     }
 }
