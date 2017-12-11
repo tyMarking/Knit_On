@@ -22,6 +22,10 @@
 		006AD63E1FDA508A00C058A6 /* PatternInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AD62F1FDA508A00C058A6 /* PatternInstruction.swift */; };
 		006AD63F1FDA508A00C058A6 /* RibbedStitchPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AD6301FDA508A00C058A6 /* RibbedStitchPatterns.swift */; };
 		006AD6401FDA508A00C058A6 /* StitchPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AD6311FDA508A00C058A6 /* StitchPattern.swift */; };
+		006AD66E1FDDF41500C058A6 /* LimpAlongController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AD66D1FDDF41500C058A6 /* LimpAlongController.swift */; };
+		006AD6701FDE204500C058A6 /* Knitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AD66F1FDE204500C058A6 /* Knitter.swift */; };
+		006AD6721FDE210300C058A6 /* SimpleShapeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AD6711FDE210300C058A6 /* SimpleShapeModule.swift */; };
+		006AD6741FDE222800C058A6 /* GloveModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AD6731FDE222800C058A6 /* GloveModule.swift */; };
 		4946C89A1FC9F68B00F03AC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C8991FC9F68B00F03AC9 /* AppDelegate.swift */; };
 		4946C89C1FC9F68B00F03AC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C89B1FC9F68B00F03AC9 /* ViewController.swift */; };
 		4946C89F1FC9F68B00F03AC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4946C89D1FC9F68B00F03AC9 /* Main.storyboard */; };
@@ -78,6 +82,10 @@
 		006AD62F1FDA508A00C058A6 /* PatternInstruction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternInstruction.swift; sourceTree = "<group>"; };
 		006AD6301FDA508A00C058A6 /* RibbedStitchPatterns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RibbedStitchPatterns.swift; sourceTree = "<group>"; };
 		006AD6311FDA508A00C058A6 /* StitchPattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StitchPattern.swift; sourceTree = "<group>"; };
+		006AD66D1FDDF41500C058A6 /* LimpAlongController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LimpAlongController.swift; sourceTree = "<group>"; };
+		006AD66F1FDE204500C058A6 /* Knitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knitter.swift; sourceTree = "<group>"; };
+		006AD6711FDE210300C058A6 /* SimpleShapeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleShapeModule.swift; sourceTree = "<group>"; };
+		006AD6731FDE222800C058A6 /* GloveModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GloveModule.swift; sourceTree = "<group>"; };
 		4946C8961FC9F68B00F03AC9 /* KnitOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnitOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4946C8991FC9F68B00F03AC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4946C89B1FC9F68B00F03AC9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +160,7 @@
 				006AD6271FDA508A00C058A6 /* GloveStrings.swift */,
 				006AD6281FDA508A00C058A6 /* HandMeasurements.swift */,
 				006AD6291FDA508A00C058A6 /* ThumbHandConfig.swift */,
+				006AD6731FDE222800C058A6 /* GloveModule.swift */,
 			);
 			path = Gloves;
 			sourceTree = "<group>";
@@ -166,6 +175,8 @@
 				006AD62F1FDA508A00C058A6 /* PatternInstruction.swift */,
 				006AD6301FDA508A00C058A6 /* RibbedStitchPatterns.swift */,
 				006AD6311FDA508A00C058A6 /* StitchPattern.swift */,
+				006AD66F1FDE204500C058A6 /* Knitter.swift */,
+				006AD6711FDE210300C058A6 /* SimpleShapeModule.swift */,
 			);
 			path = SimpleShapes;
 			sourceTree = "<group>";
@@ -192,6 +203,7 @@
 		00A32F7F1FD11AF000F2C482 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				006AD66D1FDDF41500C058A6 /* LimpAlongController.swift */,
 				49FCE3381FDCBF5C00AEDCA9 /* Controller.swift */,
 			);
 			path = Controller;
@@ -403,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49FCE33E1FDCCF5700AEDCA9 /* MarkupElement.swift in Sources */,
+				006AD6721FDE210300C058A6 /* SimpleShapeModule.swift in Sources */,
 				495663A01FD721EC0047D159 /* LimpAlongInstructionsViewController.swift in Sources */,
 				006AD63A1FDA508A00C058A6 /* BasicStitchPatterns.swift in Sources */,
 				006AD63D1FDA508A00C058A6 /* KnittingPattern.swift in Sources */,
@@ -415,6 +428,8 @@
 				49FCE3481FDCCFA700AEDCA9 /* List.swift in Sources */,
 				006AD63E1FDA508A00C058A6 /* PatternInstruction.swift in Sources */,
 				006AD63F1FDA508A00C058A6 /* RibbedStitchPatterns.swift in Sources */,
+				006AD6701FDE204500C058A6 /* Knitter.swift in Sources */,
+				006AD6741FDE222800C058A6 /* GloveModule.swift in Sources */,
 				006AD6331FDA508A00C058A6 /* GloveArmConfig.swift in Sources */,
 				006AD63C1FDA508A00C058A6 /* InstructionGenerator.swift in Sources */,
 				006AD6351FDA508A00C058A6 /* GloveInstructionGenerator.swift in Sources */,
@@ -429,6 +444,7 @@
 				006AD6381FDA508A00C058A6 /* HandMeasurements.swift in Sources */,
 				4946C89C1FC9F68B00F03AC9 /* ViewController.swift in Sources */,
 				006AD6341FDA508A00C058A6 /* GloveArmInstructionGenerator.swift in Sources */,
+				006AD66E1FDDF41500C058A6 /* LimpAlongController.swift in Sources */,
 				49FCE34A1FDCCFBB00AEDCA9 /* ActionableWrapper.swift in Sources */,
 				4946C8A21FC9F68B00F03AC9 /* KnitOn.xcdatamodeld in Sources */,
 				4956639E1FD721D90047D159 /* LimpAlongPatternViewController.swift in Sources */,
