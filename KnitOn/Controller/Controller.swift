@@ -9,21 +9,23 @@
 import Foundation
 
 class Controller {
-    static var patterns: [KnittingPattern] = []
+    
+    //MARK:  Properties
+    static var knitter: Knitter = Knitter()
     static var currentPattern: KnittingPattern? = nil
     static var currentPatternIndex: Int? = nil
     static var markup: Markup? = nil
     
     
-    //paterns methods
+    //MARK: Methods
     
     public static func addPattern(pattern: KnittingPattern) {
-        self.patterns.append(pattern)
+        self.knitter.addPattern(pattern)
     }
     
     public static func selectPattern(index: Int) {
         currentPatternIndex = index
-        currentPattern = patterns[currentPatternIndex!]
+        currentPattern = self.knitter.getPatterns()[currentPatternIndex!]
     }
     
     //is this needed?
@@ -32,9 +34,7 @@ class Controller {
     }
     
     public static func removePattern(at: Int) {
-        if at >= 0 && at < patterns.count {
-            patterns.remove(at: at)
-        }
+        self.knitter.removePattern(at: at)
     }
     
     //accesors for UI
