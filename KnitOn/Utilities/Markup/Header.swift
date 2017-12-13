@@ -9,7 +9,7 @@
 import Foundation
 
 //Level is importance, 1 is greatest, 0 is none
-class Header: MarkupElement {
+class Header: NSObject, MarkupElement, NSCoding {
     var level: Int = 0
     var text: Text = Text(text: "")
     

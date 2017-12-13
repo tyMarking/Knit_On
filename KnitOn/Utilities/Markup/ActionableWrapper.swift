@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ActionableWrapper: MarkupElement {
+class ActionableWrapper: NSObject, MarkupElement, NSCoding {
     var element: MarkupElement?
     var isCompleted: Bool?
     init(element: MarkupElement) {

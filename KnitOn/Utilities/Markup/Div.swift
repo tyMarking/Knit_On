@@ -7,10 +7,10 @@
 //
 
 import Foundation
-class Div: MarkupElement {
+class Div: NSObject, MarkupElement, NSCoding {
     var elements: Array = [MarkupElement]()
-    init() {
-        
+    override init() {
+        super.init()
     }
     
     init(elements: [MarkupElement]) {

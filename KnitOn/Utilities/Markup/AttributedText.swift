@@ -9,7 +9,7 @@
 import Foundation
 
 //basic MarkupElement that contains attributed text
-class AttributedText: MarkupElement {
+class AttributedText: NSObject, MarkupElement, NSCoding {
     
     
     var defaultAttrString: NSAttributedString?

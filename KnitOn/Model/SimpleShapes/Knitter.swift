@@ -14,14 +14,14 @@
 
 import Foundation
 
-class Knitter {
+class Knitter: NSObject, NSCoding{
  
     //MARK: Properties
     private var patterns: [KnittingPattern] = []
     private var availableModules: [SimpleShapeModule] = []
     
-    init() {
-        
+    override init() {
+       super.init()
     }
     //MARK: Methods
     

@@ -20,8 +20,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print("Loading data")
             loadData()
             launched = true
+            
+        } else {
+            ViewController.saveData()
         }
-        
+        if Controller.knitter == nil {
+            Controller.initKinitter()
+        }
         
         let glove = GlovePattern()
         
@@ -33,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print(instrution.getInstructions())
         }
         
-        ViewController.saveData()
+        
         tableView.reloadData()
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,11 +90,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     class var filePath: String {
         let manager = FileManager.default
         let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first
-        return url!.appendingPathComponent("KnitterData").path
+        return url!.appendingPathComponent("Data").path
     }
     
+    
+    
     class func saveData() {
-        NSKeyedArchiver.archiveRootObject(Controller.knitter, toFile: filePath)
+        let knitter = Controller.knitter ?? Knitter()
+        NSKeyedArchiver.archiveRootObject(knitter, toFile: filePath)
+        
+        
     }
     
     private func loadData() {

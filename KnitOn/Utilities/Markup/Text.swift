@@ -9,7 +9,7 @@
 import Foundation
 
 //the basic MarkupElement that contains actual, simple text.
-class Text: MarkupElement {
+class Text: NSObject, MarkupElement, NSCoding {
     
     var rawText: String = ""
     

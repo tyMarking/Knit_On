@@ -26,17 +26,19 @@
 
 import Foundation
 
-class KnittingPattern {
+class KnittingPattern: NSObject, NSCoding {
     
     //MARK: Properties
     
     var title: String = "A Knitting Pattern"
-    var description: String?
+    //description is already in NSObject, we need to use something else
+    var patternDescription: String?
     var gauge: Gauge?
     private var instructions: Markup!
     
     //MARK: Initialization
-    init () {
+    override init () {
+        super.init()
         self.instructions = Markup()
     }
     
@@ -67,7 +69,7 @@ class KnittingPattern {
             title = titleObj
         }
         if let descriptionObj = aDecoder.decodeObject(forKey: Keys.Description) as? String {
-            description = descriptionObj
+            patternDescription = descriptionObj
         }
         if let gaugeObj = aDecoder.decodeObject(forKey: Keys.Gauge) as? Gauge {
             gauge = gaugeObj

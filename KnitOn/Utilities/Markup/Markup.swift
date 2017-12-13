@@ -10,7 +10,7 @@ import Foundation
 
 //stored an array of instructions (MakrupElements)
 //add elements with addInstruction or addInstructions (for an array of elements)
-class Markup {
+class Markup: NSObject, NSCoding {
     var instructions: [MarkupElement] = []
     
     init(instructions: [MarkupElement]? = nil) {

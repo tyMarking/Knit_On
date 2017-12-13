@@ -8,7 +8,7 @@
 
 import Foundation
 
-class List: MarkupElement {
+class List: NSObject, MarkupElement, NSCoding {
     var items: [MarkupElement] = []
     
     func addItem(item: MarkupElement) {

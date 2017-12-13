@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Title: MarkupElement {
+class Title: NSObject, MarkupElement, NSCoding {
     
     var text: Text = Text(text: "")
     init(title: String) {
