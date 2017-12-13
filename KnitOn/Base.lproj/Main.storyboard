@@ -10,6 +10,79 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Create Pattern View Controller-->
+        <scene sceneID="ktX-Zx-Sx0">
+            <objects>
+                <viewController id="bLg-ee-WSd" customClass="CreatePatternViewController" customModule="KnitOn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0RO-Tk-13z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qHR-V9-He9">
+                                <rect key="frame" x="16" y="40" width="343" height="349"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pattern Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0E-Uc-cDI">
+                                        <rect key="frame" x="0.0" y="0.0" width="105" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter pattern name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmb-he-eyD">
+                                        <rect key="frame" x="0.0" y="28.5" width="343" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pattern Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2H2-OL-4Zx">
+                                        <rect key="frame" x="0.0" y="66.5" width="97.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vhy-s8-cWL">
+                                        <rect key="frame" x="0.0" y="95" width="320" height="216"/>
+                                    </pickerView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="e3X-KT-WZe">
+                                        <rect key="frame" x="0.0" y="319" width="135" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mC5-Jb-teX">
+                                                <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                                                <state key="normal" title="Create"/>
+                                                <connections>
+                                                    <action selector="createPattern:" destination="bLg-ee-WSd" eventType="touchUpInside" id="6IW-N0-Rxl"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJe-gk-tz8">
+                                                <rect key="frame" x="62" y="0.0" width="73" height="30"/>
+                                                <state key="normal" title="Customize"/>
+                                                <connections>
+                                                    <action selector="createAndCustomizePattern:" destination="bLg-ee-WSd" eventType="touchUpInside" id="qn6-Wd-4gL"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="hmb-he-eyD" secondAttribute="trailing" id="Ora-d1-YDQ"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qHR-V9-He9" firstAttribute="top" secondItem="mQU-3v-xn7" secondAttribute="top" constant="20" id="A9i-ho-OPc"/>
+                            <constraint firstItem="qHR-V9-He9" firstAttribute="leading" secondItem="mQU-3v-xn7" secondAttribute="leading" constant="16" id="dKN-HU-MYQ"/>
+                            <constraint firstItem="mQU-3v-xn7" firstAttribute="trailing" secondItem="qHR-V9-He9" secondAttribute="trailing" constant="16" id="g56-Fz-kf9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mQU-3v-xn7"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="hmb-he-eyD" id="d1k-ic-wNr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aPW-ic-mvo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-714.39999999999998" y="-690.40479760119945"/>
+        </scene>
         <!--Limp Along Create New View Controller-->
         <scene sceneID="5Xs-TA-FMM">
             <objects>
@@ -155,7 +228,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create Pattern"/>
                                 <connections>
-                                    <segue destination="4La-xR-wUv" kind="show" id="LJC-AP-msK"/>
+                                    <segue destination="bLg-ee-WSd" kind="show" id="D6V-Aj-lk8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -317,6 +390,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="StR-Sb-q20"/>
-        <segue reference="Nvb-yT-RzK"/>
+        <segue reference="o7u-yz-W9L"/>
     </inferredMetricsTieBreakers>
 </document>
