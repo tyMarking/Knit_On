@@ -10,10 +10,30 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
-    
+    var launched = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        //checking to see if data needs to be loaded
+        if (launched == false) {
+            //first launch
+            print("Loading data")
+            loadData()
+            launched = true
+        }
+        
+        
+        let glove = GlovePattern()
+        
+        let gloveGenerator = GloveInstructionGenerator()
+        gloveGenerator.generateInstructions(pattern: glove)
+        print("HI")
+        let instructions = glove.getInstructions()
+        for instrution in instructions {
+            print(instrution.getInstructions())
+        }
+        
+        ViewController.saveData()
         tableView.reloadData()
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,6 +68,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             
         }*/
+        ViewController.saveData()
     }
     
     
@@ -58,5 +79,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
 
+    
+    
+    //saving methods
+    class var filePath: String {
+        let manager = FileManager.default
+        let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first
+        return url!.appendingPathComponent("KnitterData").path
+    }
+    
+    class func saveData() {
+        NSKeyedArchiver.archiveRootObject(Controller.knitter, toFile: filePath)
+    }
+    
+    private func loadData() {
+        if let inData = NSKeyedUnarchiver.unarchiveObject(withFile: ViewController.filePath) as? Knitter {
+            Controller.knitter = inData
+        }
+    }
 }
 

@@ -25,4 +25,24 @@ class Header: MarkupElement {
     func convertToSavingString() -> String {
         return ("$header$"+text.convertToSavingString()+"$/header$")
     }
+    
+    
+    //saving with core data methods
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(level, forKey: Keys.Level)
+        aCoder.encode(text, forKey: Keys.Text)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        if let levelObj = aDecoder.decodeObject(forKey: Keys.Level) as? Int {
+            level = levelObj
+        }
+        if let textObj = aDecoder.decodeObject(forKey: Keys.Text) as? Text {
+            text = textObj
+        }
+    }
+    
+    struct Keys {
+        static let Level = "level"
+        static let Text = "text"
+    }
 }

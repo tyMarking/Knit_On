@@ -38,18 +38,19 @@ class Controller {
     }
     
     //accesors for UI
-    public static func getMarkup() -> [MarkupElement] {
+    //should be optional or return empty?
+    public static func getMarkup() -> [MarkupElement]? {
         if currentPattern != nil {
             return currentPattern!.getInstructions()
         } else {
-            return []
+            return nil
         }
     }
     
-    //should be optional or return empty?
     public static func getCurrentPatternTitle() -> String? {
         return currentPattern?.title
     }
+    
     public static func getCurrentPatternDescription() -> String? {
         return currentPattern?.description
     }

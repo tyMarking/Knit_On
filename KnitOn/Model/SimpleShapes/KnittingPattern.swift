@@ -53,4 +53,34 @@ class KnittingPattern {
     func getInstructions() -> [MarkupElement]{
         return self.instructions.getInstructions()
     }
+    
+    
+    //saving with core data methods
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(title, forKey: Keys.Title)
+        aCoder.encode(description, forKey: Keys.Description)
+        aCoder.encode(gauge, forKey: Keys.Gauge)
+        aCoder.encode(instructions, forKey: Keys.Instructions)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        if let titleObj = aDecoder.decodeObject(forKey: Keys.Title) as? String {
+            title = titleObj
+        }
+        if let descriptionObj = aDecoder.decodeObject(forKey: Keys.Description) as? String {
+            description = descriptionObj
+        }
+        if let gaugeObj = aDecoder.decodeObject(forKey: Keys.Gauge) as? Gauge {
+            gauge = gaugeObj
+        }
+        if let instructionsObj = aDecoder.decodeObject(forKey: Keys.Instructions) as? Markup {
+            instructions = instructionsObj
+        }
+    }
+    
+    struct Keys {
+        static let Title = "title"
+        static let Description = "description"
+        static let Gauge = "gauge"
+        static let Instructions = "instructions"
+    }
 }

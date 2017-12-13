@@ -50,4 +50,19 @@ class Div: MarkupElement {
         ret += "$/div$"
         return ret
     }
+    
+    
+    //saving with core data methods
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(elements, forKey: Keys.Elements)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        if let elementsObj = aDecoder.decodeObject(forKey: Keys.Elements) as? [MarkupElement] {
+            elements = elementsObj
+        }
+    }
+    
+    struct Keys {
+        static let Elements = "elements"
+    }
 }
