@@ -12,4 +12,6 @@ import Foundation
 
 protocol SimpleShapeModule {
     var name: String {get}
+    
+    func createPattern(name: String) -> KnittingPattern
 }

@@ -14,4 +14,13 @@ class GloveModule: SimpleShapeModule {
     //MARK: Properties
     var name: String = "Gloves"
     
+    //MARK: Methods
+    func createPattern(name: String) -> KnittingPattern {
+        let pattern = GlovePattern()
+        pattern.title = name
+        
+        return pattern
+    }
+    
+    
 }

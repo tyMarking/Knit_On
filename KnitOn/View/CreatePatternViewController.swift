@@ -14,10 +14,10 @@ class CreatePatternViewController: UIViewController,
     
     //MARK: Properties
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var patternTypeLabel: UILabel!
     @IBOutlet weak var patternTypePicker: UIPickerView!
     @IBOutlet weak var createPatternButton: UIButton!
     @IBOutlet weak var customizePatternButton: UIButton!
+    @IBOutlet weak var patternTypeLabel: UILabel!
     
     var patternModule: SimpleShapeModule?
     
@@ -27,24 +27,31 @@ class CreatePatternViewController: UIViewController,
         
         var isReadyToCreate = false
         
-        if patternModule != nil {
-            if let patternName = nameTextField.text {
-                isReadyToCreate = !patternName.isEmpty
-            }
+        if patternModule != nil, let patternName = nameTextField.text{
+            isReadyToCreate = !patternName.isEmpty
         }
     
         createPatternButton.isEnabled = isReadyToCreate
         customizePatternButton.isEnabled = isReadyToCreate
     }
     
+    private func createPattern() {
+        if let module = self.patternModule,
+            let patternName = nameTextField.text,
+            !patternName.isEmpty {
+            let newPattern = module.createPattern(name: patternName)
+            theKnitter.addPattern(newPattern)
+        }
+    }
+    
     //MARK: Actions
     
     @IBAction func createPattern(_ sender: UIButton) {
-        print("Create pattern!")
+        createPattern()
     }
     
     @IBAction func createAndCustomizePattern(_ sender: UIButton) {
-        print("Create the pattern, and then customize it.")
+        createPattern()
     }
     
     @IBAction func labelTapGestureRecognizer (gestureReconizer: UITapGestureRecognizer) {
@@ -69,11 +76,22 @@ class CreatePatternViewController: UIViewController,
         
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        patternTypePicker.isHidden = true
+        super.touchesBegan(touches, with: event)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     //MARK: UITextFieldDelegate
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Make sure the picker is hidden, before text editting begins
+        patternTypePicker.isHidden = true
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard.
@@ -109,7 +127,6 @@ class CreatePatternViewController: UIViewController,
         
         enableButtonsIfAppropriate()
         
-        self.view.endEditing(true)
         patternTypePicker.isHidden = true
     }
     
