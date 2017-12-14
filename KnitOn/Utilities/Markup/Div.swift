@@ -7,10 +7,10 @@
 //
 
 import Foundation
-class Div: MarkupElement {
+class Div: NSObject, MarkupElement, NSCoding {
     var elements: Array = [MarkupElement]()
-    init() {
-        
+    override init() {
+        super.init()
     }
     
     init(elements: [MarkupElement]) {
@@ -21,7 +21,7 @@ class Div: MarkupElement {
         elements.append(element)
     }
     
-    public func addElementa(elements: [MarkupElement]) {
+    public func addElements(elements: [MarkupElement]) {
         for element in elements {
             self.elements.append(element)
         }
@@ -49,5 +49,20 @@ class Div: MarkupElement {
         }
         ret += "$/div$"
         return ret
+    }
+    
+    
+    //saving with core data methods
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(elements, forKey: Keys.Elements)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        if let elementsObj = aDecoder.decodeObject(forKey: Keys.Elements) as? [MarkupElement] {
+            elements = elementsObj
+        }
+    }
+    
+    struct Keys {
+        static let Elements = "elements"
     }
 }

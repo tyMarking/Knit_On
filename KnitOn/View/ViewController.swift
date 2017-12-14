@@ -91,6 +91,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             
         }*/
+        ViewController.saveData()
     }
     
     
@@ -98,5 +99,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
 
 
+    
+    
+    //saving methods
+    class var filePath: String {
+        let manager = FileManager.default
+        let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first
+        return url!.appendingPathComponent("Data").path
+    }
+    
+    
+    
+    class func saveData() {
+        let knitter = Controller.knitter ?? Knitter()
+        NSKeyedArchiver.archiveRootObject(knitter, toFile: filePath)
+        
+        
+    }
+    
+    private func loadData() {
+        if let inData = NSKeyedUnarchiver.unarchiveObject(withFile: ViewController.filePath) as? Knitter {
+            Controller.knitter = inData
+        }
+    }
 }
 

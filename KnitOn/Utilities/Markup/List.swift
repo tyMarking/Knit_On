@@ -8,7 +8,7 @@
 
 import Foundation
 
-class List: MarkupElement {
+class List: NSObject, MarkupElement, NSCoding {
     var items: [MarkupElement] = []
     
     func addItem(item: MarkupElement) {
@@ -48,5 +48,17 @@ class List: MarkupElement {
         
     }
     
+    //saving with core data methods
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(items, forKey: Keys.Items)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        if let itemsObj = aDecoder.decodeObject(forKey: Keys.Items) as? [MarkupElement] {
+            items = itemsObj
+        }
+    }
     
+    struct Keys {
+        static let Items = "items"
+    }
 }

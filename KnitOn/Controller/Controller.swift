@@ -11,21 +11,24 @@ import Foundation
 class Controller {
     
     //MARK:  Properties
-    static var knitter: Knitter = Knitter()
+    static var knitter: Knitter? = nil
     static var currentPattern: KnittingPattern? = nil
     static var currentPatternIndex: Int? = nil
     static var markup: Markup? = nil
     
     
     //MARK: Methods
+    public static func initKinitter() {
+        knitter = Knitter()
+    }
     
     public static func addPattern(pattern: KnittingPattern) {
-        self.knitter.addPattern(pattern)
+        self.knitter?.addPattern(pattern)
     }
     
     public static func selectPattern(index: Int) {
         currentPatternIndex = index
-        currentPattern = self.knitter.getPatterns()[currentPatternIndex!]
+        currentPattern = self.knitter?.getPatterns()[currentPatternIndex!]
     }
     
     //is this needed?
@@ -34,22 +37,23 @@ class Controller {
     }
     
     public static func removePattern(at: Int) {
-        self.knitter.removePattern(at: at)
+        self.knitter?.removePattern(at: at)
     }
     
     //accesors for UI
-    public static func getMarkup() -> [MarkupElement] {
+    //should be optional or return empty?
+    public static func getMarkup() -> [MarkupElement]? {
         if currentPattern != nil {
             return currentPattern!.getInstructions()
         } else {
-            return []
+            return nil
         }
     }
     
-    //should be optional or return empty?
     public static func getCurrentPatternTitle() -> String? {
         return currentPattern?.title
     }
+    
     public static func getCurrentPatternDescription() -> String? {
         return currentPattern?.description
     }

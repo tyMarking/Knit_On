@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Title: MarkupElement {
+class Title: NSObject, MarkupElement, NSCoding {
     
     var text: Text = Text(text: "")
     init(title: String) {
@@ -19,5 +19,19 @@ class Title: MarkupElement {
     }
     func convertToSavingString() -> String {
         return ("$title$"+text.convertToSavingString()+"$/title$")
+    }
+    
+    //saving with core data methods
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(text, forKey: Keys.Text)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        if let textObj = aDecoder.decodeObject(forKey: Keys.Text) as? Text {
+            text = textObj
+        }
+    }
+    
+    struct Keys {
+        static let Text = "text"
     }
 }

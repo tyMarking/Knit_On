@@ -13,4 +13,8 @@ protocol MarkupElement {
     func getInstructions() -> String
     func convertToSavingString() -> String
     
+    //saving with core data methods
+    func encode(with aCoder: NSCoder)
+    init?(coder aDecoder: NSCoder)
+
 }

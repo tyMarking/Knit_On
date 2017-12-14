@@ -9,7 +9,7 @@
 import Foundation
 
 //the basic MarkupElement that contains actual, simple text.
-class Text: MarkupElement {
+class Text: NSObject, MarkupElement, NSCoding {
     
     var rawText: String = ""
     
@@ -28,4 +28,18 @@ class Text: MarkupElement {
         return rawText
     }
     
+    
+    //saving with core data methods
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(rawText, forKey: Keys.RawText)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        if let rawTextObj = aDecoder.decodeObject(forKey: Keys.RawText) as? String {
+            rawText = rawTextObj
+        }
+    }
+    
+    struct Keys {
+        static let RawText = "rawText"
+    }
 }

@@ -37,4 +37,28 @@ class GlovePattern: KnittingPattern {
         super.init()
         self.title = "Your Customized Glove Pattern"
     }
+    
+    //saving with core data methods
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(handSize, forKey: Keys.HandSize)
+        aCoder.encode(ease, forKey: Keys.Ease)
+
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        if let handSizeObj = aDecoder.decodeObject(forKey: Keys.HandSize) as? HandMeasurements {
+            handSize = handSizeObj
+        }
+        if let easeObj = aDecoder.decodeObject(forKey: Keys.Ease) as? Float {
+            ease = easeObj
+        }
+
+    }
+    
+    struct Keys {
+        static let HandSize = "handSize"
+        static let Ease = "ease"
+        
+    }
 }
