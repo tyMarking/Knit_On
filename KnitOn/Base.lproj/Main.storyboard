@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qHR-V9-He9">
-                                <rect key="frame" x="16" y="40" width="343" height="349"/>
+                                <rect key="frame" x="16" y="40" width="343" height="153.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pattern Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0E-Uc-cDI">
-                                        <rect key="frame" x="0.0" y="0.0" width="105" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pattern Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0E-Uc-cDI">
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -39,11 +39,17 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vhy-s8-cWL">
-                                        <rect key="frame" x="0.0" y="95" width="320" height="216"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select pattern type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmR-bP-Z3T">
+                                        <rect key="frame" x="0.0" y="95" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SUp-e5-hBZ">
+                                        <rect key="frame" x="0.0" y="119.5" width="320" height="0.0"/>
                                     </pickerView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="e3X-KT-WZe">
-                                        <rect key="frame" x="0.0" y="319" width="135" height="30"/>
+                                        <rect key="frame" x="0.0" y="123.5" width="135" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mC5-Jb-teX">
                                                 <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
@@ -63,6 +69,7 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="vmR-bP-Z3T" secondAttribute="trailing" id="JFL-SN-nqL"/>
                                     <constraint firstAttribute="trailing" secondItem="hmb-he-eyD" secondAttribute="trailing" id="Ora-d1-YDQ"/>
                                 </constraints>
                             </stackView>
@@ -76,7 +83,11 @@
                         <viewLayoutGuide key="safeArea" id="mQU-3v-xn7"/>
                     </view>
                     <connections>
+                        <outlet property="createPatternButton" destination="mC5-Jb-teX" id="fHu-bL-Jod"/>
+                        <outlet property="customizePatternButton" destination="DJe-gk-tz8" id="ubT-cz-RWS"/>
                         <outlet property="nameTextField" destination="hmb-he-eyD" id="d1k-ic-wNr"/>
+                        <outlet property="patternTypeLabel" destination="vmR-bP-Z3T" id="YJL-9I-LWA"/>
+                        <outlet property="patternTypePicker" destination="SUp-e5-hBZ" id="Gfp-ca-2ND"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPW-ic-mvo" userLabel="First Responder" sceneMemberID="firstResponder"/>

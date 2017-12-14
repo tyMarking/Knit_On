@@ -8,12 +8,20 @@
 
 import UIKit
 
+var theKnitter: Knitter!
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        // Need to reload the saved information about the knitter. For now, create some default
+        theKnitter = Knitter();
+        theKnitter.addModule(GloveModule())
+        theKnitter.addModule(GloveModule())
+        
         tableView.reloadData()
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

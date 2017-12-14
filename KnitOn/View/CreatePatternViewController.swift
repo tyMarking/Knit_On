@@ -8,18 +8,117 @@
 
 import UIKit
 
-class CreatePatternViewController: UIViewController {
+class CreatePatternViewController: UIViewController,
+                                   UITextFieldDelegate,
+                                   UIPickerViewDataSource, UIPickerViewDelegate  {
     
     //MARK: Properties
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var patternTypeLabel: UILabel!
+    @IBOutlet weak var patternTypePicker: UIPickerView!
+    @IBOutlet weak var createPatternButton: UIButton!
+    @IBOutlet weak var customizePatternButton: UIButton!
+    
+    var patternModule: SimpleShapeModule?
+    
+    //MARK: Methods
+    
+    private func enableButtonsIfAppropriate() {
+        
+        var isReadyToCreate = false
+        
+        if patternModule != nil {
+            if let patternName = nameTextField.text {
+                isReadyToCreate = !patternName.isEmpty
+            }
+        }
+    
+        createPatternButton.isEnabled = isReadyToCreate
+        customizePatternButton.isEnabled = isReadyToCreate
+    }
     
     //MARK: Actions
     
     @IBAction func createPattern(_ sender: UIButton) {
-        print("Create the pattern!")
+        print("Create pattern!")
     }
     
     @IBAction func createAndCustomizePattern(_ sender: UIButton) {
         print("Create the pattern, and then customize it.")
+    }
+    
+    @IBAction func labelTapGestureRecognizer (gestureReconizer: UITapGestureRecognizer) {
+        patternTypePicker.isHidden = false
+    }
+    
+    //MARK: UIViewController Methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        nameTextField.delegate = self
+        
+        self.enableButtonsIfAppropriate()
+        
+        patternTypePicker.delegate = self
+        patternTypePicker.dataSource = self
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(labelTapGestureRecognizer(gestureReconizer:)))
+        patternTypeLabel.addGestureRecognizer(tap)
+        patternTypeLabel.isUserInteractionEnabled = true
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    //MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        enableButtonsIfAppropriate()
+    }
+    
+    //MARK: UIPickerViewDataSource Methods
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        let availableModules = theKnitter.getModules()
+        return availableModules.count
+    }
+    
+    //MARK: UIPickerViewDelegate Methods
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // This method is called when the user selects a row in a component
+        
+        let availableModules = theKnitter.getModules()
+        let selectedModule = availableModules[row]
+        
+        patternTypeLabel.text = selectedModule.name
+        patternModule = selectedModule
+        
+        enableButtonsIfAppropriate()
+        
+        self.view.endEditing(true)
+        patternTypePicker.isHidden = true
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let availableModules = theKnitter.getModules()
+        var title = ""
+        if row < availableModules.count {
+            title = availableModules[row].name
+        }
+        return title
     }
 }
