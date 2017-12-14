@@ -226,6 +226,16 @@
                                 <rect key="frame" x="0.0" y="103" width="375" height="564"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="patternCellIdentifier" id="eTn-gz-7WD">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eTn-gz-7WD" id="0eA-Pc-4ZI">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="CMx-mc-qbN"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="qI0-eZ-dxy"/>
@@ -405,6 +415,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="StR-Sb-q20"/>
-        <segue reference="o7u-yz-W9L"/>
+        <segue reference="PG4-S9-tiK"/>
     </inferredMetricsTieBreakers>
 </document>

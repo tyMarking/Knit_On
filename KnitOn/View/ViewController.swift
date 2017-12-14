@@ -11,40 +11,75 @@ import UIKit
 var theKnitter: Knitter!
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
+    
+    //MARK: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         // Need to reload the saved information about the knitter. For now, create some default
         theKnitter = Knitter();
+        
+        // Hack -- adding two modules, so I have something to test the pattern type PickerView
         theKnitter.addModule(GloveModule())
         theKnitter.addModule(GloveModule())
         
-        tableView.reloadData()
+        // Create a few patterns
+        var pattern: GlovePattern = GlovePattern()
+        pattern.title = "Pattern 1"
+        theKnitter.addPattern(pattern)
+        
+        pattern = GlovePattern()
+        pattern.title = "Pattern 2"
+        theKnitter.addPattern(pattern)
+        
+        tableView.dataSource = self
+        //tableView.reloadData()
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: UITableViewDelegate
+    
+    //MARK: UITableViewDataSource
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return LimpAlongController.patterns.count
+        return theKnitter.getPatterns().count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text = "Test" //LimpAlongController.patterns[indexPath.row].getName()
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "patternCellIdentifier")!
+        
+        let row = indexPath.row
+        let patterns = theKnitter.getPatterns()
+        cell.textLabel?.text = patterns[row].title
         
         return cell
     }
-    var index = 0
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        index = indexPath.row
-        LimpAlongController.setCurrentPatternIndex(index: index)
-        performSegue(withIdentifier: "PatternFromMainSegue", sender: self)
+        let index = indexPath.row
+        print("Pattern selected at index: " + String(index))
+        //LimpAlongController.setCurrentPatternIndex(index: index)
+        //performSegue(withIdentifier: "PatternFromMainSegue", sender: self)
         //pattern is patterns[index]
     }
     
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == UITableViewCellEditingStyle.delete {
-            LimpAlongController.removePattern(at: indexPath.row)
+            print("Need to delete pattern at index: " + String(indexPath.row))
             tableView.reloadData()
         }
     }
@@ -60,10 +95,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
 
 
 }
