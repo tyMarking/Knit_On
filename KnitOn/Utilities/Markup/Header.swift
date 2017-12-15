@@ -26,7 +26,7 @@ class Header: NSObject, MarkupElement, NSCoding {
         return ("$header$"+text.convertToSavingString()+"$/header$")
     }
     
-    
+    //MARK: Saving Methods
     //saving with core data methods
     func encode(with aCoder: NSCoder) {
         aCoder.encode(level, forKey: Keys.Level)

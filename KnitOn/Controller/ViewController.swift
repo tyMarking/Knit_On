@@ -27,7 +27,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             loadData()
         }
         // Need to reload the saved information about the knitter. For now, create some default
-        theKnitter = Knitter();
+        //theKnitter = Knitter();
         
         // Hack -- adding two modules, so I have something to test the pattern type PickerView
         Controller.knitter?.addModule(GloveModule())
@@ -106,7 +106,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 
     
-    
+    //MARK: Saving Methods
     //saving methods
     class var filePath: String {
         let manager = FileManager.default

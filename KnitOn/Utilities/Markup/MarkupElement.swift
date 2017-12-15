@@ -9,7 +9,7 @@
 import Foundation
 
 //use get instructions to get text for UI
-protocol MarkupElement {
+protocol MarkupElement: NSCoding {
     func getInstructions() -> String
     func convertToSavingString() -> String
     

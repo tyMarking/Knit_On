@@ -56,7 +56,7 @@ class KnittingPattern: NSObject, NSCoding {
         return self.instructions.getInstructions()
     }
     
-    
+    //MARK: Saving Methods
     //saving with core data methods
     func encode(with aCoder: NSCoder) {
         aCoder.encode(title, forKey: Keys.Title)

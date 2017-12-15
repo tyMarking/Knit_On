@@ -10,7 +10,7 @@
 
 import Foundation
 
-protocol SimpleShapeModule {
+protocol SimpleShapeModule: NSCoding {
     var name: String {get}
     
     func createPattern(name: String) -> KnittingPattern

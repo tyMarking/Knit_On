@@ -48,7 +48,7 @@ class Knitter: NSObject, NSCoding{
     }
     
     
-    
+    //MARK: Saving
     //saving with core data methods
     func encode(with aCoder: NSCoder) {
         aCoder.encode(patterns, forKey: Keys.Patterns)
