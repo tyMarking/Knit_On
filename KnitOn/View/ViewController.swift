@@ -16,17 +16,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: UIViewController
+    var loaded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if (!loaded) {
+            loaded = true
+            Controller.initKinitter()
+            loadData()
+        }
         // Need to reload the saved information about the knitter. For now, create some default
         theKnitter = Knitter();
         
         // Hack -- adding two modules, so I have something to test the pattern type PickerView
-        theKnitter.addModule(GloveModule())
-        theKnitter.addModule(GloveModule())
-        
+        Controller.knitter?.addModule(GloveModule())
+        Controller.knitter?.addModule(GloveModule())
+        theKnitter = Controller.knitter
         // Create a few patterns
         var pattern: GlovePattern = GlovePattern()
         pattern.title = "Pattern 1"
