@@ -34,6 +34,7 @@ class AttributedText: NSObject, MarkupElement, NSCoding {
         return defaultAttrString!.string
     }
     
+    //MARK: Saving Methods
     //saving with core data methods
     func encode(with aCoder: NSCoder) {
         aCoder.encode(defaultAttrString, forKey: Keys.DefaultAttrString)

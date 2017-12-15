@@ -28,7 +28,7 @@ class Text: NSObject, MarkupElement, NSCoding {
         return rawText
     }
     
-    
+    //MARK: Saving Methods
     //saving with core data methods
     func encode(with aCoder: NSCoder) {
         aCoder.encode(rawText, forKey: Keys.RawText)

@@ -38,6 +38,8 @@ class GlovePattern: KnittingPattern {
         self.title = "Your Customized Glove Pattern"
     }
     
+    
+    //MARK: Saving Methods
     //saving with core data methods
     override func encode(with aCoder: NSCoder) {
         super.encode(with: aCoder)

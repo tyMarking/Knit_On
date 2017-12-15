@@ -21,6 +21,7 @@ class Title: NSObject, MarkupElement, NSCoding {
         return ("$title$"+text.convertToSavingString()+"$/title$")
     }
     
+    //MARK: Saving Methods
     //saving with core data methods
     func encode(with aCoder: NSCoder) {
         aCoder.encode(text, forKey: Keys.Text)

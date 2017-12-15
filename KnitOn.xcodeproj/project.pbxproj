@@ -194,11 +194,6 @@
 		00A32F7E1FD11AD300F2C482 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4946C89B1FC9F68B00F03AC9 /* ViewController.swift */,
-				495663971FD1DF4D0047D159 /* LimpAlongCreateNewViewController.swift */,
-				4956639D1FD721D90047D159 /* LimpAlongPatternViewController.swift */,
-				4956639F1FD721EC0047D159 /* LimpAlongInstructionsViewController.swift */,
-				006AD6771FDF8C2F00C058A6 /* CreatePatternViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -208,6 +203,11 @@
 			children = (
 				006AD66D1FDDF41500C058A6 /* LimpAlongController.swift */,
 				49FCE3381FDCBF5C00AEDCA9 /* Controller.swift */,
+				4946C89B1FC9F68B00F03AC9 /* ViewController.swift */,
+				495663971FD1DF4D0047D159 /* LimpAlongCreateNewViewController.swift */,
+				4956639D1FD721D90047D159 /* LimpAlongPatternViewController.swift */,
+				4956639F1FD721EC0047D159 /* LimpAlongInstructionsViewController.swift */,
+				006AD6771FDF8C2F00C058A6 /* CreatePatternViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -235,9 +235,9 @@
 		4946C8981FC9F68B00F03AC9 /* KnitOn */ = {
 			isa = PBXGroup;
 			children = (
+				4946C89D1FC9F68B00F03AC9 /* Main.storyboard */,
 				006AD6201FDA508A00C058A6 /* Model */,
 				00A32F7F1FD11AF000F2C482 /* Controller */,
-				4946C89D1FC9F68B00F03AC9 /* Main.storyboard */,
 				00A32F7E1FD11AD300F2C482 /* View */,
 				00A32F7A1FD112DD00F2C482 /* Utilities */,
 				4946C8991FC9F68B00F03AC9 /* AppDelegate.swift */,

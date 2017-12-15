@@ -15,6 +15,7 @@
 import Foundation
 
 class GloveInstructionGenerator: InstructionGenerator {
+    
    
     //MARK: Properties
     
