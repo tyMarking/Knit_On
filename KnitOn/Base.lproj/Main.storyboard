@@ -54,7 +54,7 @@
                                         <rect key="frame" x="0.0" y="91" width="320" height="0.0"/>
                                     </pickerView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="e3X-KT-WZe">
-                                        <rect key="frame" x="0.0" y="95" width="135" height="30"/>
+                                        <rect key="frame" x="0.0" y="95" width="199" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mC5-Jb-teX">
                                                 <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
@@ -70,6 +70,13 @@
                                                     <action selector="createAndCustomizePattern:" destination="bLg-ee-WSd" eventType="touchUpInside" id="qn6-Wd-4gL"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKx-bL-Ymp">
+                                                <rect key="frame" x="151" y="0.0" width="48" height="30"/>
+                                                <state key="normal" title="Cancel"/>
+                                                <connections>
+                                                    <segue destination="BYZ-38-t0r" kind="show" id="X91-q2-d7N"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -77,14 +84,6 @@
                                     <constraint firstAttribute="trailing" secondItem="hmb-he-eyD" secondAttribute="trailing" id="Ora-d1-YDQ"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKx-bL-Ymp">
-                                <rect key="frame" x="266" y="617" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="X91-q2-d7N"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
