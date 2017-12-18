@@ -36,11 +36,8 @@ class CreatePatternViewController: UIViewController,
     }
     
     private func createPattern() {
-        if let module = self.patternModule,
-            let patternName = nameTextField.text,
-            !patternName.isEmpty {
-            let newPattern = module.createPattern(name: patternName)
-            theKnitter.addPattern(newPattern)
+        if let module = self.patternModule, let patternName = nameTextField.text, !patternName.isEmpty {
+            KnitOn.addPattern(patternName: patternName, patternModule: module)
         }
     }
     
@@ -110,7 +107,7 @@ class CreatePatternViewController: UIViewController,
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        let availableModules = theKnitter.getModules()
+        let availableModules = KnitOn.theKnitter.getModules()
         return availableModules.count
     }
     
@@ -119,7 +116,7 @@ class CreatePatternViewController: UIViewController,
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // This method is called when the user selects a row in a component
         
-        let availableModules = theKnitter.getModules()
+        let availableModules = KnitOn.theKnitter.getModules()
         let selectedModule = availableModules[row]
         
         patternTypeLabel.text = selectedModule.name
@@ -131,7 +128,7 @@ class CreatePatternViewController: UIViewController,
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let availableModules = theKnitter.getModules()
+        let availableModules = KnitOn.theKnitter.getModules()
         var title = ""
         if row < availableModules.count {
             title = availableModules[row].name

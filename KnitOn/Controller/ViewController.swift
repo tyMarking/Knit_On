@@ -8,39 +8,13 @@
 
 import UIKit
 
-var theKnitter: Knitter!
-
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
     
-    //MARK: UIViewController
-    var loaded = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if (!loaded) {
-            loaded = true
-            Controller.initKinitter()
-            loadData()
-        }
-        // Need to reload the saved information about the knitter. For now, create some default
-        //theKnitter = Knitter();
-        
-        // Hack -- adding two modules, so I have something to test the pattern type PickerView
-        Controller.knitter?.addModule(GloveModule())
-        Controller.knitter?.addModule(GloveModule())
-        theKnitter = Controller.knitter
-        // Create a few patterns
-        var pattern: GlovePattern = GlovePattern()
-        pattern.title = "Pattern 1"
-        theKnitter.addPattern(pattern)
-        
-        pattern = GlovePattern()
-        pattern.title = "Pattern 2"
-        theKnitter.addPattern(pattern)
         
         tableView.dataSource = self
         //tableView.reloadData()
@@ -56,7 +30,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //MARK: UITableViewDataSource
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return theKnitter.getPatterns().count
+        return KnitOn.theKnitter.getPatterns().count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -68,7 +42,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "patternCellIdentifier")!
         
         let row = indexPath.row
-        let patterns = theKnitter.getPatterns()
+        let patterns = KnitOn.theKnitter.getPatterns()
         cell.textLabel?.text = patterns[row].title
         
         return cell
@@ -97,36 +71,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             
         }*/
-        ViewController.saveData()
-    }
-    
-    
-
-    
-
-
-    
-    //MARK: Saving Methods
-    //saving methods
-    class var filePath: String {
-        let manager = FileManager.default
-        let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first
-        return url!.appendingPathComponent("Data").path
-    }
-    
-    
-    
-    class func saveData() {
-        let knitter = Controller.knitter ?? Knitter()
-        NSKeyedArchiver.archiveRootObject(knitter, toFile: filePath)
         
-        
+        KnitOn.saveData()
     }
     
-    private func loadData() {
-        if let inData = NSKeyedUnarchiver.unarchiveObject(withFile: ViewController.filePath) as? Knitter {
-            Controller.knitter = inData
-        }
-    }
+    
+
+    
+
+
+    
+    
+    
+    
+    
+    
 }
 
