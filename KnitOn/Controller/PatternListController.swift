@@ -13,11 +13,31 @@ class PatternListController: UIViewController, UITableViewDelegate, UITableViewD
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
     
+    //MARK: Actions
+    
+    @IBAction func unwindToPatternList(sender: UIStoryboardSegue) {
+        
+        // Unwinding back from the CreatePatternViewController. Before doing anything, ensure that a new pattern
+        // was created.
+        if let sourceViewController = sender.source as? CreatePatternViewController, sourceViewController.newPattern != nil {
+            let patternCount = KnitOn.theKnitter.getPatterns().count
+            if patternCount > 0 {
+                let newIndexPath = IndexPath(row: patternCount-1, section: 0)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+            else {
+                tableView.reloadData()
+            }
+            KnitOn.saveData()
+        }
+    }
+    
+    //MARK: UIViewController
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
-        //tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {

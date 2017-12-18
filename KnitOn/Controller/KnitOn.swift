@@ -21,11 +21,13 @@ final class KnitOn {
     
     //MARK: Model Related Methods
     
-    static func addPattern(patternName: String, patternModule: SimpleShapeModule) {
+    static func addPattern(patternName: String, patternModule: SimpleShapeModule) -> KnittingPattern? {
+        var newPattern: KnittingPattern?
         if !patternName.isEmpty {
-            let newPattern = patternModule.createPattern(name: patternName)
-            KnitOn.theKnitter.addPattern(newPattern)
+            newPattern = patternModule.createPattern(name: patternName)
+            KnitOn.theKnitter.addPattern(newPattern!)
         }
+        return newPattern
     }
     
     //MARK: Data Saving Methods

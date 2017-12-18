@@ -15,15 +15,15 @@ class CreatePatternViewController: UIViewController,
     //MARK: Properties
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var patternTypePicker: UIPickerView!
-    @IBOutlet weak var createPatternButton: UIButton!
-    @IBOutlet weak var customizePatternButton: UIButton!
     @IBOutlet weak var patternTypeLabel: UILabel!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var patternModule: SimpleShapeModule?
+    var newPattern: KnittingPattern?
     
     //MARK: Methods
     
-    private func enableButtonsIfAppropriate() {
+    private func updateSaveButtonState() {
         
         var isReadyToCreate = false
         
@@ -31,25 +31,47 @@ class CreatePatternViewController: UIViewController,
             isReadyToCreate = !patternName.isEmpty
         }
     
-        createPatternButton.isEnabled = isReadyToCreate
-        customizePatternButton.isEnabled = isReadyToCreate
+        saveButton.isEnabled = isReadyToCreate
     }
     
-    private func createPattern() {
+    private func addPattern() -> KnittingPattern? {
+        var pattern: KnittingPattern?
+        
         if let module = self.patternModule, let patternName = nameTextField.text, !patternName.isEmpty {
-            KnitOn.addPattern(patternName: patternName, patternModule: module)
+            pattern = KnitOn.addPattern(patternName: patternName, patternModule: module)
         }
+        
+        return pattern
+    }
+    
+    //MARK: Navigation
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        // Called when the knitter clicks the cancel button.
+        // Dismiss this model view, which will return back to the Pattern List
+        dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // This method lets you configure a view controller before it's presented.
+        
+        // Let super prepare herself
+        super.prepare(for: segue, sender: sender)
+        
+        // Configure the destination view controller only when the save button is pressed.
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            return
+        }
+        
+        guard let newPattern = addPattern() else {
+            // Pattern was unable to be created
+            return
+        }
+        
+        self.newPattern = newPattern
     }
     
     //MARK: Actions
-    
-    @IBAction func createPattern(_ sender: UIButton) {
-        createPattern()
-    }
-    
-    @IBAction func createAndCustomizePattern(_ sender: UIButton) {
-        createPattern()
-    }
     
     @IBAction func labelTapGestureRecognizer (gestureReconizer: UITapGestureRecognizer) {
         patternTypePicker.isHidden = false
@@ -62,7 +84,7 @@ class CreatePatternViewController: UIViewController,
         
         nameTextField.delegate = self
         
-        self.enableButtonsIfAppropriate()
+        self.updateSaveButtonState()
         
         patternTypePicker.delegate = self
         patternTypePicker.dataSource = self
@@ -97,7 +119,7 @@ class CreatePatternViewController: UIViewController,
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        enableButtonsIfAppropriate()
+        updateSaveButtonState()
     }
     
     //MARK: UIPickerViewDataSource Methods
@@ -122,7 +144,7 @@ class CreatePatternViewController: UIViewController,
         patternTypeLabel.text = selectedModule.name
         patternModule = selectedModule
         
-        enableButtonsIfAppropriate()
+        updateSaveButtonState()
         
         patternTypePicker.isHidden = true
     }

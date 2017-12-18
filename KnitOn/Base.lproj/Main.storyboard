@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O13-qC-G8U">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Create Pattern View Controller-->
+        <!--Add Pattern-->
         <scene sceneID="ktX-Zx-Sx0">
             <objects>
                 <viewController id="bLg-ee-WSd" customClass="CreatePatternViewController" customModule="KnitOn" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qHR-V9-He9">
-                                <rect key="frame" x="16" y="40" width="343" height="125"/>
+                                <rect key="frame" x="16" y="84" width="343" height="87"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pattern Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0E-Uc-cDI">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="20.5"/>
@@ -51,34 +51,8 @@
                                         </subviews>
                                     </stackView>
                                     <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SUp-e5-hBZ">
-                                        <rect key="frame" x="0.0" y="91" width="320" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="87" width="320" height="0.0"/>
                                     </pickerView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="e3X-KT-WZe">
-                                        <rect key="frame" x="0.0" y="95" width="199" height="30"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mC5-Jb-teX">
-                                                <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-                                                <state key="normal" title="Create"/>
-                                                <connections>
-                                                    <action selector="createPattern:" destination="bLg-ee-WSd" eventType="touchUpInside" id="6IW-N0-Rxl"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJe-gk-tz8">
-                                                <rect key="frame" x="62" y="0.0" width="73" height="30"/>
-                                                <state key="normal" title="Customize"/>
-                                                <connections>
-                                                    <action selector="createAndCustomizePattern:" destination="bLg-ee-WSd" eventType="touchUpInside" id="qn6-Wd-4gL"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKx-bL-Ymp">
-                                                <rect key="frame" x="151" y="0.0" width="48" height="30"/>
-                                                <state key="normal" title="Cancel"/>
-                                                <connections>
-                                                    <segue destination="BYZ-38-t0r" kind="show" id="X91-q2-d7N"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="hmb-he-eyD" secondAttribute="trailing" id="Ora-d1-YDQ"/>
@@ -93,17 +67,29 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mQU-3v-xn7"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Add Pattern" id="cIg-1I-8jE">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="i5q-Ob-R4h">
+                            <connections>
+                                <action selector="cancel:" destination="bLg-ee-WSd" id="mDw-ec-JOv"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="oLG-0S-INj">
+                            <connections>
+                                <segue destination="2MD-cR-vEE" kind="unwind" unwindAction="unwindToPatternListWithSender:" id="Shv-2Q-fxD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="createPatternButton" destination="mC5-Jb-teX" id="fHu-bL-Jod"/>
-                        <outlet property="customizePatternButton" destination="DJe-gk-tz8" id="ubT-cz-RWS"/>
                         <outlet property="nameTextField" destination="hmb-he-eyD" id="d1k-ic-wNr"/>
                         <outlet property="patternTypeLabel" destination="Wcw-yu-O1C" id="Ord-Y5-tvI"/>
                         <outlet property="patternTypePicker" destination="SUp-e5-hBZ" id="Gfp-ca-2ND"/>
+                        <outlet property="saveButton" destination="oLG-0S-INj" id="fb0-cr-cyE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPW-ic-mvo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="2MD-cR-vEE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-714.39999999999998" y="-690.40479760119945"/>
+            <point key="canvasLocation" x="-2425" y="-2161"/>
         </scene>
         <!--Limp Along Create New View Controller-->
         <scene sceneID="5Xs-TA-FMM">
@@ -163,9 +149,6 @@
                                 <rect key="frame" x="158" y="498" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="PG4-S9-tiK"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAq-ZP-cR1">
                                 <rect key="frame" x="58" y="71" width="59" height="21"/>
@@ -204,7 +187,6 @@
                                 <state key="normal" title="Create Pattern"/>
                                 <connections>
                                     <action selector="createPattern:" destination="4La-xR-wUv" eventType="touchUpInside" id="Oco-Ub-Pbx"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="createPatternSegue" id="Nvb-yT-RzK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -219,9 +201,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPb-Em-DAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="-689"/>
+            <point key="canvasLocation" x="3012" y="-224"/>
         </scene>
-        <!--Pattern List Controller-->
+        <!--Patterns-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PatternListController" customModule="KnitOn" customModuleProvider="target" sceneMemberID="viewController">
@@ -248,25 +230,17 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="qI0-eZ-dxy"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Paterns" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFo-sR-uoz">
-                                <rect key="frame" x="141" y="74" width="92" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1m-wa-7ng">
-                                <rect key="frame" x="104" y="20" width="167" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create Pattern"/>
-                                <connections>
-                                    <segue destination="bLg-ee-WSd" kind="show" id="D6V-Aj-lk8"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Patterns" leftItemsSupplementBackButton="YES" id="sq3-Cd-dGy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="faf-jo-LhX">
+                            <connections>
+                                <segue destination="OKE-hg-Bmc" kind="presentation" identifier="AddPattern" id="dZi-Qv-Vyc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="XW8-a6-M8n" id="efU-Wy-boX"/>
                         <segue destination="7ab-ZW-2Ek" kind="show" identifier="PatternFromMainSegue" id="StR-Sb-q20"/>
@@ -274,7 +248,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+            <point key="canvasLocation" x="-3489" y="-2979"/>
         </scene>
         <!--Limp Along Pattern View Controller-->
         <scene sceneID="JlW-1h-dd5">
@@ -288,9 +262,6 @@
                                 <rect key="frame" x="16" y="617" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="o7u-yz-W9L"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lws-Yn-yUG">
                                 <rect key="frame" x="120" y="20" width="135" height="21"/>
@@ -359,7 +330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPa-nL-CiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1653.5999999999999" y="132.68365817091455"/>
+            <point key="canvasLocation" x="-2362" y="-2979"/>
         </scene>
         <!--Limp Along Instructions View Controller-->
         <scene sceneID="NgL-c2-1cV">
@@ -417,11 +388,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uZB-pc-EZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1653.5999999999999" y="-688.60569715142435"/>
+            <point key="canvasLocation" x="-970" y="-2979"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Vl3-Yb-cTa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O13-qC-G8U" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5VT-Fa-SmI">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="O6U-Rp-vtM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="THM-Kg-gMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4546" y="-2978"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9Nn-eG-YHd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OKE-hg-Bmc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eF3-3b-rqK">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bLg-ee-WSd" kind="relationship" relationship="rootViewController" id="OZk-rS-Z5J"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WrE-mm-3vb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3490" y="-2161"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="StR-Sb-q20"/>
-        <segue reference="X91-q2-d7N"/>
+        <segue reference="aBT-6c-b58"/>
     </inferredMetricsTieBreakers>
 </document>
