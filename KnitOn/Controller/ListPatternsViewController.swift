@@ -19,6 +19,9 @@ class ListPatternsViewController: UIViewController, UITableViewDelegate, UITable
         
         super.prepare(for: segue, sender: sender)
         
+        // Is there a way to change the view in the destination programmatically?
+        // For example, I want to show different pattern details based on the type of pattern
+        // Should it be done here? Or in the ShowPatternDetailsViewController class?
         if segue.identifier == "ShowPatternDetail" {
             guard let showPatternDetailsViewController = segue.destination as? ShowPatternDetailsViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")

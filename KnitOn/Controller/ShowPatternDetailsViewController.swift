@@ -5,6 +5,10 @@
 //  Created by CAROLYN STEELE on 12/18/17.
 //  Copyright © 2017 Knit On. All rights reserved.
 //
+//  This class is the view controller for the Show Pattern Details scene.
+//
+//  Eventually, this view will display different information based on the type of pattern it's
+//  displaying. What is the best way to do this?
 
 import UIKit
 
@@ -15,15 +19,21 @@ class ShowPatternDetailsViewController: UITableViewController {
     @IBOutlet weak var patternNameLabel: UILabel!
     
     var pattern: KnittingPattern?
+    var isEditingEnabled = false
     
     //MARK: UIViewController Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let pattern = self.pattern {
-            patternNameLabel.text = pattern.title
+        if let glovePattern = self.pattern as? GlovePattern {
+            patternNameLabel.text = glovePattern.title
+            
+            
         }
+        
+        // Show or hide the accesory icons and save/edit buttons based on
+        // the isEditingEnabled property.
     }
     
     override func didReceiveMemoryWarning() {
