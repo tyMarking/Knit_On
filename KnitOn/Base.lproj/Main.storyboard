@@ -13,7 +13,7 @@
         <!--Add Pattern-->
         <scene sceneID="ktX-Zx-Sx0">
             <objects>
-                <viewController id="bLg-ee-WSd" customClass="CreatePatternViewController" customModule="KnitOn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bLg-ee-WSd" customClass="AddPatternViewController" customModule="KnitOn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0RO-Tk-13z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,7 +94,7 @@
         <!--Patterns-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PatternListController" customModule="KnitOn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ListPatternsViewController" customModule="KnitOn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,13 +104,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="patternCellIdentifier" id="eTn-gz-7WD">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="patternCellIdentifier" id="eTn-gz-7WD">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eTn-gz-7WD" id="0eA-Pc-4ZI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="3S3-VA-j4n" kind="show" identifier="ShowPatternDetail" id="Qo2-4r-dUn"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -131,12 +134,85 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="XW8-a6-M8n" id="efU-Wy-boX"/>
-                        <segue destination="7ab-ZW-2Ek" kind="show" identifier="PatternFromMainSegue" id="StR-Sb-q20"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3489" y="-2979"/>
+        </scene>
+        <!--Show Pattern Details View Controller-->
+        <scene sceneID="FM3-hG-mZf">
+            <objects>
+                <tableViewController id="3S3-VA-j4n" customClass="ShowPatternDetailsViewController" customModule="KnitOn" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jZf-sr-rRW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="t9D-xP-WUl">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="H5X-hM-LTh">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H5X-hM-LTh" id="qKV-IC-LRQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMv-wr-dsS">
+                                                    <rect key="frame" x="5" y="8" width="45" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Pattern Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqh-Sc-HNf">
+                                                    <rect key="frame" x="50" y="8" width="317" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Nqh-Sc-HNf" firstAttribute="leading" secondItem="jMv-wr-dsS" secondAttribute="trailing" id="JdI-PS-VZ1"/>
+                                                <constraint firstItem="jMv-wr-dsS" firstAttribute="leading" secondItem="qKV-IC-LRQ" secondAttribute="leading" constant="5" id="TBZ-q8-11f"/>
+                                                <constraint firstItem="Nqh-Sc-HNf" firstAttribute="top" secondItem="qKV-IC-LRQ" secondAttribute="top" constant="8" id="Wuf-r5-P5q"/>
+                                                <constraint firstAttribute="bottom" secondItem="Nqh-Sc-HNf" secondAttribute="bottom" constant="8" id="cpX-9H-v78"/>
+                                                <constraint firstAttribute="bottom" secondItem="jMv-wr-dsS" secondAttribute="bottom" constant="8" id="ebC-Rg-QlZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="Nqh-Sc-HNf" secondAttribute="trailing" constant="8" id="hFL-GR-JCc"/>
+                                                <constraint firstItem="jMv-wr-dsS" firstAttribute="top" secondItem="qKV-IC-LRQ" secondAttribute="top" constant="8" id="s9V-pc-yGB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="KOt-3N-AE8">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KOt-3N-AE8" id="hzz-bt-ykY">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="HLp-FU-bRn">
+                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HLp-FU-bRn" id="RpL-mk-vcE">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="3S3-VA-j4n" id="c03-2Y-c8P"/>
+                            <outlet property="delegate" destination="3S3-VA-j4n" id="Ta2-zv-F9J"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="patternNameLabel" destination="Nqh-Sc-HNf" id="EcZ-ap-eeZ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ddN-MI-sCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2551.1999999999998" y="-2980.6596701649178"/>
         </scene>
         <!--Limp Along Pattern View Controller-->
         <scene sceneID="JlW-1h-dd5">
@@ -218,7 +294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPa-nL-CiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2362" y="-2979"/>
+            <point key="canvasLocation" x="-4546" y="-3781"/>
         </scene>
         <!--Limp Along Instructions View Controller-->
         <scene sceneID="NgL-c2-1cV">
@@ -276,7 +352,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uZB-pc-EZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-970" y="-2979"/>
+            <point key="canvasLocation" x="-3490" y="-3781"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vl3-Yb-cTa">
@@ -316,6 +392,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="StR-Sb-q20"/>
+        <segue reference="aBT-6c-b58"/>
     </inferredMetricsTieBreakers>
 </document>

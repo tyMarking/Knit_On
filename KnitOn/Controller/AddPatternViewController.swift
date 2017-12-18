@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreatePatternViewController: UIViewController,
+class AddPatternViewController: UIViewController,
                                    UITextFieldDelegate,
                                    UIPickerViewDataSource, UIPickerViewDelegate  {
     

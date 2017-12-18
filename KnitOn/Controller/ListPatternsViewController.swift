@@ -8,10 +8,33 @@
 
 import UIKit
 
-class PatternListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ListPatternsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
+    
+    //MARK: Navigation
+    
+    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == "ShowPatternDetail" {
+            guard let showPatternDetailsViewController = segue.destination as? ShowPatternDetailsViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedCell = sender as? UITableViewCell else {
+                fatalError("Unexpected sender")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            showPatternDetailsViewController.pattern = KnitOn.theKnitter.getPatterns()[indexPath.row]
+        }
+    }
     
     //MARK: Actions
     
@@ -19,7 +42,7 @@ class PatternListController: UIViewController, UITableViewDelegate, UITableViewD
         
         // Unwinding back from the CreatePatternViewController. Before doing anything, ensure that a new pattern
         // was created.
-        if let sourceViewController = sender.source as? CreatePatternViewController, sourceViewController.newPattern != nil {
+        if let sourceViewController = sender.source as? AddPatternViewController, sourceViewController.newPattern != nil {
             let patternCount = KnitOn.theKnitter.getPatterns().count
             if patternCount > 0 {
                 let newIndexPath = IndexPath(row: patternCount-1, section: 0)
@@ -96,16 +119,7 @@ class PatternListController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*if (segue.identifier == "PatternFromMainSegue") {
-            let toController = segue.destination as! LimpAlongPatternViewController
-            toController.pattern = LimpAlongController.patterns[index]
-            
-            
-        }*/
-        
-        KnitOn.saveData()
-    }
+    
     
     
 
