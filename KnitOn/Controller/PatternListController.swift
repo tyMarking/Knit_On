@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PatternListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
