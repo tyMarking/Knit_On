@@ -33,7 +33,7 @@ class Knitter: NSObject, NSCoding{
         return self.patterns
     }
     
-    func removePattern(at: Int) {
+    func removePatternAtIndex(at: Int) {
         if at >= 0 && at < patterns.count {
             self.patterns.remove(at: at)
         }

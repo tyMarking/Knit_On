@@ -76,13 +76,25 @@ class PatternListController: UIViewController, UITableViewDelegate, UITableViewD
         //pattern is patterns[index]
     }
     
+    
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == UITableViewCellEditingStyle.delete {
-            print("Need to delete pattern at index: " + String(indexPath.row))
-            tableView.reloadData()
+            // Commit the deletion of a pattern
+            
+            tableView.beginUpdates()
+            
+            // Update the model: Delete the selected pattern from theKnitter's list of patterns
+            KnitOn.theKnitter.removePatternAtIndex(at: indexPath.row)
+            KnitOn.saveData()
+            
+            // Update the view: Delete the selecte row from the table view
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            tableView.endUpdates()
         }
     }
+    
     
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         /*if (segue.identifier == "PatternFromMainSegue") {
