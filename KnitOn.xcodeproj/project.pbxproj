@@ -36,7 +36,6 @@
 		4946C8B21FC9F68C00F03AC9 /* KnitOnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C8B11FC9F68C00F03AC9 /* KnitOnTests.swift */; };
 		4946C8BD1FC9F68C00F03AC9 /* KnitOnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C8BC1FC9F68C00F03AC9 /* KnitOnUITests.swift */; };
 		4946C8CF1FCB7D9300F03AC9 /* Markup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C8CE1FCB7D9300F03AC9 /* Markup.swift */; };
-		495663981FD1DF4D0047D159 /* LimpAlongCreateNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495663971FD1DF4D0047D159 /* LimpAlongCreateNewViewController.swift */; };
 		4956639E1FD721D90047D159 /* LimpAlongPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4956639D1FD721D90047D159 /* LimpAlongPatternViewController.swift */; };
 		495663A01FD721EC0047D159 /* LimpAlongInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4956639F1FD721EC0047D159 /* LimpAlongInstructionsViewController.swift */; };
 		49FCE3391FDCBF5C00AEDCA9 /* KnitOn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCE3381FDCBF5C00AEDCA9 /* KnitOn.swift */; };
@@ -103,7 +102,6 @@
 		4946C8BC1FC9F68C00F03AC9 /* KnitOnUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnitOnUITests.swift; sourceTree = "<group>"; };
 		4946C8BE1FC9F68C00F03AC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4946C8CE1FCB7D9300F03AC9 /* Markup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Markup.swift; sourceTree = "<group>"; };
-		495663971FD1DF4D0047D159 /* LimpAlongCreateNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimpAlongCreateNewViewController.swift; sourceTree = "<group>"; };
 		4956639D1FD721D90047D159 /* LimpAlongPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimpAlongPatternViewController.swift; sourceTree = "<group>"; };
 		4956639F1FD721EC0047D159 /* LimpAlongInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimpAlongInstructionsViewController.swift; sourceTree = "<group>"; };
 		49FCE3381FDCBF5C00AEDCA9 /* KnitOn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnitOn.swift; sourceTree = "<group>"; };
@@ -197,7 +195,6 @@
 				006AD66D1FDDF41500C058A6 /* LimpAlongController.swift */,
 				49FCE3381FDCBF5C00AEDCA9 /* KnitOn.swift */,
 				4946C89B1FC9F68B00F03AC9 /* PatternListController.swift */,
-				495663971FD1DF4D0047D159 /* LimpAlongCreateNewViewController.swift */,
 				4956639D1FD721D90047D159 /* LimpAlongPatternViewController.swift */,
 				4956639F1FD721EC0047D159 /* LimpAlongInstructionsViewController.swift */,
 				006AD6771FDF8C2F00C058A6 /* CreatePatternViewController.swift */,
@@ -435,7 +432,6 @@
 				006AD6781FDF8C2F00C058A6 /* CreatePatternViewController.swift in Sources */,
 				49FCE3421FDCCF8000AEDCA9 /* Title.swift in Sources */,
 				49FCE3391FDCBF5C00AEDCA9 /* KnitOn.swift in Sources */,
-				495663981FD1DF4D0047D159 /* LimpAlongCreateNewViewController.swift in Sources */,
 				006AD63B1FDA508A00C058A6 /* Gauge.swift in Sources */,
 				006AD6381FDA508A00C058A6 /* HandMeasurements.swift in Sources */,
 				4946C89C1FC9F68B00F03AC9 /* PatternListController.swift in Sources */,
