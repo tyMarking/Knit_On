@@ -38,6 +38,9 @@ class GloveArmInstructionGenerator: InstructionGenerator {
             if let cuffStitchPattern = armConfig.cuffStitchPattern {
                 castOnStitches = cuffStitchPattern.augmentStitchCount(stitchCount: castOnStitches)
             }
+            else {
+                castOnStitches = armConfig.armStitchPattern.augmentStitchCount(stitchCount: castOnStitches)
+            }
         }
         
         return castOnStitches

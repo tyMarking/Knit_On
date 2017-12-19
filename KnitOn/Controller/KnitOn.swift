@@ -66,6 +66,10 @@ final class KnitOn {
         pattern = GlovePattern()
         pattern.title = "Pattern 2"
         KnitOn.theKnitter.addPattern(pattern)
+        
+        pattern = GlovePattern()
+        pattern.title = "Brooke's Christmas Gloves"
+        pattern.gauge = Gauge(stitchGauge: 5.5)
     }
 
 }

@@ -27,6 +27,8 @@
 		006AD6721FDE210300C058A6 /* SimpleShapeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AD6711FDE210300C058A6 /* SimpleShapeModule.swift */; };
 		006AD6741FDE222800C058A6 /* GloveModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AD6731FDE222800C058A6 /* GloveModule.swift */; };
 		006AD6781FDF8C2F00C058A6 /* AddPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AD6771FDF8C2F00C058A6 /* AddPatternViewController.swift */; };
+		00C5EC841FE99C2100DF31D3 /* SimpleShapesModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5EC831FE99C2100DF31D3 /* SimpleShapesModelTests.swift */; };
+		00C5EC921FE9A3A600DF31D3 /* GloveModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5EC911FE9A3A600DF31D3 /* GloveModelTests.swift */; };
 		00F556721FE876390088C7DA /* ShowPatternDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F556711FE876390088C7DA /* ShowPatternDetailsViewController.swift */; };
 		4946C89A1FC9F68B00F03AC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C8991FC9F68B00F03AC9 /* AppDelegate.swift */; };
 		4946C89C1FC9F68B00F03AC9 /* ListPatternsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C89B1FC9F68B00F03AC9 /* ListPatternsViewController.swift */; };
@@ -51,6 +53,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		00C5EC861FE99C2100DF31D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4946C88E1FC9F68B00F03AC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4946C8951FC9F68B00F03AC9;
+			remoteInfo = KnitOn;
+		};
+		00C5EC941FE9A3A600DF31D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4946C88E1FC9F68B00F03AC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4946C8951FC9F68B00F03AC9;
+			remoteInfo = KnitOn;
+		};
 		4946C8AE1FC9F68C00F03AC9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4946C88E1FC9F68B00F03AC9 /* Project object */;
@@ -88,6 +104,12 @@
 		006AD6711FDE210300C058A6 /* SimpleShapeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleShapeModule.swift; sourceTree = "<group>"; };
 		006AD6731FDE222800C058A6 /* GloveModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GloveModule.swift; sourceTree = "<group>"; };
 		006AD6771FDF8C2F00C058A6 /* AddPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPatternViewController.swift; sourceTree = "<group>"; };
+		00C5EC811FE99C2100DF31D3 /* SimpleShapesModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleShapesModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00C5EC831FE99C2100DF31D3 /* SimpleShapesModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleShapesModelTests.swift; sourceTree = "<group>"; };
+		00C5EC851FE99C2100DF31D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00C5EC8F1FE9A3A600DF31D3 /* GloveModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GloveModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00C5EC911FE9A3A600DF31D3 /* GloveModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GloveModelTests.swift; sourceTree = "<group>"; };
+		00C5EC931FE9A3A600DF31D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00F556711FE876390088C7DA /* ShowPatternDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPatternDetailsViewController.swift; sourceTree = "<group>"; };
 		4946C8961FC9F68B00F03AC9 /* KnitOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnitOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4946C8991FC9F68B00F03AC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +140,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		00C5EC7E1FE99C2100DF31D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00C5EC8C1FE9A3A600DF31D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4946C8931FC9F68B00F03AC9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -205,12 +241,32 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		00C5EC821FE99C2100DF31D3 /* SimpleShapesModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				00C5EC831FE99C2100DF31D3 /* SimpleShapesModelTests.swift */,
+				00C5EC851FE99C2100DF31D3 /* Info.plist */,
+			);
+			path = SimpleShapesModelTests;
+			sourceTree = "<group>";
+		};
+		00C5EC901FE9A3A600DF31D3 /* GloveModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				00C5EC911FE9A3A600DF31D3 /* GloveModelTests.swift */,
+				00C5EC931FE9A3A600DF31D3 /* Info.plist */,
+			);
+			path = GloveModelTests;
+			sourceTree = "<group>";
+		};
 		4946C88D1FC9F68B00F03AC9 = {
 			isa = PBXGroup;
 			children = (
 				4946C8981FC9F68B00F03AC9 /* KnitOn */,
 				4946C8B01FC9F68C00F03AC9 /* KnitOnTests */,
 				4946C8BB1FC9F68C00F03AC9 /* KnitOnUITests */,
+				00C5EC821FE99C2100DF31D3 /* SimpleShapesModelTests */,
+				00C5EC901FE9A3A600DF31D3 /* GloveModelTests */,
 				4946C8971FC9F68B00F03AC9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -221,6 +277,8 @@
 				4946C8961FC9F68B00F03AC9 /* KnitOn.app */,
 				4946C8AD1FC9F68C00F03AC9 /* KnitOnTests.xctest */,
 				4946C8B81FC9F68C00F03AC9 /* KnitOnUITests.xctest */,
+				00C5EC811FE99C2100DF31D3 /* SimpleShapesModelTests.xctest */,
+				00C5EC8F1FE9A3A600DF31D3 /* GloveModelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -278,6 +336,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		00C5EC801FE99C2100DF31D3 /* SimpleShapesModelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00C5EC8A1FE99C2100DF31D3 /* Build configuration list for PBXNativeTarget "SimpleShapesModelTests" */;
+			buildPhases = (
+				00C5EC7D1FE99C2100DF31D3 /* Sources */,
+				00C5EC7E1FE99C2100DF31D3 /* Frameworks */,
+				00C5EC7F1FE99C2100DF31D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00C5EC871FE99C2100DF31D3 /* PBXTargetDependency */,
+			);
+			name = SimpleShapesModelTests;
+			productName = SimpleShapesModelTests;
+			productReference = 00C5EC811FE99C2100DF31D3 /* SimpleShapesModelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		00C5EC8E1FE9A3A600DF31D3 /* GloveModelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00C5EC961FE9A3A600DF31D3 /* Build configuration list for PBXNativeTarget "GloveModelTests" */;
+			buildPhases = (
+				00C5EC8B1FE9A3A600DF31D3 /* Sources */,
+				00C5EC8C1FE9A3A600DF31D3 /* Frameworks */,
+				00C5EC8D1FE9A3A600DF31D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00C5EC951FE9A3A600DF31D3 /* PBXTargetDependency */,
+			);
+			name = GloveModelTests;
+			productName = GloveModelTests;
+			productReference = 00C5EC8F1FE9A3A600DF31D3 /* GloveModelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		4946C8951FC9F68B00F03AC9 /* KnitOn */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4946C8C11FC9F68C00F03AC9 /* Build configuration list for PBXNativeTarget "KnitOn" */;
@@ -341,6 +435,16 @@
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Knit On";
 				TargetAttributes = {
+					00C5EC801FE99C2100DF31D3 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 4946C8951FC9F68B00F03AC9;
+					};
+					00C5EC8E1FE9A3A600DF31D3 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 4946C8951FC9F68B00F03AC9;
+					};
 					4946C8951FC9F68B00F03AC9 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
@@ -373,11 +477,27 @@
 				4946C8951FC9F68B00F03AC9 /* KnitOn */,
 				4946C8AC1FC9F68C00F03AC9 /* KnitOnTests */,
 				4946C8B71FC9F68C00F03AC9 /* KnitOnUITests */,
+				00C5EC801FE99C2100DF31D3 /* SimpleShapesModelTests */,
+				00C5EC8E1FE9A3A600DF31D3 /* GloveModelTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		00C5EC7F1FE99C2100DF31D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00C5EC8D1FE9A3A600DF31D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4946C8941FC9F68B00F03AC9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -405,6 +525,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		00C5EC7D1FE99C2100DF31D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00C5EC841FE99C2100DF31D3 /* SimpleShapesModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00C5EC8B1FE9A3A600DF31D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00C5EC921FE9A3A600DF31D3 /* GloveModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4946C8921FC9F68B00F03AC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -467,6 +603,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		00C5EC871FE99C2100DF31D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4946C8951FC9F68B00F03AC9 /* KnitOn */;
+			targetProxy = 00C5EC861FE99C2100DF31D3 /* PBXContainerItemProxy */;
+		};
+		00C5EC951FE9A3A600DF31D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4946C8951FC9F68B00F03AC9 /* KnitOn */;
+			targetProxy = 00C5EC941FE9A3A600DF31D3 /* PBXContainerItemProxy */;
+		};
 		4946C8AF1FC9F68C00F03AC9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4946C8951FC9F68B00F03AC9 /* KnitOn */;
@@ -499,6 +645,66 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		00C5EC881FE99C2100DF31D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SimpleShapesModelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.SimpleShapesModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnitOn.app/KnitOn";
+			};
+			name = Debug;
+		};
+		00C5EC891FE99C2100DF31D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SimpleShapesModelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.SimpleShapesModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnitOn.app/KnitOn";
+			};
+			name = Release;
+		};
+		00C5EC971FE9A3A600DF31D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GloveModelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.GloveModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnitOn.app/KnitOn";
+			};
+			name = Debug;
+		};
+		00C5EC981FE9A3A600DF31D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GloveModelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.GloveModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnitOn.app/KnitOn";
+			};
+			name = Release;
+		};
 		4946C8BF1FC9F68C00F03AC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -705,6 +911,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		00C5EC8A1FE99C2100DF31D3 /* Build configuration list for PBXNativeTarget "SimpleShapesModelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00C5EC881FE99C2100DF31D3 /* Debug */,
+				00C5EC891FE99C2100DF31D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00C5EC961FE9A3A600DF31D3 /* Build configuration list for PBXNativeTarget "GloveModelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00C5EC971FE9A3A600DF31D3 /* Debug */,
+				00C5EC981FE9A3A600DF31D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4946C8911FC9F68B00F03AC9 /* Build configuration list for PBXProject "KnitOn" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

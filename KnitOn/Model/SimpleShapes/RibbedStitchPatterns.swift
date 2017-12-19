@@ -7,6 +7,7 @@
 //
 // This file includes a variety of StitchPattern subclass that define related rib patterns, including:
 //      1) OneByOneRib
+//      2) TwoByTwoRib
 //
 // Intentionally grouped into one file.
 
@@ -14,24 +15,46 @@ import Foundation
 
 class OneByOneRib: StitchPattern {
     
-    // Initialization
+    //MARK:  Initialization
     override init() {
         super.init()
         self.name = "1 by 1 Rib"
         self.multipleOfNStitches = 2
     }
     
-    /*
-     * Methods
-     */
+    //MARK: StitchPattern Methods
     
-    // Stitch count needs to be even
     override func augmentStitchCount(stitchCount: Int) -> Int {
-        var newStitichCount = stitchCount
-        if newStitichCount % 2 == 1 {
-            newStitichCount += 1
+        // Stitch count needs to be even
+        var newStitchCount = stitchCount
+        if newStitchCount % 2 == 1 {
+            newStitchCount += 1
         }
-        return newStitichCount
+        return newStitchCount
+    }
+}
+
+class TwoByTwoRib: StitchPattern {
+    
+    //MARK:  Initialization
+    override init() {
+        super.init()
+        self.name = "2 by 2 Rib"
+        self.multipleOfNStitches = 4
     }
     
+    //MARK: StitchPattern Methods
+    
+    override func augmentStitchCount(stitchCount: Int) -> Int {
+        // Stitch count needs to be even
+        var newStitchCount = stitchCount
+        let remainder = stitchCount % 2
+        if remainder <= 2 {
+            newStitchCount -= remainder
+        }
+        else {
+            newStitchCount += (multipleOfNStitches - remainder)
+        }
+        return newStitchCount
+    }
 }

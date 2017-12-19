@@ -12,7 +12,7 @@ struct GloveArmConfig {
     
     // ArmLength: There are 4 standard glove arm lengths. The rawValue is the actual length of the arm in inches
     enum ArmLength: Float {
-        case short = 2
+        case short = 2.5
         case standard = 4
         case long = 6
         case gauntlet = 8
