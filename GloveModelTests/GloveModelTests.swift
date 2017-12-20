@@ -15,17 +15,39 @@ class GloveModelTests: XCTestCase {
     
     private func setUpBrookesGlovePattern() -> GlovePattern {
         let pattern = GlovePattern()
-        pattern.title = "Brooke's Christmas Gloves"
-        pattern.gauge = Gauge(stitchGauge: 5.5)
-        pattern.handSize = WomanXSmallHand()
         
+        // Set General Properties
+        pattern.title = "Brooke's Christmas Gloves"
+        pattern.patternDescription = "Brooke’s Christmas present 2017, to match a cabled hat I made her. Yarn: The Fibre Co’s Acadia in the Mountain Ash colorway. Needles: US 6"
+        pattern.gauge = Gauge(stitchGauge: 6.0)
+        pattern.handSize = WomanXSmallHand()
+        pattern.ease = 0
+        
+        // Set Arm Configuration Properties
         var armConfig = GloveArmConfig()
         armConfig.armLength = GloveArmConfig.ArmLength.short
         armConfig.isWristShaping = false
         armConfig.cuffLength = 0
         armConfig.armStitchPattern = TwoByTwoRib()
-        
+        armConfig.armStitchPattern.isRowByRow = false
         pattern.armConfig = armConfig
+        
+        // Set Thumb and Hand Configuration Properties
+        var thumbHandConfig = ThumbHandConfig()
+        let panelPattern: PanelStitchPattern = ThreeOverThreeDoubleCable()
+        panelPattern.isRowByRow = false
+        panelPattern.offsetStitches = 2
+        panelPattern.alignment = PanelStitchPattern.PanelAlignment.OuterEdge
+        thumbHandConfig.handStitchPattern = panelPattern
+        pattern.thumbHandConfig = thumbHandConfig
+        
+        // Set Fingers Configuration Properties
+        var fingersConfig = FingersConfig()
+        fingersConfig.fingerCoverage = FingersConfig.FingerCoverage.standard // the default
+        fingersConfig.isIndividualFingers = false // the default
+        fingersConfig.edgingLength = 1 // the default
+        fingersConfig.edgingStitchPattern = TwoByTwoRib()
+        pattern.fingersConfig = fingersConfig
         
         return pattern
     }
@@ -48,32 +70,42 @@ class GloveModelTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
     
     func testBrookesGloves() {
         
         let pattern = self.setUpBrookesGlovePattern()
+        XCTAssertFalse(pattern.isRightLeftInterchangable())
         
         let gloveArmInstructionGen = GloveArmInstructionGenerator()
         let castOnStitches = gloveArmInstructionGen.calculateCastOnStitches(pattern: pattern)
         
-        XCTAssertEqual(castOnStitches, 36, "Cast On Stitches Incorrect")
+        XCTAssertEqual(castOnStitches % 4, 0, "Cast On Stitches not multiple of 4")
         
-        gloveArmInstructionGen.generateInstructions(pattern: pattern)
-        self.logInstructions(instructions: pattern.getInstructions())
-        
-        //NSLog(instructionMarkUp)
+        //let gloveArm = pattern.armConfig
+        //let handThumbConfig = pattern.thumbHandConfig
         
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testBrookesPatternStitchPatternInstructions() {
+        let pattern = self.setUpBrookesGlovePattern()
+        
+        let gloveArm = pattern.armConfig
+        let armStitchPattern = gloveArm.armStitchPattern
+        NSLog(armStitchPattern.generateStitchPatternDescription())
+        NSLog(armStitchPattern.generateStitchPatternInstructions())
+        
+        let handThumbConfig = pattern.thumbHandConfig
+        let handStitchPattern = handThumbConfig.handStitchPattern
+        NSLog(handStitchPattern.generateStitchPatternDescription())
+        NSLog(handStitchPattern.generateStitchPatternInstructions())
     }
+    
+    func testBrookePatternInstructions() {
+        let pattern = self.setUpBrookesGlovePattern()
+        let gloveArmInstructionGen = GloveArmInstructionGenerator()
+        
+        gloveArmInstructionGen.generateInstructions(pattern: pattern)
+        self.logInstructions(instructions: pattern.getInstructions())
+    } 
     
 }

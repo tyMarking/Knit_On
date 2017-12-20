@@ -18,10 +18,14 @@ struct GloveArmConfig {
         case gauntlet = 8
     }
     
-    // Properties
+    //MARK: Configuration Properties
     var armLength: ArmLength = ArmLength.standard
     var isWristShaping: Bool = true
     var cuffLength: Float = 1
     var cuffStitchPattern: StitchPattern?
     var armStitchPattern: StitchPattern = StockinetteStich()
+    
+    //Mark: Emphemeral Properties
+    // Used to record transition states when generating instructions
+    var endingStitchCount: Int = 0;
 }

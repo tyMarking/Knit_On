@@ -29,6 +29,15 @@
 		006AD6781FDF8C2F00C058A6 /* AddPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AD6771FDF8C2F00C058A6 /* AddPatternViewController.swift */; };
 		00C5EC841FE99C2100DF31D3 /* SimpleShapesModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5EC831FE99C2100DF31D3 /* SimpleShapesModelTests.swift */; };
 		00C5EC921FE9A3A600DF31D3 /* GloveModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5EC911FE9A3A600DF31D3 /* GloveModelTests.swift */; };
+		00C5EC9A1FE9B8C000DF31D3 /* StitchPatternStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5EC991FE9B8BF00DF31D3 /* StitchPatternStrings.swift */; };
+		00C5EC9D1FE9DA2600DF31D3 /* CableStitchPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5EC9C1FE9DA2600DF31D3 /* CableStitchPatterns.swift */; };
+		00C5EC9F1FE9EFCD00DF31D3 /* PanelStitchPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5EC9E1FE9EFCD00DF31D3 /* PanelStitchPattern.swift */; };
+		00C5ECA11FE9F02500DF31D3 /* AllOverStitchPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5ECA01FE9F02500DF31D3 /* AllOverStitchPattern.swift */; };
+		00C5ECA41FEAF73900DF31D3 /* KnitOnUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5ECA31FEAF73900DF31D3 /* KnitOnUtils.swift */; };
+		00C5ECA61FEAF84800DF31D3 /* UtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5ECA51FEAF84800DF31D3 /* UtilitiesTests.swift */; };
+		00C5ECA81FEB10AA00DF31D3 /* GloveThumbHandInstructionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5ECA71FEB10AA00DF31D3 /* GloveThumbHandInstructionGenerator.swift */; };
+		00C5ECAA1FEB112700DF31D3 /* GloveFingersInstructionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5ECA91FEB112700DF31D3 /* GloveFingersInstructionGenerator.swift */; };
+		00C5ECAC1FEB120100DF31D3 /* GloveInstructionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C5ECAB1FEB120100DF31D3 /* GloveInstructionContext.swift */; };
 		00F556721FE876390088C7DA /* ShowPatternDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F556711FE876390088C7DA /* ShowPatternDetailsViewController.swift */; };
 		4946C89A1FC9F68B00F03AC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C8991FC9F68B00F03AC9 /* AppDelegate.swift */; };
 		4946C89C1FC9F68B00F03AC9 /* ListPatternsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C89B1FC9F68B00F03AC9 /* ListPatternsViewController.swift */; };
@@ -110,6 +119,15 @@
 		00C5EC8F1FE9A3A600DF31D3 /* GloveModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GloveModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00C5EC911FE9A3A600DF31D3 /* GloveModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GloveModelTests.swift; sourceTree = "<group>"; };
 		00C5EC931FE9A3A600DF31D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00C5EC991FE9B8BF00DF31D3 /* StitchPatternStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StitchPatternStrings.swift; sourceTree = "<group>"; };
+		00C5EC9C1FE9DA2600DF31D3 /* CableStitchPatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CableStitchPatterns.swift; sourceTree = "<group>"; };
+		00C5EC9E1FE9EFCD00DF31D3 /* PanelStitchPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelStitchPattern.swift; sourceTree = "<group>"; };
+		00C5ECA01FE9F02500DF31D3 /* AllOverStitchPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllOverStitchPattern.swift; sourceTree = "<group>"; };
+		00C5ECA31FEAF73900DF31D3 /* KnitOnUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnitOnUtils.swift; sourceTree = "<group>"; };
+		00C5ECA51FEAF84800DF31D3 /* UtilitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesTests.swift; sourceTree = "<group>"; };
+		00C5ECA71FEB10AA00DF31D3 /* GloveThumbHandInstructionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GloveThumbHandInstructionGenerator.swift; sourceTree = "<group>"; };
+		00C5ECA91FEB112700DF31D3 /* GloveFingersInstructionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GloveFingersInstructionGenerator.swift; sourceTree = "<group>"; };
+		00C5ECAB1FEB120100DF31D3 /* GloveInstructionContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GloveInstructionContext.swift; sourceTree = "<group>"; };
 		00F556711FE876390088C7DA /* ShowPatternDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPatternDetailsViewController.swift; sourceTree = "<group>"; };
 		4946C8961FC9F68B00F03AC9 /* KnitOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnitOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4946C8991FC9F68B00F03AC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -190,15 +208,14 @@
 		006AD6211FDA508A00C058A6 /* Gloves */ = {
 			isa = PBXGroup;
 			children = (
-				006AD6221FDA508A00C058A6 /* FingersConfig.swift */,
-				006AD6231FDA508A00C058A6 /* GloveArmConfig.swift */,
-				006AD6241FDA508A00C058A6 /* GloveArmInstructionGenerator.swift */,
-				006AD6251FDA508A00C058A6 /* GloveInstructionGenerator.swift */,
-				006AD6261FDA508A00C058A6 /* GlovePattern.swift */,
+				00C5ECA21FEA0DC000DF31D3 /* InstructionGenerators */,
 				006AD6271FDA508A00C058A6 /* GloveStrings.swift */,
 				006AD6281FDA508A00C058A6 /* HandMeasurements.swift */,
-				006AD6291FDA508A00C058A6 /* ThumbHandConfig.swift */,
 				006AD6731FDE222800C058A6 /* GloveModule.swift */,
+				006AD6261FDA508A00C058A6 /* GlovePattern.swift */,
+				006AD6231FDA508A00C058A6 /* GloveArmConfig.swift */,
+				006AD6291FDA508A00C058A6 /* ThumbHandConfig.swift */,
+				006AD6221FDA508A00C058A6 /* FingersConfig.swift */,
 			);
 			path = Gloves;
 			sourceTree = "<group>";
@@ -206,13 +223,11 @@
 		006AD62A1FDA508A00C058A6 /* SimpleShapes */ = {
 			isa = PBXGroup;
 			children = (
-				006AD62B1FDA508A00C058A6 /* BasicStitchPatterns.swift */,
+				00C5EC9B1FE9D9EE00DF31D3 /* StitchPatterns */,
 				006AD62C1FDA508A00C058A6 /* Gauge.swift */,
 				006AD62D1FDA508A00C058A6 /* InstructionGenerator.swift */,
 				006AD62E1FDA508A00C058A6 /* KnittingPattern.swift */,
 				006AD62F1FDA508A00C058A6 /* PatternInstruction.swift */,
-				006AD6301FDA508A00C058A6 /* RibbedStitchPatterns.swift */,
-				006AD6311FDA508A00C058A6 /* StitchPattern.swift */,
 				006AD66F1FDE204500C058A6 /* Knitter.swift */,
 				006AD6711FDE210300C058A6 /* SimpleShapeModule.swift */,
 			);
@@ -223,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				49FCE33A1FDCCF3500AEDCA9 /* Markup */,
+				00C5ECA31FEAF73900DF31D3 /* KnitOnUtils.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -244,6 +260,7 @@
 		00C5EC821FE99C2100DF31D3 /* SimpleShapesModelTests */ = {
 			isa = PBXGroup;
 			children = (
+				00C5ECA51FEAF84800DF31D3 /* UtilitiesTests.swift */,
 				00C5EC831FE99C2100DF31D3 /* SimpleShapesModelTests.swift */,
 				00C5EC851FE99C2100DF31D3 /* Info.plist */,
 			);
@@ -257,6 +274,32 @@
 				00C5EC931FE9A3A600DF31D3 /* Info.plist */,
 			);
 			path = GloveModelTests;
+			sourceTree = "<group>";
+		};
+		00C5EC9B1FE9D9EE00DF31D3 /* StitchPatterns */ = {
+			isa = PBXGroup;
+			children = (
+				00C5EC991FE9B8BF00DF31D3 /* StitchPatternStrings.swift */,
+				006AD6311FDA508A00C058A6 /* StitchPattern.swift */,
+				00C5ECA01FE9F02500DF31D3 /* AllOverStitchPattern.swift */,
+				00C5EC9E1FE9EFCD00DF31D3 /* PanelStitchPattern.swift */,
+				006AD62B1FDA508A00C058A6 /* BasicStitchPatterns.swift */,
+				006AD6301FDA508A00C058A6 /* RibbedStitchPatterns.swift */,
+				00C5EC9C1FE9DA2600DF31D3 /* CableStitchPatterns.swift */,
+			);
+			path = StitchPatterns;
+			sourceTree = "<group>";
+		};
+		00C5ECA21FEA0DC000DF31D3 /* InstructionGenerators */ = {
+			isa = PBXGroup;
+			children = (
+				006AD6251FDA508A00C058A6 /* GloveInstructionGenerator.swift */,
+				006AD6241FDA508A00C058A6 /* GloveArmInstructionGenerator.swift */,
+				00C5ECA71FEB10AA00DF31D3 /* GloveThumbHandInstructionGenerator.swift */,
+				00C5ECA91FEB112700DF31D3 /* GloveFingersInstructionGenerator.swift */,
+				00C5ECAB1FEB120100DF31D3 /* GloveInstructionContext.swift */,
+			);
+			path = InstructionGenerators;
 			sourceTree = "<group>";
 		};
 		4946C88D1FC9F68B00F03AC9 = {
@@ -529,6 +572,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00C5ECA61FEAF84800DF31D3 /* UtilitiesTests.swift in Sources */,
 				00C5EC841FE99C2100DF31D3 /* SimpleShapesModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,9 +593,11 @@
 				006AD6721FDE210300C058A6 /* SimpleShapeModule.swift in Sources */,
 				495663A01FD721EC0047D159 /* LimpAlongInstructionsViewController.swift in Sources */,
 				006AD63A1FDA508A00C058A6 /* BasicStitchPatterns.swift in Sources */,
+				00C5ECAC1FEB120100DF31D3 /* GloveInstructionContext.swift in Sources */,
 				006AD63D1FDA508A00C058A6 /* KnittingPattern.swift in Sources */,
 				00F556721FE876390088C7DA /* ShowPatternDetailsViewController.swift in Sources */,
 				006AD6391FDA508A00C058A6 /* ThumbHandConfig.swift in Sources */,
+				00C5EC9F1FE9EFCD00DF31D3 /* PanelStitchPattern.swift in Sources */,
 				49FCE3461FDCCF9700AEDCA9 /* Div.swift in Sources */,
 				006AD6361FDA508A00C058A6 /* GlovePattern.swift in Sources */,
 				49FCE34E1FDCCFD200AEDCA9 /* AttributedText.swift in Sources */,
@@ -559,23 +605,29 @@
 				006AD6401FDA508A00C058A6 /* StitchPattern.swift in Sources */,
 				49FCE3481FDCCFA700AEDCA9 /* List.swift in Sources */,
 				006AD63E1FDA508A00C058A6 /* PatternInstruction.swift in Sources */,
+				00C5ECA11FE9F02500DF31D3 /* AllOverStitchPattern.swift in Sources */,
 				006AD63F1FDA508A00C058A6 /* RibbedStitchPatterns.swift in Sources */,
 				006AD6701FDE204500C058A6 /* Knitter.swift in Sources */,
 				006AD6741FDE222800C058A6 /* GloveModule.swift in Sources */,
 				006AD6331FDA508A00C058A6 /* GloveArmConfig.swift in Sources */,
 				006AD63C1FDA508A00C058A6 /* InstructionGenerator.swift in Sources */,
+				00C5ECA41FEAF73900DF31D3 /* KnitOnUtils.swift in Sources */,
 				006AD6351FDA508A00C058A6 /* GloveInstructionGenerator.swift in Sources */,
 				006AD6371FDA508A00C058A6 /* GloveStrings.swift in Sources */,
 				49FCE34C1FDCCFC900AEDCA9 /* Text.swift in Sources */,
 				49FCE3441FDCCF8C00AEDCA9 /* Header.swift in Sources */,
+				00C5ECA81FEB10AA00DF31D3 /* GloveThumbHandInstructionGenerator.swift in Sources */,
 				4946C8CF1FCB7D9300F03AC9 /* Markup.swift in Sources */,
 				006AD6781FDF8C2F00C058A6 /* AddPatternViewController.swift in Sources */,
 				49FCE3421FDCCF8000AEDCA9 /* Title.swift in Sources */,
 				49FCE3391FDCBF5C00AEDCA9 /* KnitOn.swift in Sources */,
 				006AD63B1FDA508A00C058A6 /* Gauge.swift in Sources */,
 				006AD6381FDA508A00C058A6 /* HandMeasurements.swift in Sources */,
+				00C5EC9D1FE9DA2600DF31D3 /* CableStitchPatterns.swift in Sources */,
 				4946C89C1FC9F68B00F03AC9 /* ListPatternsViewController.swift in Sources */,
+				00C5EC9A1FE9B8C000DF31D3 /* StitchPatternStrings.swift in Sources */,
 				006AD6341FDA508A00C058A6 /* GloveArmInstructionGenerator.swift in Sources */,
+				00C5ECAA1FEB112700DF31D3 /* GloveFingersInstructionGenerator.swift in Sources */,
 				006AD66E1FDDF41500C058A6 /* LimpAlongController.swift in Sources */,
 				49FCE34A1FDCCFBB00AEDCA9 /* ActionableWrapper.swift in Sources */,
 				4946C8A21FC9F68B00F03AC9 /* KnitOn.xcdatamodeld in Sources */,

@@ -23,6 +23,7 @@ import Foundation
 protocol HandMeasurements {
     var handCircumference: Float { get set}
     var wristCircumference: Float { get set }
+    var thumbCircumference: Float { get set }
     var handLength: Float { get set }
     var handAndFingerLength: Float { get set }
 }
@@ -32,6 +33,7 @@ protocol HandMeasurements {
 struct WomanXSmallHand: HandMeasurements {
     var handCircumference: Float = 6.75
     var wristCircumference: Float = 5.0
+    var thumbCircumference: Float = 2.75
     var handLength: Float = 3.25
     var handAndFingerLength: Float = 6.6
 }
@@ -39,6 +41,7 @@ struct WomanXSmallHand: HandMeasurements {
 struct WomanSmallHand: HandMeasurements {
     var handCircumference: Float = 7.0
     var wristCircumference: Float = 6.0
+    var thumbCircumference: Float = 3.0
     var handLength: Float = 3.5
     var handAndFingerLength: Float = 6.8
 }
@@ -46,6 +49,7 @@ struct WomanSmallHand: HandMeasurements {
 struct WomanMediumHand: HandMeasurements {
     var handCircumference: Float = 7.25
     var wristCircumference: Float = 6.5
+    var thumbCircumference: Float = 3.0
     var handLength: Float = 3.75
     var handAndFingerLength: Float = 7.1
 }
@@ -53,6 +57,7 @@ struct WomanMediumHand: HandMeasurements {
 struct WomanLargeHand: HandMeasurements {
     var handCircumference: Float = 7.5
     var wristCircumference: Float = 7.0
+    var thumbCircumference: Float = 3.25
     var handLength: Float = 4.0
     var handAndFingerLength: Float = 7.3
 }

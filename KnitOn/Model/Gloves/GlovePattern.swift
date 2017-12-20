@@ -23,19 +23,34 @@ import Foundation
 
 class GlovePattern: KnittingPattern {
     
-    // Size and Fit Properties
+    //MARK: Size and Fit Properties
     var handSize: HandMeasurements?
     var ease: Float = 0.0
     
-    // Configuration Properties
+    //MARK: Configuration Properties
     var armConfig: GloveArmConfig = GloveArmConfig()
     var thumbHandConfig: ThumbHandConfig = ThumbHandConfig()
     var fingersConfig: FingersConfig = FingersConfig()
     
-    // Initizlier
+    //MARK: Initialization
     override init() {
         super.init()
         self.title = "Your Customized Glove Pattern"
+    }
+    
+    //Mark: Methods
+    
+    func isRightLeftInterchangable() -> Bool {
+        var isInterchangable = true
+        if thumbHandConfig.thumbGusset == ThumbHandConfig.ThumbGusset.asymmetricGusset {
+            isInterchangable = false
+        }
+        if thumbHandConfig.handStitchPattern.type == StitchPattern.PatternType.Panel,
+            let panelPattern = thumbHandConfig.handStitchPattern as? PanelStitchPattern,
+            panelPattern.alignment != PanelStitchPattern.PanelAlignment.Center {
+            isInterchangable = false
+        }
+        return isInterchangable
     }
     
     

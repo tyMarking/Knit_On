@@ -13,7 +13,7 @@
 
 import Foundation
 
-class OneByOneRib: StitchPattern {
+class OneByOneRib: AllOverStitchPattern {
     
     //MARK:  Initialization
     override init() {
@@ -32,9 +32,19 @@ class OneByOneRib: StitchPattern {
         }
         return newStitchCount
     }
+    
+    override func generateStitchPatternInstructions() -> String {
+        // Generates the stitch pattern instructions, either row by row or in the round
+        if self.isRowByRow {
+            return StitchPatternStrings.OneByOneRib.rows
+        }
+        else {
+            return StitchPatternStrings.OneByOneRib.round
+        }
+    }
 }
 
-class TwoByTwoRib: StitchPattern {
+class TwoByTwoRib: AllOverStitchPattern {
     
     //MARK:  Initialization
     override init() {
@@ -48,7 +58,7 @@ class TwoByTwoRib: StitchPattern {
     override func augmentStitchCount(stitchCount: Int) -> Int {
         // Stitch count needs to be even
         var newStitchCount = stitchCount
-        let remainder = stitchCount % 2
+        let remainder = stitchCount % 4
         if remainder <= 2 {
             newStitchCount -= remainder
         }
@@ -56,5 +66,15 @@ class TwoByTwoRib: StitchPattern {
             newStitchCount += (multipleOfNStitches - remainder)
         }
         return newStitchCount
+    }
+    
+    override func generateStitchPatternInstructions() -> String {
+        // Generates the stitch pattern instructions, either row by row or in the round
+        if self.isRowByRow {
+            return StitchPatternStrings.TwoByTwoRib.rows
+        }
+        else {
+            return StitchPatternStrings.TwoByTwoRib.round
+        }
     }
 }

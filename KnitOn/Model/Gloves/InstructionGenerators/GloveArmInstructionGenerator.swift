@@ -33,7 +33,8 @@ class GloveArmInstructionGenerator: InstructionGenerator {
             
             let armConfig = pattern.armConfig
             let numStitches = (handSize.handCircumference + pattern.ease) * gauge.stitchGauge
-            castOnStitches = Int(round(numStitches))
+            
+            castOnStitches = KnitOnUtils.roundToInteger(amtToRound: numStitches)
             
             if let cuffStitchPattern = armConfig.cuffStitchPattern {
                 castOnStitches = cuffStitchPattern.augmentStitchCount(stitchCount: castOnStitches)
@@ -51,47 +52,50 @@ class GloveArmInstructionGenerator: InstructionGenerator {
     
     func generateInstructions(pattern: KnittingPattern) {
         
-        if let glovePattern = pattern as? GlovePattern {
-            
-            let armConfg: GloveArmConfig = glovePattern.armConfig
-            var str: String
-            var instruction: MarkupElement
+        guard let glovePattern = pattern as? GlovePattern else {
+            return
+        }
         
-            // Cast On
-            let castOnStitches: Int = self.calculateCastOnStitches(pattern: glovePattern)
-            str = String(format: GloveStrings.Arm.castOn, castOnStitches)
+        var armConfig: GloveArmConfig = glovePattern.armConfig
+        var str: String
+        var instruction: MarkupElement
+        
+        // Cast On
+        let castOnStitches: Int = self.calculateCastOnStitches(pattern: glovePattern)
+        armConfig.endingStitchCount = castOnStitches
+        
+        str = String(format: GloveStrings.Arm.castOn, castOnStitches)
+        instruction = Text(text: str)
+        pattern.addInstruction(instruction)
+        
+        // Cuff
+        if let cuffStitchPattern = armConfig.cuffStitchPattern {
+            var cuffLengthStr = armConfig.cuffLength.description
+            if armConfig.cuffLength.truncatingRemainder(dividingBy: 1) == 0 {
+                cuffLengthStr = Int(armConfig.cuffLength).description
+            }
+            str = String(format: GloveStrings.Arm.cuff, cuffStitchPattern.name, cuffLengthStr)
             instruction = Text(text: str)
             pattern.addInstruction(instruction)
+        }
         
-            // Cuff
-            if let cuffStitchPattern = armConfg.cuffStitchPattern {
-                var cuffLengthStr = armConfg.cuffLength.description
-                if armConfg.cuffLength.truncatingRemainder(dividingBy: 1) == 0 {
-                    cuffLengthStr = Int(armConfg.cuffLength).description
-                }
-                str = String(format: GloveStrings.Arm.cuff, cuffStitchPattern.name, cuffLengthStr)
-                instruction = Text(text: str)
-                pattern.addInstruction(instruction)
+        // Arm
+        let armLength = armConfig.armLength.rawValue
+        if armLength > armConfig.cuffLength {
+            var armLengthStr = armLength.description
+            if armLength.truncatingRemainder(dividingBy: 1) == 0 {
+                armLengthStr = Int(armLength).description
             }
-        
-            // Arm
-            let armLength = armConfg.armLength.rawValue
-            if armLength > armConfg.cuffLength {
-                var armLengthStr = armLength.description
-                if armLength.truncatingRemainder(dividingBy: 1) == 0 {
-                    armLengthStr = Int(armLength).description
-                }
-                str = String(format: GloveStrings.Arm.arm, armConfg.armStitchPattern.name, armLengthStr)
-                instruction = Text(text: str)
-                pattern.addInstruction(instruction)
-            }
+            str = String(format: GloveStrings.Arm.arm, armConfig.armStitchPattern.name, armLengthStr)
+            instruction = Text(text: str)
+            pattern.addInstruction(instruction)
+        }
     
-            // Wrist Shaping
-             if armConfg.isWristShaping {
-                str = GloveStrings.Arm.wristShaping
-                instruction = Text(text: str)
-                pattern.addInstruction(instruction)
-             }
+        // Wrist Shaping
+        if armConfig.isWristShaping {
+            str = GloveStrings.Arm.wristShaping
+            instruction = Text(text: str)
+            pattern.addInstruction(instruction)
         }
     }
 }
