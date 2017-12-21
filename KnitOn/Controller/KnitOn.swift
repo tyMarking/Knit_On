@@ -66,6 +66,11 @@ final class KnitOn {
         pattern = GlovePattern()
         pattern.title = "Pattern 2"
         KnitOn.theKnitter.addPattern(pattern)
+        
+        pattern = GlovePattern()
+        pattern.title = "Brooke's Christmas Gloves"
+        pattern.patternDescription = "Brooke’s Christmas present 2017, to match a cabled hat I made her. Yarn: The Fibre Co’s Acadia in the Mountain Ash colorway. Needles: US 6"
+        pattern.gauge = Gauge(stitchGauge: 5.5)
     }
 
 }

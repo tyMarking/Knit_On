@@ -12,16 +12,20 @@ struct GloveArmConfig {
     
     // ArmLength: There are 4 standard glove arm lengths. The rawValue is the actual length of the arm in inches
     enum ArmLength: Float {
-        case short = 2
+        case short = 2.5
         case standard = 4
         case long = 6
         case gauntlet = 8
     }
     
-    // Properties
+    //MARK: Configuration Properties
     var armLength: ArmLength = ArmLength.standard
     var isWristShaping: Bool = true
     var cuffLength: Float = 1
     var cuffStitchPattern: StitchPattern?
     var armStitchPattern: StitchPattern = StockinetteStich()
+    
+    //Mark: Emphemeral Properties
+    // Used to record transition states when generating instructions
+    var endingStitchCount: Int = 0;
 }

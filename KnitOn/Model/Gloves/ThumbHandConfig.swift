@@ -10,4 +10,13 @@ import Foundation
 
 struct ThumbHandConfig {
     
+    // Possible thumb gussets
+    enum ThumbGusset {
+        case basicGusset
+        case asymmetricGusset
+    }
+    
+    //MARK: Properties
+    var thumbGusset = ThumbGusset.basicGusset
+    var handStitchPattern: StitchPattern = StockinetteStich()
 }

@@ -11,7 +11,7 @@
 
 import Foundation
 
-class StockinetteStich: StitchPattern {
+class StockinetteStich: AllOverStitchPattern {
     
     // Initialization
     override init() {
