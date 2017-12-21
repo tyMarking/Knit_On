@@ -14,7 +14,7 @@ class InstructionViewController: UIViewController {
     var markup: Markup = Markup()
     override func viewDidLoad() {
         super.viewDidLoad()
-        instructionTextView.text = markup.getRawTextInstructions()
+        instructionTextView.attributedText = markup.getAttributedTextInstructions()
         // Do any additional setup after loading the view.
     }
 

@@ -29,9 +29,17 @@ class List: NSObject, MarkupElement, NSCoding {
         var ret = ""
         for item in items {
             ret.append(item.getInstructions())
-            ret.append(" ")
+            ret.append("\n")
         }
         ret.removeLast()
+        return ret
+    }
+    func getAttributedInstructions() -> NSAttributedString {
+        let ret = NSMutableAttributedString()
+        for item in items {
+            ret.append(item.getAttributedInstructions())
+            ret.append(NSAttributedString(string: "\n"))
+        }
         return ret
     }
     

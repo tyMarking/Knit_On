@@ -9,20 +9,24 @@
 import Foundation
 
 //basic MarkupElement that contains attributed text
-class AttributedText: NSObject, MarkupElement, NSCoding {
+class AttributedText: Text {
     
     
     var defaultAttrString: NSAttributedString?
     
     init(attrString: NSAttributedString) {
+        super.init(text: attrString.string)
         self.defaultAttrString = attrString
     }
     
-    func getInstructions() -> String {
+    override func getInstructions() -> String {
         return defaultAttrString!.string
     }
     
     func getDefaultAttributedInstructions() -> NSAttributedString {
+        return defaultAttrString!
+    }
+    override func getAttributedInstructions() -> NSAttributedString {
         return defaultAttrString!
     }
     
@@ -30,16 +34,17 @@ class AttributedText: NSObject, MarkupElement, NSCoding {
         return defaultAttrString.attributes()
     }*/
     
-    func convertToSavingString() -> String {
+    override func convertToSavingString() -> String {
         return defaultAttrString!.string
     }
     
     //MARK: Saving Methods
     //saving with core data methods
-    func encode(with aCoder: NSCoder) {
+    override func encode(with aCoder: NSCoder) {
         aCoder.encode(defaultAttrString, forKey: Keys.DefaultAttrString)
     }
     required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         if let defaultAttrStringObj = aDecoder.decodeObject(forKey: Keys.DefaultAttrString) as? NSAttributedString {
             defaultAttrString = defaultAttrStringObj
         }

@@ -40,6 +40,16 @@ class Markup: NSObject, NSCoding {
         //ret.removeLast()
         return ret
     }
+    
+    public func getAttributedTextInstructions() -> NSAttributedString {
+        let ret: NSMutableAttributedString = NSMutableAttributedString(string: "")
+        for instruction in instructions {
+            ret.append(instruction.getAttributedInstructions())
+            ret.append(NSAttributedString(string: "\n"))
+        }
+        return ret
+    }
+    
     public func addInstructions(elements: [MarkupElement]) {
         for element in elements {
             instructions.append(element)

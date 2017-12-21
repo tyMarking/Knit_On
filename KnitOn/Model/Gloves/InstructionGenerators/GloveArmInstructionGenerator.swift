@@ -16,6 +16,7 @@
 //      * Using enums with rawValue to represent different GloveArmLengths. Better way?
 
 import Foundation
+import UIKit
 
 class GloveArmInstructionGenerator: InstructionGenerator {
     
@@ -51,7 +52,7 @@ class GloveArmInstructionGenerator: InstructionGenerator {
     // It includes the cast on, cuff, arm, and wrist shaping.
     
     func generateInstructions(pattern: KnittingPattern) {
-        
+        print("HELLLLOOOO THERE22")
         guard let glovePattern = pattern as? GlovePattern else {
             return
         }
@@ -75,7 +76,11 @@ class GloveArmInstructionGenerator: InstructionGenerator {
                 cuffLengthStr = Int(armConfig.cuffLength).description
             }
             str = String(format: GloveStrings.Arm.cuff, cuffStitchPattern.name, cuffLengthStr)
-            instruction = Text(text: str)
+            let myAttribute = [ NSAttributedStringKey.foregroundColor: UIColor.blue ]
+            let myAttrString = NSAttributedString(string: str, attributes: myAttribute)
+            instruction = AttributedText(attrString: myAttrString)
+            print(instruction)
+            print("HELLLLOOOO THERE")
             pattern.addInstruction(instruction)
         }
         
@@ -87,7 +92,12 @@ class GloveArmInstructionGenerator: InstructionGenerator {
                 armLengthStr = Int(armLength).description
             }
             str = String(format: GloveStrings.Arm.arm, armConfig.armStitchPattern.name, armLengthStr)
-            instruction = Text(text: str)
+            //instruction = Text(text: str)
+            let myAttribute = [ NSAttributedStringKey.foregroundColor: UIColor.blue ]
+            let myAttrString = NSAttributedString(string: str, attributes: myAttribute)
+            instruction = AttributedText(attrString: myAttrString)
+            print(instruction)
+            print("HELLLLOOOO THERE")
             pattern.addInstruction(instruction)
         }
     

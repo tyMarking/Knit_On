@@ -9,6 +9,10 @@
 import Foundation
 
 class Title: NSObject, MarkupElement, NSCoding {
+    func getAttributedInstructions() -> NSAttributedString {
+        return text.getAttributedInstructions()
+    }
+    
     
     var text: Text = Text(text: "")
     init(title: String) {
