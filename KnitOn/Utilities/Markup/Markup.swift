@@ -31,6 +31,15 @@ class Markup: NSObject, NSCoding {
         instructions.append(element)
     }
     
+    public func getRawTextInstructions() -> String {
+        var ret = ""
+        for instruction in instructions {
+            ret.append(instruction.getInstructions())
+            ret.append("\n")
+        }
+        //ret.removeLast()
+        return ret
+    }
     public func addInstructions(elements: [MarkupElement]) {
         for element in elements {
             instructions.append(element)
