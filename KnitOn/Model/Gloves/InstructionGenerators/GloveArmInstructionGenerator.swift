@@ -16,6 +16,7 @@
 //      * Using enums with rawValue to represent different GloveArmLengths. Better way?
 
 import Foundation
+import UIKit
 
 class GloveArmInstructionGenerator: InstructionGenerator {
     

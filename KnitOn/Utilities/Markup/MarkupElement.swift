@@ -11,6 +11,7 @@ import Foundation
 //use get instructions to get text for UI
 protocol MarkupElement: NSCoding {
     func getInstructions() -> String
+    func getAttributedInstructions() -> NSAttributedString
     func convertToSavingString() -> String
     
     //saving with core data methods

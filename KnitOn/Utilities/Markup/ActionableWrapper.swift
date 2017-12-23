@@ -18,6 +18,9 @@ class ActionableWrapper: NSObject, MarkupElement, NSCoding {
     func getInstructions() -> String {
         return element!.getInstructions()
     }
+    func getAttributedInstructions() -> NSAttributedString {
+        return element!.getAttributedInstructions()
+    }
     
     func getCompleted() -> Bool {
         return isCompleted!

@@ -28,6 +28,11 @@ class Text: NSObject, MarkupElement, NSCoding {
         return rawText
     }
     
+    func getAttributedInstructions() -> NSAttributedString {
+        let ret =  NSAttributedString(string: rawText)
+        return ret
+    }
+    
     //MARK: Saving Methods
     //saving with core data methods
     func encode(with aCoder: NSCoder) {

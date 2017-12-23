@@ -22,6 +22,10 @@ class Header: NSObject, MarkupElement, NSCoding {
         return text.getInstructions()
     }
     
+    func getAttributedInstructions() -> NSAttributedString {
+        return text.getAttributedInstructions()
+    }
+    
     func convertToSavingString() -> String {
         return ("$header$"+text.convertToSavingString()+"$/header$")
     }

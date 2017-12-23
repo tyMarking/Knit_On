@@ -39,4 +39,23 @@ class ShowPatternDetailsViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    
+    //MARK Segue Handling
+    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "viewInstructions" {
+            guard let instructionViewController = segue.destination as? InstructionViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            let generator = GloveInstructionGenerator()
+            generator.generateInstructions(pattern: pattern!)
+            instructionViewController.markup = (pattern?.getInstructionsMarkup())!
+            
+        }
+        
+
+    }
+    
 }

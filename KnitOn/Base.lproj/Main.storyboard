@@ -326,6 +326,29 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="l3r-Qi-MM8">
+                                        <rect key="frame" x="0.0" y="292" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l3r-Qi-MM8" id="Dep-RB-IQg">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzg-kG-mLL">
+                                                    <rect key="frame" x="16" y="6" width="343" height="30"/>
+                                                    <state key="normal" title="View test instructions"/>
+                                                    <connections>
+                                                        <segue destination="iky-8k-BAD" kind="show" identifier="viewInstructions" id="aT9-ev-g7R"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="wzg-kG-mLL" secondAttribute="bottom" constant="7.5" id="NQV-qo-cRJ"/>
+                                                <constraint firstItem="wzg-kG-mLL" firstAttribute="top" secondItem="Dep-RB-IQg" secondAttribute="top" constant="6" id="Zmd-Cr-n8G"/>
+                                                <constraint firstItem="wzg-kG-mLL" firstAttribute="leading" secondItem="Dep-RB-IQg" secondAttribute="leading" constant="16" id="wII-u8-N7P"/>
+                                                <constraint firstAttribute="trailing" secondItem="wzg-kG-mLL" secondAttribute="trailing" constant="16" id="zlp-B5-KTG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -341,6 +364,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddN-MI-sCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2551.1999999999998" y="-2980.6596701649178"/>
+        </scene>
+        <!--Instruction View Controller-->
+        <scene sceneID="Sy2-XA-tFg">
+            <objects>
+                <viewController id="iky-8k-BAD" customClass="InstructionViewController" customModule="KnitOn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="POB-yh-Nxj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EfO-N3-Muq">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="RUS-hR-qFY"/>
+                    </view>
+                    <connections>
+                        <outlet property="instructionTextView" destination="EfO-N3-Muq" id="MUe-hJ-TbM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ez7-Ee-CK1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1620" y="-2981.5592203898054"/>
         </scene>
         <!--Limp Along Pattern View Controller-->
         <scene sceneID="JlW-1h-dd5">

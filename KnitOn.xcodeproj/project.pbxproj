@@ -51,6 +51,7 @@
 		4946C8CF1FCB7D9300F03AC9 /* Markup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946C8CE1FCB7D9300F03AC9 /* Markup.swift */; };
 		4956639E1FD721D90047D159 /* LimpAlongPatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4956639D1FD721D90047D159 /* LimpAlongPatternViewController.swift */; };
 		495663A01FD721EC0047D159 /* LimpAlongInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4956639F1FD721EC0047D159 /* LimpAlongInstructionsViewController.swift */; };
+		497F44E61FE994620037F490 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F44E51FE994620037F490 /* InstructionViewController.swift */; };
 		49FCE3391FDCBF5C00AEDCA9 /* KnitOn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCE3381FDCBF5C00AEDCA9 /* KnitOn.swift */; };
 		49FCE33E1FDCCF5700AEDCA9 /* MarkupElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCE33D1FDCCF5700AEDCA9 /* MarkupElement.swift */; };
 		49FCE3421FDCCF8000AEDCA9 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCE3411FDCCF8000AEDCA9 /* Title.swift */; };
@@ -148,6 +149,7 @@
 		4946C8CE1FCB7D9300F03AC9 /* Markup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Markup.swift; sourceTree = "<group>"; };
 		4956639D1FD721D90047D159 /* LimpAlongPatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimpAlongPatternViewController.swift; sourceTree = "<group>"; };
 		4956639F1FD721EC0047D159 /* LimpAlongInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimpAlongInstructionsViewController.swift; sourceTree = "<group>"; };
+		497F44E51FE994620037F490 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
 		49FCE3381FDCBF5C00AEDCA9 /* KnitOn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnitOn.swift; sourceTree = "<group>"; };
 		49FCE33D1FDCCF5700AEDCA9 /* MarkupElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkupElement.swift; sourceTree = "<group>"; };
 		49FCE3411FDCCF8000AEDCA9 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 		00A32F7F1FD11AF000F2C482 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				497F44E51FE994620037F490 /* InstructionViewController.swift */,
 				006AD66D1FDDF41500C058A6 /* LimpAlongController.swift */,
 				49FCE3381FDCBF5C00AEDCA9 /* KnitOn.swift */,
 				4946C89B1FC9F68B00F03AC9 /* ListPatternsViewController.swift */,
@@ -604,6 +607,7 @@
 				49FCE3461FDCCF9700AEDCA9 /* Div.swift in Sources */,
 				006AD6361FDA508A00C058A6 /* GlovePattern.swift in Sources */,
 				49FCE34E1FDCCFD200AEDCA9 /* AttributedText.swift in Sources */,
+				497F44E61FE994620037F490 /* InstructionViewController.swift in Sources */,
 				006AD6321FDA508A00C058A6 /* FingersConfig.swift in Sources */,
 				006AD6401FDA508A00C058A6 /* StitchPattern.swift in Sources */,
 				49FCE3481FDCCFA700AEDCA9 /* List.swift in Sources */,

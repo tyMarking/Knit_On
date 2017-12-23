@@ -40,7 +40,14 @@ class Div: NSObject, MarkupElement, NSCoding {
         ret.removeLast()
         return ret
     }
-    
+    func getAttributedInstructions() -> NSAttributedString {
+        let ret = NSMutableAttributedString(string: "")
+        for elem in elements {
+            ret.append(elem.getAttributedInstructions())
+            ret.append(NSAttributedString(string: "\n"))
+        }
+        return ret
+    }
     func convertToSavingString() -> String {
         var ret = "$div$"
         for elem in elements {
