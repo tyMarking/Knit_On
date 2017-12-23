@@ -30,35 +30,36 @@ class GloveInstructionGenerator: InstructionGenerator {
     
     //MARK: Methods
     
-    func generateInstructions(pattern: KnittingPattern) {
-        // This method delegates instruction generation to its various components
-        //      pattern will be the GlovePattern subclass of KnittingPattern.
+    func generateInstructions(context: InstructionContext) {
         
-        guard let glovePattern = pattern as? GlovePattern else {
+        // This method delegates instruction generation to its various components
+        // pattern will be the GlovePattern subclass of KnittingPattern.
+        
+        guard let gloveContext = context as? GloveInstructionContext else {
             return
         }
         
-        //let context = GloveInstructionContext(pattern: glovePattern)
+        let glovePattern = gloveContext.glovePattern
         
         if glovePattern.isRightLeftInterchangable() {
-            generateInterchangeableGloveInstructions(pattern: glovePattern)
+            generateInterchangeableGloveInstructions(context: gloveContext)
         }
         else {
-            generateRightGloveInstructions(pattern: glovePattern)
-            generateLeftGloveInstructions(pattern: glovePattern)
+            generateRightGloveInstructions(context: gloveContext)
+            generateLeftGloveInstructions(context: gloveContext)
         }
     }
     
-    func generateRightGloveInstructions(pattern: GlovePattern) {
-        armInstGen.generateInstructions(pattern: pattern)
+    func generateRightGloveInstructions(context: GloveInstructionContext) {
+        armInstGen.generateInstructions(context: context)
     }
     
-    func generateLeftGloveInstructions(pattern: GlovePattern) {
-        armInstGen.generateInstructions(pattern: pattern)
+    func generateLeftGloveInstructions(context: GloveInstructionContext) {
+        armInstGen.generateInstructions(context: context)
     }
     
-    func generateInterchangeableGloveInstructions(pattern: GlovePattern) {
-        armInstGen.generateInstructions(pattern: pattern)
+    func generateInterchangeableGloveInstructions(context: GloveInstructionContext) {
+        armInstGen.generateInstructions(context: context)
     }
     
 }

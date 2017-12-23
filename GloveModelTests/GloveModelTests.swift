@@ -13,6 +13,38 @@ class GloveModelTests: XCTestCase {
     
     //MARK: Utility Methods
     
+    private func setUpCQCampingGlovePattern() -> GlovePattern {
+        let pattern = GlovePattern()
+        
+        pattern.title = "CQ's Camping Mitts"
+        pattern.patternDescription = "Sturdy mitts made for camping trip to Death Valley 2017"
+        pattern.gauge = Gauge(stitchGauge: 5.0)
+        pattern.handSize = WomanMediumHand()
+        pattern.ease = 0
+        
+        var armConfig = GloveArmConfig()
+        armConfig.isWristShaping = false
+        armConfig.cuffLength = 0
+        armConfig.armStitchPattern = OneByOneRib()
+        armConfig.armStitchPattern.isRowByRow = false
+        pattern.armConfig = armConfig
+        
+        // Set Thumb and Hand Configuration Properties
+        var thumbHandConfig = ThumbHandConfig()
+        thumbHandConfig.thumbGusset = ThumbHandConfig.ThumbGusset.basicGusset // default
+        pattern.thumbHandConfig = thumbHandConfig
+        
+        // Set Fingers Configuration Properties
+        var fingersConfig = FingersConfig()
+        fingersConfig.fingerCoverage = FingersConfig.FingerCoverage.short // the default
+        fingersConfig.isIndividualFingers = false // the default
+        fingersConfig.edgingLength = 0.75 // the default
+        fingersConfig.edgingStitchPattern = OneByOneRib()
+        pattern.fingersConfig = fingersConfig
+        
+        return pattern
+    }
+    
     private func setUpBrookesGlovePattern() -> GlovePattern {
         let pattern = GlovePattern()
         
@@ -45,7 +77,7 @@ class GloveModelTests: XCTestCase {
         var fingersConfig = FingersConfig()
         fingersConfig.fingerCoverage = FingersConfig.FingerCoverage.standard // the default
         fingersConfig.isIndividualFingers = false // the default
-        fingersConfig.edgingLength = 1 // the default
+        fingersConfig.edgingLength = 0.75 // the default
         fingersConfig.edgingStitchPattern = TwoByTwoRib()
         pattern.fingersConfig = fingersConfig
         
@@ -102,10 +134,20 @@ class GloveModelTests: XCTestCase {
     
     func testBrookePatternInstructions() {
         let pattern = self.setUpBrookesGlovePattern()
+        let context = GloveInstructionContext(pattern: pattern)
         let gloveArmInstructionGen = GloveArmInstructionGenerator()
         
-        gloveArmInstructionGen.generateInstructions(pattern: pattern)
+        gloveArmInstructionGen.generateInstructions(context: context)
         self.logInstructions(instructions: pattern.getInstructions())
-    } 
+    }
+    
+    func testCQsCampingMittsINstructions() {
+        let pattern = self.setUpCQCampingGlovePattern()
+        let context = GloveInstructionContext(pattern: pattern)
+        let gloveArmInstrGen = GloveArmInstructionGenerator()
+        
+        gloveArmInstrGen.generateInstructions(context: context)
+        self.logInstructions(instructions: pattern.getInstructions())
+    }
     
 }

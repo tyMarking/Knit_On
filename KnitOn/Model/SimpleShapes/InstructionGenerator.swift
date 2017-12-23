@@ -11,6 +11,6 @@
 import Foundation
 
 protocol InstructionGenerator {
-    func generateInstructions(pattern: KnittingPattern)
+    func generateInstructions(context: InstructionContext)
 }
 

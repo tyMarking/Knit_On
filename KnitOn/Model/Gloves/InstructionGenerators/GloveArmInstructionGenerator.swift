@@ -19,13 +19,13 @@ import Foundation
 
 class GloveArmInstructionGenerator: InstructionGenerator {
     
-    /*
-     * Methods
-     */
+    //MARK: Methods
     
-    // calculateCastOnStitches -- calculates the number of cast on stitches based on the gauge (available from
-    // the KnittingPattern object.
     func calculateCastOnStitches(pattern: GlovePattern) -> Int {
+        
+        // Calculates the number of cast on stitches based on the gauge (available from
+        // the KnittingPattern object.
+        
         var castOnStitches: Int = 0
         
         if  let handSize = pattern.handSize,
@@ -50,52 +50,53 @@ class GloveArmInstructionGenerator: InstructionGenerator {
     // generateInstructions -- This method generates the instructions for the glove arm.
     // It includes the cast on, cuff, arm, and wrist shaping.
     
-    func generateInstructions(pattern: KnittingPattern) {
+    func generateInstructions(context: InstructionContext) {
         
-        guard let glovePattern = pattern as? GlovePattern else {
+        guard let gloveContext = context as? GloveInstructionContext else {
             return
         }
         
-        var armConfig: GloveArmConfig = glovePattern.armConfig
+        let glovePattern = gloveContext.glovePattern
+        let armConfig: GloveArmConfig = glovePattern.armConfig
         var str: String
         var instruction: MarkupElement
         
         // Cast On
         let castOnStitches: Int = self.calculateCastOnStitches(pattern: glovePattern)
-        armConfig.endingStitchCount = castOnStitches
+        gloveContext.wristEndingSts = castOnStitches
         
         str = String(format: GloveStrings.Arm.castOn, castOnStitches)
         instruction = Text(text: str)
-        pattern.addInstruction(instruction)
+        glovePattern.addInstruction(instruction)
         
         // Cuff
         if let cuffStitchPattern = armConfig.cuffStitchPattern {
             var cuffLengthStr = armConfig.cuffLength.description
-            if armConfig.cuffLength.truncatingRemainder(dividingBy: 1) == 0 {
+            if KnitOnUtils.isIntegerValue(value: armConfig.cuffLength) {
                 cuffLengthStr = Int(armConfig.cuffLength).description
             }
             str = String(format: GloveStrings.Arm.cuff, cuffStitchPattern.name, cuffLengthStr)
             instruction = Text(text: str)
-            pattern.addInstruction(instruction)
+            glovePattern.addInstruction(instruction)
         }
         
         // Arm
         let armLength = armConfig.armLength.rawValue
         if armLength > armConfig.cuffLength {
             var armLengthStr = armLength.description
-            if armLength.truncatingRemainder(dividingBy: 1) == 0 {
+            if KnitOnUtils.isIntegerValue(value: armLength) {
                 armLengthStr = Int(armLength).description
             }
             str = String(format: GloveStrings.Arm.arm, armConfig.armStitchPattern.name, armLengthStr)
             instruction = Text(text: str)
-            pattern.addInstruction(instruction)
+            glovePattern.addInstruction(instruction)
         }
     
         // Wrist Shaping
         if armConfig.isWristShaping {
             str = GloveStrings.Arm.wristShaping
             instruction = Text(text: str)
-            pattern.addInstruction(instruction)
+            glovePattern.addInstruction(instruction)
         }
     }
 }

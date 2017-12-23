@@ -21,6 +21,6 @@ struct FingersConfig {
     //MARK: Properties
     var fingerCoverage: FingerCoverage = FingerCoverage.standard
     var isIndividualFingers: Bool = false
-    var edgingLength: Float = 1
+    var edgingLength: Float = 0.75
     var edgingStitchPattern: StitchPattern?
 }

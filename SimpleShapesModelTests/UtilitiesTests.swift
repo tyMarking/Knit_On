@@ -21,6 +21,12 @@ class UtilitiesTests: XCTestCase {
         super.tearDown()
     }
     
+    func testIsIntValue() {
+        XCTAssertTrue(KnitOnUtils.isIntegerValue(value: 2.0))
+        XCTAssertTrue(KnitOnUtils.isIntegerValue(value: 2))
+        XCTAssertFalse(KnitOnUtils.isIntegerValue(value: 2.1))
+    }
+    
     func testRoundingHelper() {
         
         var roundedVal = KnitOnUtils.roundingHelper(amtToRound: 3.12, toNearest: 0.25, fairness: 0.5)
@@ -57,5 +63,26 @@ class UtilitiesTests: XCTestCase {
         
         intValue = KnitOnUtils.roundToInteger(amtToRound: 3.8)
         XCTAssertEqual(intValue, 4)
+        
+        intValue = KnitOnUtils.roundtoMultiple(amtToRound: 17, multipleOf: 4)
+        XCTAssertEqual(intValue, 16)
+        
+        intValue = KnitOnUtils.roundtoMultiple(amtToRound: 18, multipleOf: 4)
+        XCTAssertEqual(intValue, 20)
+        
+        intValue = KnitOnUtils.roundtoMultiple(amtToRound: 19, multipleOf: 4)
+        XCTAssertEqual(intValue, 20)
+        
+        intValue = KnitOnUtils.roundtoMultiple(amtToRound: 20, multipleOf: 4)
+        XCTAssertEqual(intValue, 20)
+        
+        intValue = KnitOnUtils.roundtoEven(amtToRound: 16.9)
+        XCTAssertEqual(intValue, 16)
+        
+        intValue = KnitOnUtils.roundtoEven(amtToRound: 17)
+        XCTAssertEqual(intValue, 18)
+        
+        intValue = KnitOnUtils.roundtoEven(amtToRound: 17.4)
+        XCTAssertEqual(intValue, 18)
     }
 }

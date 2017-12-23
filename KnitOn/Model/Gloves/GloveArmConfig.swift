@@ -24,8 +24,4 @@ struct GloveArmConfig {
     var cuffLength: Float = 1
     var cuffStitchPattern: StitchPattern?
     var armStitchPattern: StitchPattern = StockinetteStich()
-    
-    //Mark: Emphemeral Properties
-    // Used to record transition states when generating instructions
-    var endingStitchCount: Int = 0;
 }

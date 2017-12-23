@@ -11,6 +11,10 @@ import Foundation
 
 struct KnitOnUtils {
 
+    static func isIntegerValue(value: Float) -> Bool {
+        return value.truncatingRemainder(dividingBy: 1) == 0
+    }
+    
     static func roundToQuarterInch(amtToRound: Float) -> Float {
         return KnitOnUtils.roundingHelper(amtToRound: amtToRound, toNearest: 0.25, fairness: 0.5)
     }
@@ -21,6 +25,14 @@ struct KnitOnUtils {
     
     static func roundToInteger(amtToRound: Float) -> Int {
         return Int(KnitOnUtils.roundingHelper(amtToRound: amtToRound, toNearest: 1, fairness: 0.5))
+    }
+    
+    static func roundtoMultiple(amtToRound: Float, multipleOf: Float) -> Int {
+        return Int(KnitOnUtils.roundingHelper(amtToRound: amtToRound, toNearest: multipleOf, fairness: 0.5))
+    }
+    
+    static func roundtoEven(amtToRound: Float) -> Int {
+        return KnitOnUtils.roundtoMultiple(amtToRound: amtToRound, multipleOf: 2)
     }
     
     static func roundingHelper(amtToRound: Float, toNearest: Float, fairness: Float) -> Float {

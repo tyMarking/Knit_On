@@ -20,12 +20,15 @@ import Foundation
 //      handLength -- base of hand base of middle finger
 //      handAndFingerLength -- base of hand to tip of middle finger
 //
+//  ToDo: Need thumb length for different sizes. Currently set to 3" for all.
+
 protocol HandMeasurements {
     var handCircumference: Float { get set}
     var wristCircumference: Float { get set }
     var thumbCircumference: Float { get set }
     var handLength: Float { get set }
     var handAndFingerLength: Float { get set }
+    var thumbLength: Float { get set }
 }
 
 // The next four structs define four Women's hand sizes: XSmall, Small, Medium, Large
@@ -36,6 +39,7 @@ struct WomanXSmallHand: HandMeasurements {
     var thumbCircumference: Float = 2.75
     var handLength: Float = 3.25
     var handAndFingerLength: Float = 6.6
+    var thumbLength: Float = 2.25
 }
 
 struct WomanSmallHand: HandMeasurements {
@@ -44,6 +48,7 @@ struct WomanSmallHand: HandMeasurements {
     var thumbCircumference: Float = 3.0
     var handLength: Float = 3.5
     var handAndFingerLength: Float = 6.8
+    var thumbLength: Float = 2.5
 }
 
 struct WomanMediumHand: HandMeasurements {
@@ -52,6 +57,7 @@ struct WomanMediumHand: HandMeasurements {
     var thumbCircumference: Float = 3.0
     var handLength: Float = 3.75
     var handAndFingerLength: Float = 7.1
+    var thumbLength: Float = 2.5
 }
 
 struct WomanLargeHand: HandMeasurements {
@@ -60,4 +66,5 @@ struct WomanLargeHand: HandMeasurements {
     var thumbCircumference: Float = 3.25
     var handLength: Float = 4.0
     var handAndFingerLength: Float = 7.3
+    var thumbLength: Float = 2.75
 }

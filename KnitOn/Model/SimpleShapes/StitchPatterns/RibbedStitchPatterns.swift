@@ -15,6 +15,9 @@ import Foundation
 
 class OneByOneRib: AllOverStitchPattern {
     
+    //MARK: Properties
+    var isStartWithKnit: Bool = true
+    
     //MARK:  Initialization
     override init() {
         super.init()
@@ -45,6 +48,9 @@ class OneByOneRib: AllOverStitchPattern {
 }
 
 class TwoByTwoRib: AllOverStitchPattern {
+    
+    //MARK: Properties
+    var isStartWithKnit: Bool = true
     
     //MARK:  Initialization
     override init() {

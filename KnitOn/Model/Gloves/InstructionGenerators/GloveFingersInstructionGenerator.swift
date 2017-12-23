@@ -11,8 +11,9 @@ import Foundation
 class GloveFingersInstructionGenerator: InstructionGenerator {
     
     //MARK: InstructionGenerator Methods
-    func generateInstructions(pattern: KnittingPattern) {
-        guard let glovePattern = pattern as? GlovePattern else {
+    func generateInstructions(context: InstructionContext) {
+        
+        guard let gloveContext = context as? GloveInstructionContext else {
             return
         }
     }
