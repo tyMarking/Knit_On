@@ -49,10 +49,15 @@ class ShowPatternDetailsViewController: UITableViewController {
             guard let instructionViewController = segue.destination as? InstructionViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
-            let generator = GloveInstructionGenerator()
-            generator.generateInstructions(pattern: pattern!)
-            instructionViewController.markup = (pattern?.getInstructionsMarkup())!
             
+            // Hack -- Only handling glove patterns right now!
+            guard let glovePattern = pattern! as? GlovePattern else {
+                return
+            }
+            let generator = GloveInstructionGenerator()
+            let context = GloveInstructionContext(pattern: glovePattern)
+            generator.generateInstructions(context: context)
+            instructionViewController.markup = (pattern?.getInstructionsMarkup())!
         }
         
 
