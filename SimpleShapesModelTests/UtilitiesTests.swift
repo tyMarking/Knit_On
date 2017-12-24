@@ -27,6 +27,11 @@ class UtilitiesTests: XCTestCase {
         XCTAssertFalse(KnitOnUtils.isIntegerValue(value: 2.1))
     }
     
+    func testIsEven() {
+        XCTAssertTrue(KnitOnUtils.isEven(value: 2))
+        XCTAssertFalse(KnitOnUtils.isEven(value: 3))
+    }
+    
     func testRoundingHelper() {
         
         var roundedVal = KnitOnUtils.roundingHelper(amtToRound: 3.12, toNearest: 0.25, fairness: 0.5)

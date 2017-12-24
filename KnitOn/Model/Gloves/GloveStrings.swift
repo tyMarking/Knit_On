@@ -19,5 +19,9 @@ struct GloveStrings {
         static let wristShaping = "At the same time, shape the wrist as follows..."
     }
     
+    struct Thumb {
+        
+    }
+    
 
 }

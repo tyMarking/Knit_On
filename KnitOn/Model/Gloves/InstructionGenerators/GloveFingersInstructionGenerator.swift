@@ -18,5 +18,28 @@ class GloveFingersInstructionGenerator: InstructionGenerator {
         }
     }
     
+    //MARK: Methods
+    
+    func calculateFingerLength(gloveContext: GloveInstructionContext) -> Float {
+        
+        let glovePattern = gloveContext.glovePattern
+        
+        guard let size = glovePattern.handSize else {
+            return 0
+        }
+        
+        let fingerConfig = glovePattern.fingersConfig
+        let fullFingerLength = size.handAndFingerLength - size.handLength
+        let coveredFingerLength = fullFingerLength * fingerConfig.fingerCoverage.rawValue
+        
+        return KnitOnUtils.roundToQuarterInch(amtToRound: coveredFingerLength)
+    }
+    
+    func calculateFingerLengthFromGusset(gloveContext: GloveInstructionContext) -> Float {
+        let fingerLength = calculateFingerLength(gloveContext: gloveContext)
+        
+        return gloveContext.lenAboveGusset + fingerLength
+    }
+    
     
 }

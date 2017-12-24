@@ -64,7 +64,7 @@ class GloveArmInstructionGenerator: InstructionGenerator {
         
         // Cast On
         let castOnStitches: Int = self.calculateCastOnStitches(pattern: glovePattern)
-        gloveContext.wristEndingSts = castOnStitches
+        gloveContext.numWristEndingSts = castOnStitches
         
         str = String(format: GloveStrings.Arm.castOn, castOnStitches)
         instruction = Text(text: str)

@@ -15,7 +15,12 @@ final class GloveInstructionContext: InstructionContext {
     
     //MARK: Properties
     var glovePattern: GlovePattern
-    var wristEndingSts: Int = 0
+    
+    var numWristEndingSts: Int = 0
+    var numThumbGussetSts: Int = 0
+    var numHandEndingSts: Int = 0
+    
+    var lenAboveGusset: Float = 0
     
     //MARK: Initialization
     init(pattern: GlovePattern) {

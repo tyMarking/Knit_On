@@ -15,6 +15,10 @@ struct KnitOnUtils {
         return value.truncatingRemainder(dividingBy: 1) == 0
     }
     
+    static func isEven(value: Int) -> Bool {
+        return value % 2 == 0
+    }
+    
     static func roundToQuarterInch(amtToRound: Float) -> Float {
         return KnitOnUtils.roundingHelper(amtToRound: amtToRound, toNearest: 0.25, fairness: 0.5)
     }

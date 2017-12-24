@@ -18,11 +18,12 @@ class GloveModelTests: XCTestCase {
         
         pattern.title = "CQ's Camping Mitts"
         pattern.patternDescription = "Sturdy mitts made for camping trip to Death Valley 2017"
-        pattern.gauge = Gauge(stitchGauge: 5.0)
+        pattern.gauge = Gauge(stitchGauge: 5.25)
         pattern.handSize = WomanMediumHand()
         pattern.ease = 0
         
         var armConfig = GloveArmConfig()
+        armConfig.armLength = GloveArmConfig.ArmLength.short
         armConfig.isWristShaping = false
         armConfig.cuffLength = 0
         armConfig.armStitchPattern = OneByOneRib()
@@ -36,9 +37,9 @@ class GloveModelTests: XCTestCase {
         
         // Set Fingers Configuration Properties
         var fingersConfig = FingersConfig()
-        fingersConfig.fingerCoverage = FingersConfig.FingerCoverage.short // the default
+        fingersConfig.fingerCoverage = FingersConfig.FingerCoverage.standard // the default
         fingersConfig.isIndividualFingers = false // the default
-        fingersConfig.edgingLength = 0.75 // the default
+        fingersConfig.edgingLength = 0.5
         fingersConfig.edgingStitchPattern = OneByOneRib()
         pattern.fingersConfig = fingersConfig
         
@@ -144,10 +145,30 @@ class GloveModelTests: XCTestCase {
     func testCQsCampingMittsINstructions() {
         let pattern = self.setUpCQCampingGlovePattern()
         let context = GloveInstructionContext(pattern: pattern)
-        let gloveArmInstrGen = GloveArmInstructionGenerator()
+        let gloveInstrGen = GloveInstructionGenerator()
         
-        gloveArmInstrGen.generateInstructions(context: context)
+        gloveInstrGen.generateInstructions(context: context)
         self.logInstructions(instructions: pattern.getInstructions())
+        
+        // Thumb and Hand Numbers
+        let thumbHandInstrGen = gloveInstrGen.thumbHandInstGen
+        let numThumbGussetSts = thumbHandInstrGen.calculateNumberOfThumbStitches(gloveContext: context)
+        let numThumbGussetIncRounds = thumbHandInstrGen.calculateNumberOfGussetIncreaseRounds(numGussetSts: numThumbGussetSts)
+        let numThumbGussetRounds = thumbHandInstrGen.calculateNumberOfGussetRounds(numGussetSts: numThumbGussetSts)
+        let lengthFromGussetToTopHand = thumbHandInstrGen.calculateLengthFromGussetToTopHand(gloveContext: context)
+        NSLog("Num thumb stitches = " + String(numThumbGussetSts))
+        NSLog("Num gusset increase rounds = " + String(numThumbGussetIncRounds))
+        NSLog("Total number of rounds at end of thumb gusset = " + String(numThumbGussetRounds))
+        NSLog("Length of hand above thumb gusset = " + String(lengthFromGussetToTopHand))
+        
+        // Finger Numbers
+        let fingersInstrGen = gloveInstrGen.fingerInstGen
+        let fingerConfig = pattern.fingersConfig
+        let lengthFromGussetToTopFingers = fingersInstrGen.calculateFingerLengthFromGusset(gloveContext: context)
+        let lengthFingerEdging = fingerConfig.edgingLength
+        let lengthFromGussetToEdging = lengthFromGussetToTopFingers - lengthFingerEdging
+        NSLog("Length from gusset to finger edging = " + String(lengthFromGussetToEdging))
+        NSLog("Length of finger edging = " + String(lengthFingerEdging))
     }
     
 }
