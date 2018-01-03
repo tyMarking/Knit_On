@@ -17,6 +17,12 @@ class ShowPatternDetailsViewController: UITableViewController {
     //MARK: Properties
     
     @IBOutlet weak var patternNameLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var toFitLabel: UILabel!
+    @IBOutlet weak var gaugeLabel: UILabel!
+    @IBOutlet weak var stitchesPerInchLabel: UILabel!
+    @IBOutlet weak var rowsPerInchLabel: UILabel!
+    
     
     var pattern: KnittingPattern?
     var isEditingEnabled = false
@@ -28,7 +34,14 @@ class ShowPatternDetailsViewController: UITableViewController {
         
         if let glovePattern = self.pattern as? GlovePattern {
             patternNameLabel.text = glovePattern.title
-            
+            typeLabel.text = glovePattern.type
+            toFitLabel.text = glovePattern.handSize?.name ?? "No size selected"
+            gaugeLabel.text = String(describing: (glovePattern.gauge?.stitchGauge) )
+            if gaugeLabel.text == "nil" {
+                gaugeLabel.text = "No gauge"
+            }
+            stitchesPerInchLabel.text = "TODO"
+            rowsPerInchLabel.text = "TODO"
             
         }
         

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O13-qC-G8U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O13-qC-G8U">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -258,11 +258,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2L6-qN-VRE">
+                                                    <rect key="frame" x="285" y="8" width="85" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="03J-F7-ezV" secondAttribute="bottom" constant="8" id="5Rl-o5-Wy5"/>
+                                                <constraint firstItem="2L6-qN-VRE" firstAttribute="top" secondItem="RpL-mk-vcE" secondAttribute="top" constant="8" id="7Ch-vU-xV6"/>
                                                 <constraint firstItem="03J-F7-ezV" firstAttribute="top" secondItem="RpL-mk-vcE" secondAttribute="top" constant="8" id="XRm-7f-AmR"/>
                                                 <constraint firstItem="03J-F7-ezV" firstAttribute="leading" secondItem="RpL-mk-vcE" secondAttribute="leading" constant="5" id="bf1-u7-DYx"/>
+                                                <constraint firstAttribute="trailing" secondItem="2L6-qN-VRE" secondAttribute="trailing" constant="5" id="mgP-oq-GXL"/>
+                                                <constraint firstAttribute="bottom" secondItem="2L6-qN-VRE" secondAttribute="bottom" constant="8" id="ok3-IK-27X"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -358,7 +367,12 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="gaugeLabel" destination="2L6-qN-VRE" id="zpD-On-npC"/>
                         <outlet property="patternNameLabel" destination="Nqh-Sc-HNf" id="EcZ-ap-eeZ"/>
+                        <outlet property="rowsPerInchLabel" destination="oSl-Dq-Jou" id="lm7-XO-aLX"/>
+                        <outlet property="stitchesPerInchLabel" destination="P2S-6g-OVC" id="yBL-d7-5wJ"/>
+                        <outlet property="toFitLabel" destination="WQk-Kn-z5u" id="xAt-7G-f5N"/>
+                        <outlet property="typeLabel" destination="AzM-dk-uBs" id="e45-RX-toc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddN-MI-sCy" userLabel="First Responder" sceneMemberID="firstResponder"/>

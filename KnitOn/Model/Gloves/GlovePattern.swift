@@ -36,6 +36,8 @@ class GlovePattern: KnittingPattern {
     override init() {
         super.init()
         self.title = "Your Customized Glove Pattern"
+        self.type = "Glove"
+        
     }
     
     //Mark: Methods

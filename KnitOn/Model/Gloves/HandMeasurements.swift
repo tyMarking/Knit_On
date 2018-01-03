@@ -29,6 +29,8 @@ protocol HandMeasurements {
     var handLength: Float { get set }
     var handAndFingerLength: Float { get set }
     var thumbLength: Float { get set }
+    //should this go into the strings file?
+    var name: String { get set }
 }
 
 // The next four structs define four Women's hand sizes: XSmall, Small, Medium, Large
@@ -40,6 +42,7 @@ struct WomanXSmallHand: HandMeasurements {
     var handLength: Float = 3.25
     var handAndFingerLength: Float = 6.6
     var thumbLength: Float = 2.25
+    var name: String = "WomanXSmallHand"
 }
 
 struct WomanSmallHand: HandMeasurements {
@@ -49,6 +52,7 @@ struct WomanSmallHand: HandMeasurements {
     var handLength: Float = 3.5
     var handAndFingerLength: Float = 6.8
     var thumbLength: Float = 2.5
+    var name: String = "WomanSmallHand"
 }
 
 struct WomanMediumHand: HandMeasurements {
@@ -58,6 +62,7 @@ struct WomanMediumHand: HandMeasurements {
     var handLength: Float = 3.75
     var handAndFingerLength: Float = 7.1
     var thumbLength: Float = 2.5
+    var name: String = "WomanMediumHand"
 }
 
 struct WomanLargeHand: HandMeasurements {
@@ -67,4 +72,5 @@ struct WomanLargeHand: HandMeasurements {
     var handLength: Float = 4.0
     var handAndFingerLength: Float = 7.3
     var thumbLength: Float = 2.75
+    var name: String = "WomanLargeHand"
 }

@@ -11,6 +11,7 @@
 //      1) Hold's pattern specific data, such as the title and description of the pattern
 //         and the gauge of the pattern. Current properties include:
 //              * title -- the title of the knitting pattern
+//              * type -- the type of knitting pattern
 //              * description -- a description of the pattern, set by the user.
 //              * gauge -- an instance of the Gauge class.
 //         Subclasses will define additional properties, specific to the type of pattern.
@@ -31,6 +32,7 @@ class KnittingPattern: NSObject, NSCoding {
     //MARK: Properties
     
     var title: String = "A Knitting Pattern"
+    var type: String = "Something" //overwritten in every subclass
     //description is already in NSObject, we need to use something else
     var patternDescription: String?
     var gauge: Gauge?
